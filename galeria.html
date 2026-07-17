@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Trabalhos - Infocelll | Antes e Depois</title>
+    <meta name="description" content="Veja nossos trabalhos realizados: antes e depois de reparos de celulares, troca de tela, bateria e mais. Galeria da Infocelll em Olinda-PE.">
+    <meta name="keywords" content="assistência técnica celular, reparo celular Olinda, troca de tela, galeria antes depois">
+    <meta name="author" content="Infocelll">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://infocelll.com.br/galeria.html">
+    <meta property="og:title" content="Galeria de Trabalhos - Infocelll">
+    <meta property="og:description" content="Veja nossos trabalhos realizados: antes e depois de reparos de celulares.">
+    <meta property="og:url" content="https://infocelll.com.br/galeria.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://infocelll.com.br/og-image.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galeria - Infocelll | Assistência Técnica">
+    <meta name="twitter:description" content="Veja nossos trabalhos de reparo de celulares e computadores antes e depois.">
+    <meta name="twitter:image" content="https://infocelll.com.br/og-image.svg">
+    <link rel="alternate" hreflang="pt-BR" href="https://infocelll.com.br/galeria.html">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self)">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.google.com.br; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://maps.google.com; connect-src 'self' https://www.google.com https://www.gstatic.com;">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0c1f3d">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/phosphor.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"ImageGallery","name":"Galeria de Trabalhos - Infocelll","description":"Galeria antes e depois de reparos de celulares e computadores pela Infocelll em Olinda-PE","url":"https://infocelll.com.br/galeria.html","publisher":{"@type":"LocalBusiness","name":"Infocelll","url":"https://infocelll.com.br"}}
+    </script>
+    <style>
+        .gallery-hero {
+            background: linear-gradient(135deg, var(--navy), var(--navy-2));
+            padding: 90px 0 20px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(77,217,245,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .gallery-hero h1 { font-size: 1.3rem; margin-bottom: 4px; }
+        .gallery-hero p { color: rgba(255,255,255,0.7); font-size: 0.78rem; max-width: 380px; margin: 0 auto; }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 16px 16px 0;
+        }
+        .gallery-filter-btn {
+            padding: 6px 14px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .gallery-filter-btn.active,
+        .gallery-filter-btn:hover {
+            background: var(--teal);
+            color: #fff;
+            border-color: var(--teal);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 14px;
+            padding: 16px 0 32px;
+        }
+
+        .gallery-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .gallery-card:hover {
+            border-color: var(--teal);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        }
+
+        .gallery-compare {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            background: var(--field-bg, #f0f2f7);
+        }
+        .gallery-compare img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-compare .antes {
+            z-index: 2;
+            clip-path: inset(0 50% 0 0);
+        }
+        .gallery-compare .depois {
+            z-index: 1;
+        }
+        .gallery-slider-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #fff;
+            z-index: 3;
+            box-shadow: 0 0 8px rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+        .gallery-slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .gallery-slider-handle i { color: var(--navy); font-size: 16px; }
+        .gallery-labels {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            display: flex;
+            justify-content: space-between;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .gallery-label {
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .gallery-label.antes { background: rgba(239,68,68,0.85); color: #fff; }
+        .gallery-label.depois { background: rgba(34,197,94,0.85); color: #fff; }
+
+        .gallery-info {
+            padding: 10px 12px;
+        }
+        .gallery-info h3 {
+            font-size: 12px;
+            margin-bottom: 2px;
+        }
+        .gallery-info p {
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.3;
+        }
+        .gallery-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 9px;
+            font-weight: 600;
+            background: rgba(20,184,166,0.1);
+            color: var(--teal);
+            margin-top: 4px;
+        }
+
+        /* Modal */
+        .gallery-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .gallery-modal-overlay.aberto { display: flex; }
+        .gallery-modal {
+            background: var(--card);
+            border-radius: var(--radius);
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        .gallery-modal-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0,0,0,0.5);
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-modal .gallery-compare {
+            aspect-ratio: 16/10;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+        .gallery-modal .gallery-info { padding: 20px; }
+
+        @media (max-width: 640px) {
+            .gallery-hero { padding: 90px 16px 16px; }
+            .gallery-hero h1 { font-size: 1.2rem; }
+            .gallery-grid { grid-template-columns: 1fr; padding: 0 16px 24px; gap: 12px; }
+        }
+
+        body.dark-mode .gallery-card { background: #152238; border-color: #1e293b; }
+        body.dark-mode .gallery-compare { background: #0d172a; }
+        body.dark-mode .gallery-modal { background: #152238; }
+        body.dark-mode .gallery-filter-btn { background: #1a2d4a; color: #cbd5e1; border-color: #1e293b; }
+    </style>
+    <script src="marketing.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo da Infocelll" class="logo-img" fetchpriority="high" loading="lazy" decoding="async">
+            </a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="galeria.html" class="active">Galeria</a>
+                <a href="contato.html">Contato</a>
+                <a href="sobre.html">Sobre</a>
+                <a href="tel:+5581987332162" class="nav-phone"><i class="ph ph-phone-fill"></i> (81) 98733-2162</a>
+                <span class="nav-ssl" title="Site protegido com SSL"><i class="ph ph-lock-key-fill"></i> Seguro</span>
+                <a href="https://wa.me/5581987332162" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                    <i class="ph ph-whatsapp-logo" style="font-size:16px;"></i>
+                    WhatsApp
+                </a>
+                <div class="theme-toggle-container">
+                    <button class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Alternar modo escuro">
+                        <i class="ph ph-moon"></i>
+                    </button>
+                </div>
+            </nav>
+            <button class="hamburger" onclick="abrirMobileNav()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-nav" id="mobile-nav" onclick="if(event.target===this)fecharMobileNav()">
+        <div class="mobile-nav-panel">
+            <div class="mobile-nav-header">
+                <span class="logo" style="font-size:18px;">
+                    <img src="logo.png" alt="Logo Infocelll" loading="lazy" decoding="async" style="height:32px;width:auto;">
+                </span>
+                <button class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="margin-left:auto;margin-right:12px;">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <button class="mobile-nav-close" onclick="fecharMobileNav()" aria-label="Fechar menu">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <a href="index.html">Home</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="galeria.html" class="active">Galeria</a>
+            <a href="contato.html">Contato</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="tel:+5581987332162" class="mobile-phone-link"><i class="ph ph-phone-fill"></i> (81) 98733-2162</a>
+            <a href="https://wa.me/5581987332162" target="_blank" rel="noopener noreferrer" style="color:#25d366;font-weight:600;">
+                <i class="ph ph-whatsapp-logo" style="font-size:16px;"></i>
+                WhatsApp
+            </a>
+            <span class="nav-ssl" title="Site protegido com SSL" style="margin-top:8px;width:100%;justify-content:center;display:flex;"><i class="ph ph-lock-key-fill"></i> Site Protegido com SSL</span>
+        </div>
+    </div>
+
+    <main id="main-content">
+        <section class="gallery-hero">
+            <div class="container">
+                <h1><i class="ph ph-images-fill" style="color:var(--cyan);"></i> Galeria de Trabalhos</h1>
+                <p>Veja a qualidade dos nossos reparos. Arraste o slider para comparar antes e depois.</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="todos">Todos</button>
+                <button class="gallery-filter-btn" data-filter="tela">Troca de Tela</button>
+                <button class="gallery-filter-btn" data-filter="bateria">Bateria</button>
+                <button class="gallery-filter-btn" data-filter="placa">Placa</button>
+                <button class="gallery-filter-btn" data-filter="limpeza">Limpeza</button>
+                <button class="gallery-filter-btn" data-filter="informatica">Informática</button>
+                <button class="gallery-filter-btn" data-filter="acessorios">Acessórios</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+    </main>
+
+    <div class="gallery-modal-overlay" id="gallery-modal" onclick="if(event.target===this)fecharModal()">
+        <div class="gallery-modal">
+            <button class="gallery-modal-close" onclick="fecharModal()" aria-label="Fechar"><i class="ph ph-x"></i></button>
+            <div class="gallery-compare" id="modal-compare"></div>
+            <div class="gallery-info" id="modal-info"></div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p style="max-width:240px;">Assistência técnica em informática, celular, vendas de peças e acessórios em informática e celular.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <a href="servicos.html">Troca de Tela</a>
+                    <a href="servicos.html">Reparo em Placas</a>
+                    <a href="servicos.html">Troca de Bateria</a>
+                    <a href="servicos.html">Limpeza de Câmera</a>
+
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <a href="sobre.html">Sobre Nós</a>
+                    <a href="galeria.html">Galeria</a>
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="contato.html">Contato</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contato</h4>
+                    <a href="tel:+5581987332162">(81) 98733-2162</a>
+                    <a href="https://www.google.com/maps/search/Av.+Fagundes+Varela,+380+-+Jardim+Atlântico,+Olinda+-+PE" target="_blank" rel="noopener noreferrer">Av. Fagundes Varela, 380</a>
+                    <a href="https://www.google.com/maps/search/Av.+Fagundes+Varela,+380+-+Jardim+Atlântico,+Olinda+-+PE" target="_blank" rel="noopener noreferrer">Olinda-PE</a>
+                    <span>Seg-Sex: 9h-18h</span>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Infocelll. Todos os direitos reservados.</p>
+                <div class="footer-badges">
+                    <span class="footer-badge badge-ssl-green"><i class="ph ph-lock-key-fill"></i> SSL Seguro</span>
+                    <a href="politica-privacidade.html" class="footer-badge badge-lgpd" target="_blank" rel="noopener noreferrer"><i class="ph ph-shield-check"></i> Proteção de Dados (LGPD)</a>
+                    <span class="footer-badge"><i class="ph ph-credit-card-fill"></i> Visa · Mastercard · PIX</span>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/Infocelllpe" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo" style="font-size:18px;"></i></a>
+                    <a href="https://www.facebook.com/infocelllpe" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="ph ph-facebook-logo" style="font-size:18px;"></i></a>
+                    <a href="https://www.tiktok.com/@infocelllpe" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><i class="ph ph-tiktok-logo" style="font-size:18px;"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5581987332162?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer" aria-label="Fale conosco no WhatsApp">
+            <i class="ph ph-whatsapp-logo" style="font-size:28px;"></i>
+        </a>
+    </div>
+
+    <div class="chatbot">
+        <div class="chatbot-panel" id="chatbot-panel">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar"><i class="ph ph-device-mobile-fill" style="font-size:20px;"></i></div>
+                <div class="chatbot-header-text">
+                    <h4>Infocelll</h4>
+                    <span>Online agora</span>
+                </div>
+            </div>
+            <div class="chatbot-messages" id="chat-messages"></div>
+            <div class="chatbot-input">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem para o chat">
+                <button onclick="enviarMsg()" aria-label="Enviar mensagem">
+                    <i class="ph ph-paper-plane-tilt" style="font-size:18px;"></i>
+                </button>
+            </div>
+        </div>
+        <button class="chatbot-btn" onclick="toggleChat()" aria-label="Abrir chat de atendimento">
+            <i class="ph ph-chat-circle-fill" style="font-size:24px;"></i>
+        </button>
+    </div>
+
+    <script src="script.js" defer></script>
+    <script>
+    var galeriaDados = [
+        {
+            id: 1, categoria: 'tela',
+            titulo: 'Samsung Galaxy S24 - Troca de Tela',
+            descricao: 'Tela completamente trincada apos queda. Substituicao por tela original com touch perfeito.',
+            antesSvg: '#f87171', depoisSvg: '#22c55e',
+            antesLabel: 'Tela Trincada', depoisLabel: 'Tela Nova'
+        },
+        {
+            id: 2, categoria: 'tela',
+            titulo: 'iPhone 14 Pro - Display Quebrado',
+            descricao: 'Display OLED com mancha de impacto. Troca por display original Apple com TrueTone.',
+            antesSvg: '#f87171', depoisSvg: '#22c55e',
+            antesLabel: 'Display Danificado', depoisLabel: 'Display Original'
+        },
+        {
+            id: 3, categoria: 'bateria',
+            titulo: 'Xiaomi Redmi Note 13 - Bateria Estufada',
+            descricao: 'Bateria inchada rachando a tampa traseira. Substituicao por bateria original com 5000mAh.',
+            antesSvg: '#f59e0b', depoisSvg: '#22c55e',
+            antesLabel: 'Bateria Inchada', depoisLabel: 'Bateria Nova'
+        },
+        {
+            id: 4, categoria: 'placa',
+            titulo: 'Moto G84 - Reparo em Placas',
+            descricao: 'Aparelho nao ligava apos contato com agua. Micro-solda na placa-mae + limpeza de oxido.',
+            antesSvg: '#ef4444', depoisSvg: '#22c55e',
+            antesLabel: 'Placa Danificada', depoisLabel: 'Funcionando'
+        },
+        {
+            id: 5, categoria: 'limpeza',
+            titulo: 'Samsung Galaxy S23 - Camera Embaçada',
+            descricao: 'Camera traseira com fotos embaçadas por sujeira interna. Limpeza do modulo + lente nova.',
+            antesSvg: '#a78bfa', depoisSvg: '#22c55e',
+            antesLabel: 'Camera Embaçada', depoisLabel: 'Camera Limpa'
+        },
+        {
+            id: 6, categoria: 'informatica',
+            titulo: 'Notebook Dell - Formatacao + SSD',
+            descricao: 'Notebook extremamente lento. Formatacao Windows 11 + upgrade para SSD 480GB.',
+            antesSvg: '#f59e0b', depoisSvg: '#22c55e',
+            antesLabel: 'Lentissimo', depoisLabel: 'Rapido'
+        },
+        {
+            id: 7, categoria: 'tela',
+            titulo: 'Motorola Edge 40 - Tela AMOLED',
+            descricao: 'Tela com defeito de touch (toque fantasma). Substituicao por tela AMOLED original.',
+            antesSvg: '#f87171', depoisSvg: '#22c55e',
+            antesLabel: 'Touch Defeituoso', depoisLabel: 'Touch Perfeito'
+        },
+        {
+            id: 8, categoria: 'acessorios',
+            titulo: 'Mouse Gamer - Scroll Quebrado',
+            descricao: 'Scroll parou de funcionar. Troca do encoder + limpeza dos contatos internos.',
+            antesSvg: '#f59e0b', depoisSvg: '#22c55e',
+            antesLabel: 'Scroll Quebrado', depoisLabel: 'Funcionando'
+        },
+        {
+            id: 9, categoria: 'acessorios',
+            titulo: 'Teclado Mecanico - Tecla Travando',
+            descricao: 'Teclas Q/W/E travando por sujeita. Limpeza com isopropanol + troca do switch.',
+            antesSvg: '#ef4444', depoisSvg: '#22c55e',
+            antesLabel: 'Tecla Travando', depoisLabel: 'Tecla Nova'
+        }
+    ];
+
+    function gerarSvgRep(repAntes, repDepois) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs>' +
+            '<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#16213e"/></linearGradient>' +
+            '<linearGradient id="phone1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d2d44"/><stop offset="100%" stop-color="#1a1a2e"/></linearGradient>' +
+            '<linearGradient id="screen1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f0f1a"/><stop offset="100%" stop-color="#1a1a2e"/></linearGradient>' +
+            '<clipPath id="crack1"><rect x="70" y="22" width="60" height="100" rx="4"/></clipPath>' +
+            '</defs>' +
+            '<rect width="200" height="150" fill="url(#bg1)"/>' +
+            '<rect x="58" y="5" width="84" height="140" rx="16" fill="url(#phone1)" stroke="#3a3a5c" stroke-width="1"/>' +
+            '<rect x="62" y="10" width="76" height="130" rx="14" fill="#111122" stroke="#e74c3c" stroke-width="2" stroke-opacity="0.6"/>' +
+            '<rect x="68" y="22" width="64" height="100" rx="4" fill="url(#screen1)"/>' +
+            '<g clip-path="url(#crack1)" opacity="0.7">' +
+            '<line x1="68" y1="35" x2="132" y2="115" stroke="#e74c3c" stroke-width="2.5"/>' +
+            '<line x1="90" y1="22" x2="105" y2="80" stroke="#e74c3c" stroke-width="1.8"/>' +
+            '<line x1="115" y1="30" x2="95" y2="105" stroke="#e74c3c" stroke-width="1.5"/>' +
+            '<line x1="78" y1="60" x2="120" y2="50" stroke="#e74c3c" stroke-width="1.2"/>' +
+            '<line x1="85" y1="85" x2="110" y2="95" stroke="#e74c3c" stroke-width="1"/>' +
+            '<line x1="100" y1="40" x2="88" y2="90" stroke="#c0392b" stroke-width="0.8"/>' +
+            '</g>' +
+            '<circle cx="100" cy="14" r="4" fill="#0a0a15" stroke="#3a3a5c" stroke-width="1"/>' +
+            '<circle cx="100" cy="14" r="1.5" fill="#2a2a44"/>' +
+            '<rect x="86" y="130" width="28" height="4" rx="2" fill="#2a2a44" opacity="0.5"/>' +
+            '<rect x="95" y="136" width="10" height="2" rx="1" fill="#3a3a5c" opacity="0.3"/>' +
+            '<text x="100" y="75" text-anchor="middle" fill="#e74c3c" font-size="10" font-family="sans-serif" opacity="0.5">DANIFICADO</text>' +
+            '<circle cx="100" cy="72" r="35" fill="none" stroke="#e74c3c" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="4,4"/>' +
+            '</svg>';
+    }
+
+    function gerarSvgFuncionando(repCor) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs>' +
+            '<linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<linearGradient id="phone2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a2a"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<linearGradient id="screen2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<filter id="glow1"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+            '<filter id="glow2"><feGaussianBlur stdDeviation="6" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+            '</defs>' +
+            '<rect width="200" height="150" fill="url(#bg2)"/>' +
+            '<rect x="58" y="5" width="84" height="140" rx="16" fill="url(#phone2)" stroke="#2ecc71" stroke-width="1" stroke-opacity="0.3"/>' +
+            '<rect x="62" y="10" width="76" height="130" rx="14" fill="#0a1a12" stroke="#27ae60" stroke-width="2" stroke-opacity="0.4"/>' +
+            '<rect x="68" y="22" width="64" height="100" rx="4" fill="url(#screen2)"/>' +
+            '<g filter="url(#glow1)">' +
+            '<polyline points="86,65 96,75 118,50" fill="none" stroke="#2ecc71" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</g>' +
+            '<circle cx="100" cy="65" r="24" fill="none" stroke="#2ecc71" stroke-width="1" stroke-opacity="0.25"/>' +
+            '<circle cx="100" cy="65" r="34" fill="none" stroke="#2ecc71" stroke-width="0.6" stroke-opacity="0.12"/>' +
+            '<circle cx="100" cy="14" r="4" fill="#0a1a12" stroke="#2ecc71" stroke-width="1" stroke-opacity="0.3"/>' +
+            '<circle cx="100" cy="14" r="1.5" fill="#1a3a2a"/>' +
+            '<rect x="86" y="130" width="28" height="4" rx="2" fill="#1a3a2a" opacity="0.4"/>' +
+            '<rect x="95" y="136" width="10" height="2" rx="1" fill="#2ecc71" opacity="0.2"/>' +
+            '<text x="100" y="110" text-anchor="middle" fill="#2ecc71" font-size="9" font-family="sans-serif" opacity="0.6">REPARADO</text>' +
+            '</svg>';
+    }
+
+    function gerarSvgLaptopRep(repAntes) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs>' +
+            '<linearGradient id="lbg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#16213e"/></linearGradient>' +
+            '<linearGradient id="lbody1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#2d2d44"/><stop offset="100%" stop-color="#1a1a2e"/></linearGradient>' +
+            '<linearGradient id="lscreen1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0a15"/><stop offset="100%" stop-color="#111122"/></linearGradient>' +
+            '<clipPath id="lcrack"><rect x="36" y="14" width="128" height="78" rx="3"/></clipPath>' +
+            '</defs>' +
+            '<rect width="200" height="150" fill="url(#lbg1)"/>' +
+            '<rect x="24" y="6" width="152" height="90" rx="8" fill="url(#lbody1)" stroke="#3a3a5c" stroke-width="1"/>' +
+            '<rect x="28" y="10" width="144" height="80" rx="6" fill="#111122" stroke="#e74c3c" stroke-width="2" stroke-opacity="0.6"/>' +
+            '<rect x="34" y="14" width="132" height="72" rx="4" fill="url(#lscreen1)"/>' +
+            '<g clip-path="url(#lcrack)" opacity="0.65">' +
+            '<line x1="34" y1="25" x2="166" y2="100" stroke="#e74c3c" stroke-width="2.5"/>' +
+            '<line x1="90" y1="14" x2="110" y2="86" stroke="#e74c3c" stroke-width="1.8"/>' +
+            '<line x1="140" y1="20" x2="100" y2="80" stroke="#e74c3c" stroke-width="1.5"/>' +
+            '<line x1="50" y1="50" x2="150" y2="40" stroke="#c0392b" stroke-width="1.2"/>' +
+            '<line x1="70" y1="60" x2="130" y2="70" stroke="#c0392b" stroke-width="1"/>' +
+            '</g>' +
+            '<circle cx="100" cy="8" r="3" fill="#0a0a15" stroke="#3a3a5c" stroke-width="0.8"/>' +
+            '<rect x="12" y="96" width="176" height="14" rx="7" fill="#1e1e32" stroke="#3a3a5c" stroke-width="1"/>' +
+            '<rect x="70" y="110" width="60" height="6" rx="3" fill="#2a2a44" opacity="0.5"/>' +
+            '<rect x="80" y="116" width="40" height="3" rx="1.5" fill="#3a3a5c" opacity="0.3"/>' +
+            '<rect x="30" y="96" width="25" height="5" rx="2" fill="#2a2a44" opacity="0.4"/>' +
+            '<rect x="145" y="96" width="25" height="5" rx="2" fill="#2a2a44" opacity="0.4"/>' +
+            '<rect x="12" y="110" width="176" height="4" rx="2" fill="#2d2d44" opacity="0.3"/>' +
+            '<text x="100" y="58" text-anchor="middle" fill="#e74c3c" font-size="11" font-family="monospace" opacity="0.5">C:\\&gt;_</text>' +
+            '<text x="100" y="72" text-anchor="middle" fill="#e74c3c" font-size="7" font-family="monospace" opacity="0.3">system error</text>' +
+            '<circle cx="100" cy="50" r="40" fill="none" stroke="#e74c3c" stroke-width="0.5" stroke-opacity="0.1" stroke-dasharray="4,4"/>' +
+            '</svg>';
+    }
+
+    function gerarSvgLaptopFunc(repCor) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs>' +
+            '<linearGradient id="lbg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<linearGradient id="lbody2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1a3a2a"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<linearGradient id="lscreen2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a1a12"/><stop offset="100%" stop-color="#0d2818"/></linearGradient>' +
+            '<filter id="glow2"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>' +
+            '</defs>' +
+            '<rect width="200" height="150" fill="url(#lbg2)"/>' +
+            '<rect x="24" y="6" width="152" height="90" rx="8" fill="url(#lbody2)" stroke="#2ecc71" stroke-width="1" stroke-opacity="0.3"/>' +
+            '<rect x="28" y="10" width="144" height="80" rx="6" fill="#0a1a12" stroke="#27ae60" stroke-width="2" stroke-opacity="0.4"/>' +
+            '<rect x="34" y="14" width="132" height="72" rx="4" fill="url(#lscreen2)"/>' +
+            '<g filter="url(#glow2)">' +
+            '<polyline points="86,42 98,54 122,32" fill="none" stroke="#2ecc71" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '</g>' +
+            '<circle cx="100" cy="45" r="26" fill="none" stroke="#2ecc71" stroke-width="0.8" stroke-opacity="0.2"/>' +
+            '<circle cx="100" cy="45" r="36" fill="none" stroke="#2ecc71" stroke-width="0.5" stroke-opacity="0.1"/>' +
+            '<circle cx="100" cy="8" r="3" fill="#0a1a12" stroke="#2ecc71" stroke-width="0.8" stroke-opacity="0.3"/>' +
+            '<rect x="12" y="96" width="176" height="14" rx="7" fill="#1a3a2a" stroke="#2ecc71" stroke-width="1" stroke-opacity="0.25"/>' +
+            '<rect x="70" y="110" width="60" height="6" rx="3" fill="#1a3a2a" opacity="0.4"/>' +
+            '<rect x="80" y="116" width="40" height="3" rx="1.5" fill="#2ecc71" opacity="0.15"/>' +
+            '<rect x="30" y="96" width="25" height="5" rx="2" fill="#1a3a2a" opacity="0.35"/>' +
+            '<rect x="145" y="96" width="25" height="5" rx="2" fill="#1a3a2a" opacity="0.35"/>' +
+            '<rect x="12" y="110" width="176" height="4" rx="2" fill="#1a3a2a" opacity="0.25"/>' +
+            '<text x="100" y="70" text-anchor="middle" fill="#2ecc71" font-size="10" font-family="sans-serif" opacity="0.6">SSD 480GB</text>' +
+            '<text x="100" y="82" text-anchor="middle" fill="#2ecc71" font-size="7" font-family="sans-serif" opacity="0.35">Windows 11 Pro</text>' +
+            '</svg>';
+    }
+
+    function gerarSvgAcessorioRep(repAntes) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs><linearGradient id="abg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="' + repAntes + '" stop-opacity="0.08"/><stop offset="100%" stop-color="' + repAntes + '" stop-opacity="0.02"/></linearGradient></defs>' +
+            '<rect width="200" height="150" fill="url(#abg1)"/>' +
+            '<ellipse cx="100" cy="75" rx="35" ry="50" fill="#1a2a4a" stroke="' + repAntes + '" stroke-width="2" stroke-opacity="0.5"/>' +
+            '<ellipse cx="100" cy="65" rx="12" ry="8" fill="#0d172a" stroke="' + repAntes + '" stroke-width="1.5" stroke-opacity="0.4"/>' +
+            '<line x1="88" y1="85" x2="112" y2="85" stroke="' + repAntes + '" stroke-width="2" stroke-opacity="0.6" stroke-linecap="round"/>' +
+            '<line x1="100" y1="55" x2="100" y2="95" stroke="' + repAntes + '" stroke-width="1.5" stroke-opacity="0.4"/>' +
+            '<circle cx="100" cy="135" r="3" fill="' + repAntes + '" opacity="0.3"/>' +
+            '</svg>';
+    }
+
+    function gerarSvgAcessorioFunc(repCor) {
+        return '<svg width="200" height="150" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">' +
+            '<defs><linearGradient id="abg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="' + repCor + '" stop-opacity="0.1"/><stop offset="100%" stop-color="' + repCor + '" stop-opacity="0.03"/></linearGradient></defs>' +
+            '<rect width="200" height="150" fill="url(#abg2)"/>' +
+            '<ellipse cx="100" cy="75" rx="35" ry="50" fill="#1a2a4a" stroke="' + repCor + '" stroke-width="2" stroke-opacity="0.4"/>' +
+            '<ellipse cx="100" cy="65" rx="12" ry="8" fill="#0d172a" stroke="' + repCor + '" stroke-width="1.5" stroke-opacity="0.3"/>' +
+            '<polyline points="94,78 100,85 108,72" fill="none" stroke="' + repCor + '" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>' +
+            '<circle cx="100" cy="135" r="3" fill="' + repCor + '" opacity="0.4"/>' +
+            '<circle cx="100" cy="75" r="22" fill="none" stroke="' + repCor + '" stroke-width="1" stroke-opacity="0.12"/>' +
+            '</svg>';
+    }
+
+    function renderizarGaleria(filtro) {
+        var grid = document.getElementById('gallery-grid');
+        grid.innerHTML = '';
+        var items = filtro === 'todos' ? galeriaDados : galeriaDados.filter(function(g) { return g.categoria === filtro; });
+
+        items.forEach(function(item) {
+            var card = document.createElement('div');
+            card.className = 'gallery-card';
+            card.setAttribute('data-categoria', item.categoria);
+
+            var isLaptop = item.categoria === 'informatica';
+            var isAcessorio = item.categoria === 'acessorios';
+            var antesSvg, depoisSvg;
+            if (isLaptop) {
+                antesSvg = gerarSvgLaptopRep(item.antesSvg);
+                depoisSvg = gerarSvgLaptopFunc(item.depoisSvg);
+            } else if (isAcessorio) {
+                antesSvg = gerarSvgAcessorioRep(item.antesSvg);
+                depoisSvg = gerarSvgAcessorioFunc(item.depoisSvg);
+            } else {
+                antesSvg = gerarSvgRep(item.antesSvg, item.antesSvg);
+                depoisSvg = gerarSvgFuncionando(item.depoisSvg);
+            }
+
+            card.innerHTML =
+                '<div class="gallery-compare" data-id="' + item.id + '">' +
+                    '<img class="antes" src="data:image/svg+xml,' + encodeURIComponent(antesSvg) + '" alt="Antes - ' + item.titulo + '">' +
+                    '<img class="depois" src="data:image/svg+xml,' + encodeURIComponent(depoisSvg) + '" alt="Depois - ' + item.titulo + '">' +
+                    '<div class="gallery-slider-line"></div>' +
+                    '<div class="gallery-slider-handle"><i class="ph ph-arrows-left-right"></i></div>' +
+                    '<div class="gallery-labels">' +
+                        '<span class="gallery-label antes">Antes</span>' +
+                        '<span class="gallery-label depois">Depois</span>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="gallery-info">' +
+                    '<h3>' + item.titulo + '</h3>' +
+                    '<p>' + item.descricao + '</p>' +
+                    '<span class="gallery-tag">' + item.categoria.charAt(0).toUpperCase() + item.categoria.slice(1) + '</span>' +
+                '</div>';
+
+            grid.appendChild(card);
+
+            var compareDiv = card.querySelector('.gallery-compare');
+            initSlider(compareDiv);
+            card.addEventListener('click', function(e) {
+                if (e.target.closest('.gallery-slider-handle')) return;
+                abrirModal(item);
+            });
+        });
+    }
+
+    function initSlider(container) {
+        var dragging = false;
+        var line = container.querySelector('.gallery-slider-line');
+        var handle = container.querySelector('.gallery-slider-handle');
+        var antes = container.querySelector('.antes');
+
+        function updatePosition(x) {
+            var rect = container.getBoundingClientRect();
+            var pos = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+            var pct = pos * 100;
+            line.style.left = pct + '%';
+            handle.style.left = pct + '%';
+            antes.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        }
+
+        container.addEventListener('mousedown', function(e) { dragging = true; updatePosition(e.clientX); e.preventDefault(); });
+        container.addEventListener('touchstart', function(e) { dragging = true; updatePosition(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('mousemove', function(e) { if (dragging) updatePosition(e.clientX); });
+        window.addEventListener('touchmove', function(e) { if (dragging) updatePosition(e.touches[0].clientX); }, { passive: true });
+        window.addEventListener('mouseup', function() { dragging = false; });
+        window.addEventListener('touchend', function() { dragging = false; });
+    }
+
+    function abrirModal(item) {
+        var modal = document.getElementById('gallery-modal');
+        var compare = document.getElementById('modal-compare');
+        var info = document.getElementById('modal-info');
+
+        var antesSvg = gerarSvgRep(item.antesSvg, item.antesSvg);
+        var depoisSvg = gerarSvgFuncionando(item.depoisSvg);
+
+        compare.innerHTML =
+            '<img class="antes" src="data:image/svg+xml,' + encodeURIComponent(antesSvg) + '" alt="Antes">' +
+            '<img class="depois" src="data:image/svg+xml,' + encodeURIComponent(depoisSvg) + '" alt="Depois">' +
+            '<div class="gallery-slider-line"></div>' +
+            '<div class="gallery-slider-handle"><i class="ph ph-arrows-left-right"></i></div>' +
+            '<div class="gallery-labels">' +
+                '<span class="gallery-label antes">Antes</span>' +
+                '<span class="gallery-label depois">Depois</span>' +
+            '</div>';
+
+        info.innerHTML =
+            '<h3>' + item.titulo + '</h3>' +
+            '<p>' + item.descricao + '</p>' +
+            '<span class="gallery-tag">' + item.categoria.charAt(0).toUpperCase() + item.categoria.slice(1) + '</span>';
+
+        modal.classList.add('aberto');
+        document.body.style.overflow = 'hidden';
+        initSlider(compare);
+    }
+
+    function fecharModal() {
+        document.getElementById('gallery-modal').classList.remove('aberto');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.gallery-filter-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.gallery-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            renderizarGaleria(btn.getAttribute('data-filter'));
+        });
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') fecharModal();
+    });
+
+    renderizarGaleria('todos');
+    </script>
+</body>
+</html>

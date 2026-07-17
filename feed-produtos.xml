@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>Infocelll - Assistência Técnica em Olinda</title>
+    <link>https://infocelll.com.br</link>
+    <description>Produtos e acessórios para celulares e computadores</description>
+    <language>pt-BR</language>
+    
+    <!-- Serviços principais como produtos -->
+    <item>
+      <g:id>servico-troca-tela</g:id>
+      <g:title>Troca de Tela - Celulares</g:title>
+      <g:description>Substituição de telas originais e de qualidade para todas as marcas e modelos de smartphones. Garantia de 90 dias.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>199.90 BRL</g:price>
+      <g:brand>Infocelll</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Peças</g:product_category>
+      <g:custom_label_0>Serviço</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>servico-troca-bateria</g:id>
+      <g:title>Troca de Bateria - Celulares</g:title>
+      <g:description>Troca de bateria original para iPhone, Samsung, Xiaomi e mais. Garantia de 90 dias.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>149.90 BRL</g:price>
+      <g:brand>Infocelll</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Peças</g:product_category>
+      <g:custom_label_0>Serviço</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>servico-reparo-placa</g:id>
+      <g:title>Reparo de Placa - Celulares</g:title>
+      <g:description>Reparo profissional de placa para todos os modelos de smartphones. Diagnóstico gratuito.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>299.90 BRL</g:price>
+      <g:brand>Infocelll</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Peças</g:product_category>
+      <g:custom_label_0>Serviço</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>servico-formatacao-pc</g:id>
+      <g:title>Formatação de PC</g:title>
+      <g:description>Formatação completa de computadores com instalação de Windows e drivers. Limpeza e otimização.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>129.90 BRL</g:price>
+      <g:brand>Infocelll</g:brand>
+      <g:product_category>Eletrônicos &gt; Computadores &gt; Serviços</g:product_category>
+      <g:custom_label_0>Serviço</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>servico-upgrade-ssd</g:id>
+      <g:title>Upgrade SSD - Computadores</g:title>
+      <g:description>Instalação de SSD para computadores. Acelere seu PC com SSD de alta performance.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>199.90 BRL</g:price>
+      <g:brand>Infocelll</g:brand>
+      <g:product_category>Eletrônicos &gt; Computadores &gt; Peças</g:product_category>
+      <g:custom_label_0>Serviço</g:custom_label_0>
+    </item>
+    
+    <!-- Acessórios para venda -->
+    <item>
+      <g:id>acessorio-capinha-universal</g:id>
+      <g:title>Capinha Universal - Silicone</g:title>
+      <g:description>Capinha de silicone para celulares. Proteção e estilo para seu smartphone.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>29.90 BRL</g:price>
+      <g:brand>Genérico</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Acessórios</g:product_category>
+      <g:custom_label_0>Acessório</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>acessorio-pelicula-universal</g:id>
+      <g:title>Pelicula de Proteção - Vidro Temperado</g:title>
+      <g:description>Pelicula de vidro temperado para proteção da tela do seu celular.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>39.90 BRL</g:price>
+      <g:brand>Genérico</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Acessórios</g:product_category>
+      <g:custom_label_0>Acessório</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>acessorio-cabo-usbc</g:id>
+      <g:title>Cabo USB-C - Carga Rápida</g:title>
+      <g:description>Cabo USB-C para carga rápida e transferência de dados. Compatível com todos os smartphones.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>49.90 BRL</g:price>
+      <g:brand>Genérico</g:brand>
+      <g:product_category>Eletrônicos &gt; Celulares &gt; Acessórios</g:product_category>
+      <g:custom_label_0>Acessório</g:custom_label_0>
+    </item>
+    
+    <item>
+      <g:id>acessorio-fone-bluetooth</g:id>
+      <g:title>Fone de Ouvido Bluetooth</g:title>
+      <g:description>Fone de ouvido bluetooth sem fio. Qualidade de som e conforto.</g:description>
+      <g:link>https://infocelll.com.br/servicos.html</g:link>
+      <g:image_link>https://infocelll.com.br/logo.png</g:image_link>
+      <g:availability>in_stock</g:availability>
+      <g:condition>new</g:condition>
+      <g:price>79.90 BRL</g:price>
+      <g:brand>Genérico</g:brand>
+      <g:product_category>Eletrônicos &gt; Áudio &gt; Fones</g:product_category>
+      <g:custom_label_0>Acessório</g:custom_label_0>
+    </item>
+    
+  </channel>
+</rss>

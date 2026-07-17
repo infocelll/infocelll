@@ -1,0 +1,53 @@
+{
+  "name": "Infocelll - Assistência Técnica em Olinda",
+  "short_name": "Infocelll",
+  "description": "Assistência técnica em Olinda-PE: conserto de celulares, computadores e tablets com garantia de 90 dias.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c1f3d",
+  "theme_color": "#0c1f3d",
+  "orientation": "any",
+  "lang": "pt-BR",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "WhatsApp",
+      "short_name": "WhatsApp",
+      "url": "https://wa.me/5581987332162",
+      "icons": [{ "src": "favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Agendar Reparo",
+      "short_name": "Agendar",
+      "url": "/agendamento.html",
+      "icons": [{ "src": "favicon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "Serviços",
+      "short_name": "Serviços",
+      "url": "/servicos.html",
+      "icons": [{ "src": "favicon.svg", "sizes": "any" }]
+    }
+  ]
+}

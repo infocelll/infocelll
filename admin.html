@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin - Infocelll Painel</title>
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self)">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:;">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --card-hover: #334155;
+            --border: #334155;
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --teal: #14b8a6;
+            --cyan: #22d3ee;
+            --green: #22c55e;
+            --red: #ef4444;
+            --orange: #f59e0b;
+            --blue: #3b82f6;
+            --radius: 12px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .admin-header {
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .admin-header h1 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .admin-header h1 span { color: var(--teal); }
+        .admin-header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .admin-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .admin-btn:hover { background: var(--card-hover); }
+        .admin-btn.danger { border-color: var(--red); color: var(--red); }
+        .admin-btn.danger:hover { background: rgba(239,68,68,0.1); }
+        .admin-btn.success { border-color: var(--green); color: var(--green); }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 24px;
+        }
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+        }
+        .stat-card .stat-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .stat-card .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .stat-card .stat-value.teal { color: var(--teal); }
+        .stat-card .stat-value.green { color: var(--green); }
+        .stat-card .stat-value.orange { color: var(--orange); }
+        .stat-card .stat-value.blue { color: var(--blue); }
+
+        .admin-content {
+            padding: 0 24px 24px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .badge {
+            background: var(--teal);
+            color: #fff;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .conversas-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .conversa-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .conversa-card:hover { border-color: var(--teal); }
+        .conversa-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 16px;
+            cursor: pointer;
+        }
+        .conversa-header:hover { background: var(--card-hover); }
+        .conversa-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .conversa-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(20,184,166,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--teal);
+            font-size: 16px;
+        }
+        .conversa-info h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .conversa-info span {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .conversa-status {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .conversa-status.nova { background: rgba(239,68,68,0.15); color: var(--red); }
+        .conversa-status.lida { background: rgba(20,184,166,0.15); color: var(--teal); }
+        .conversa-status.arquivada { background: rgba(148,163,184,0.15); color: var(--muted); }
+
+        .conversa-detalhes {
+            display: none;
+            padding: 0 16px 16px;
+            border-top: 1px solid var(--border);
+        }
+        .conversa-detalhes.aberto { display: block; }
+        .conversa-mensagens {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 12px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .msg-item {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+        .msg-item.user {
+            align-self: flex-end;
+            background: rgba(20,184,166,0.15);
+            color: var(--text);
+        }
+        .msg-item.bot {
+            align-self: flex-start;
+            background: var(--card-hover);
+            color: var(--muted);
+        }
+        .msg-time {
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 4px;
+            opacity: 0.6;
+        }
+        .conversa-actions {
+            display: flex;
+            gap: 8px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+        .conversa-actions button {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .conversa-actions button:hover { background: var(--card-hover); }
+        .conversa-actions button.mark-read { border-color: var(--teal); color: var(--teal); }
+        .conversa-actions button.delete { border-color: var(--red); color: var(--red); }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--muted);
+        }
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+            opacity: 0.3;
+        }
+        .empty-state p { font-size: 14px; }
+
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--muted);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn.active {
+            background: var(--teal);
+            color: #fff;
+            border-color: var(--teal);
+        }
+        .filter-btn:hover:not(.active) { border-color: var(--teal); color: var(--teal); }
+
+        .export-area {
+            margin-top: 24px;
+            padding: 16px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .export-area h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .export-area textarea {
+            width: 100%;
+            height: 120px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: monospace;
+            font-size: 11px;
+            padding: 12px;
+            resize: vertical;
+        }
+
+        @media (max-width: 640px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; padding: 16px; }
+            .admin-content { padding: 0 16px 16px; }
+            .admin-header { padding: 12px 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="admin-login" style="display:none;position:fixed;inset:0;z-index:99999;background:#0c1f3d;display:flex;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:16px;padding:40px;max-width:400px;width:90%;text-align:center;box-shadow:0 16px 48px rgba(0,0,0,0.3);">
+    <h2 style="margin-bottom:8px;color:#0c1f3d;font-size:22px;">Painel Admin</h2>
+    <p style="color:#4a5d75;font-size:14px;margin-bottom:24px;">Digite a senha para acessar</p>
+    <form id="admin-login-form" style="display:flex;flex-direction:column;gap:12px;">
+      <input type="password" id="admin-pass" placeholder="Senha" style="padding:12px;border:1px solid #d8e0ea;border-radius:8px;font-size:15px;text-align:center;">
+      <p id="admin-pass-error" style="color:#e53e3e;font-size:13px;display:none;">Senha incorreta</p>
+      <button type="submit" style="padding:12px;background:linear-gradient(135deg,#1e3a5f,#4dd9f5);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<div class="admin-header">
+    <h1><span>Infocelll</span> Painel Admin <span class="nav-ssl" title="Site protegido com SSL" style="margin-left:8px;font-size:12px;vertical-align:middle;"><i class="ph ph-lock-key-fill"></i> Seguro</span></h1>
+    <div class="admin-header-actions">
+        <span id="last-update" style="font-size:12px;color:var(--muted);"></span>
+        <button class="admin-btn" onclick="carregarDados()">Atualizar</button>
+        <button class="admin-btn success" onclick="exportarDados()">Exportar JSON</button>
+        <button class="admin-btn danger" onclick="limparTudo()">Limpar Tudo</button>
+    </div>
+</div>
+
+<div class="stats-grid" id="stats-grid">
+    <div class="stat-card">
+        <div class="stat-label">Total de Conversas</div>
+        <div class="stat-value teal" id="stat-total">0</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Novas (Nao Lidas)</div>
+        <div class="stat-value orange" id="stat-novas">0</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Mensagens Totais</div>
+        <div class="stat-value blue" id="stat-mensagens">0</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-label">Ultima Atividade</div>
+        <div class="stat-value green" id="stat-ultima" style="font-size:16px;">-</div>
+    </div>
+</div>
+
+<div class="admin-content">
+    <div class="section-title">
+        Conversas <span class="badge" id="badge-count">0</span>
+    </div>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filtrar('todas', this)">Todas</button>
+        <button class="filter-btn" onclick="filtrar('nova', this)">Novas</button>
+        <button class="filter-btn" onclick="filtrar('lida', this)">Lidas</button>
+        <button class="filter-btn" onclick="filtrar('chatbot', this)">Chatbot</button>
+        <button class="filter-btn" onclick="filtrar('contato', this)">Contato</button>
+    </div>
+
+    <div class="conversas-list" id="conversas-list">
+        <div class="empty-state">
+            <i class="ph ph-chat-circle-dots"></i>
+            <p>Nenhuma conversa registrada ainda.</p>
+        </div>
+    </div>
+
+    <div class="export-area">
+        <h3>Dados JSON (para backup ou envio a IA)</h3>
+        <textarea id="export-json" readonly placeholder="Clique em 'Exportar JSON' para gerar os dados..."></textarea>
+    </div>
+</div>
+
+<script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+<script>
+var todasConversas = {};
+var filtroAtual = 'todas';
+
+function carregarDados() {
+    todasConversas = JSON.parse(localStorage.getItem('infocelll_conversas') || '{}');
+    atualizarStats();
+    renderizarConversas();
+    document.getElementById('last-update').textContent = 'Atualizado: ' + new Date().toLocaleTimeString('pt-BR');
+}
+
+function atualizarStats() {
+    var ids = Object.keys(todasConversas);
+    var total = ids.length;
+    var novas = ids.filter(function(id) { return todasConversas[id].status === 'nova'; }).length;
+    var msgs = 0;
+    var ultima = null;
+    ids.forEach(function(id) {
+        msgs += todasConversas[id].mensagens.length;
+        var d = new Date(todasConversas[id].ultimaAtividade || todasConversas[id].inicio);
+        if (!ultima || d > ultima) ultima = d;
+    });
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-novas').textContent = novas;
+    document.getElementById('stat-mensagens').textContent = msgs;
+    document.getElementById('stat-ultima').textContent = ultima ? ultima.toLocaleString('pt-BR') : '-';
+    document.getElementById('badge-count').textContent = total;
+}
+
+function renderizarConversas() {
+    var container = document.getElementById('conversas-list');
+    var ids = Object.keys(todasConversas);
+
+    if (filtroAtual === 'nova') ids = ids.filter(function(id) { return todasConversas[id].status === 'nova'; });
+    else if (filtroAtual === 'lida') ids = ids.filter(function(id) { return todasConversas[id].status === 'lida'; });
+    else if (filtroAtual === 'chatbot') ids = ids.filter(function(id) { return todasConversas[id].origem === 'chatbot'; });
+    else if (filtroAtual === 'contato') ids = ids.filter(function(id) { return todasConversas[id].origem === 'contato'; });
+
+    ids.sort(function(a, b) {
+        return new Date(todasConversas[b].ultimaAtividade || todasConversas[b].inicio) -
+               new Date(todasConversas[a].ultimaAtividade || todasConversas[a].inicio);
+    });
+
+    if (ids.length === 0) {
+        container.innerHTML = '<div class="empty-state"><i class="ph ph-chat-circle-dots"></i><p>Nenhuma conversa encontrada.</p></div>';
+        return;
+    }
+
+    container.innerHTML = '';
+    ids.forEach(function(id) {
+        var c = todasConversas[id];
+        var ultimaMsg = c.mensagens.length > 0 ? c.mensagens[c.mensagens.length - 1].msg.substring(0, 80) : 'Sem mensagens';
+        var data = new Date(c.ultimaAtividade || c.inicio);
+        var statusClass = c.status || 'nova';
+        var statusLabel = statusClass === 'nova' ? 'Nova' : statusClass === 'lida' ? 'Lida' : 'Arquivada';
+        var origemIcon = c.origem === 'contato' ? 'ph-envelope-fill' : 'ph-chat-circle-fill';
+
+        var card = document.createElement('div');
+        card.className = 'conversa-card';
+        card.innerHTML =
+            '<div class="conversa-header" onclick="toggleDetalhes(\'' + id + '\')">' +
+                '<div class="conversa-meta">' +
+                    '<div class="conversa-icon"><i class="ph ' + origemIcon + '"></i></div>' +
+                    '<div class="conversa-info">' +
+                        '<h3>' + (c.origem === 'contato' ? 'Formulario de Contato' : 'Chatbot') + ' - ' + id.substring(5, 15) + '</h3>' +
+                        '<span>' + data.toLocaleString('pt-BR') + ' · ' + c.mensagens.length + ' msgs</span>' +
+                    '</div>' +
+                '</div>' +
+                '<span class="conversa-status ' + statusClass + '">' + statusLabel + '</span>' +
+            '</div>' +
+            '<div class="conversa-detalhes" id="detalhes-' + id + '">' +
+                '<div class="conversa-mensagens" id="msgs-' + id + '"></div>' +
+                '<div class="conversa-actions">' +
+                    '<button class="mark-read" onclick="marcarLida(\'' + id + '\')">Marcar como Lida</button>' +
+                    '<button onclick="arquivar(\'' + id + '\')">Arquivar</button>' +
+                    '<button class="delete" onclick="excluir(\'' + id + '\')">Excluir</button>' +
+                '</div>' +
+            '</div>';
+        container.appendChild(card);
+
+        var msgsContainer = document.getElementById('msgs-' + id);
+        c.mensagens.forEach(function(m) {
+            var div = document.createElement('div');
+            div.className = 'msg-item ' + m.tipo;
+            var time = m.hora ? new Date(m.hora).toLocaleTimeString('pt-BR') : '';
+            div.innerHTML = m.msg + '<div class="msg-time">' + time + '</div>';
+            msgsContainer.appendChild(div);
+        });
+    });
+}
+
+function toggleDetalhes(id) {
+    var el = document.getElementById('detalhes-' + id);
+    el.classList.toggle('aberto');
+    if (el.classList.contains('aberto') && todasConversas[id].status === 'nova') {
+        todasConversas[id].status = 'lida';
+        localStorage.setItem('infocelll_conversas', JSON.stringify(todasConversas));
+        atualizarStats();
+        renderizarConversas();
+    }
+}
+
+function marcarLida(id) {
+    if (todasConversas[id]) {
+        todasConversas[id].status = 'lida';
+        localStorage.setItem('infocelll_conversas', JSON.stringify(todasConversas));
+        carregarDados();
+    }
+}
+
+function arquivar(id) {
+    if (todasConversas[id]) {
+        todasConversas[id].status = 'arquivada';
+        localStorage.setItem('infocelll_conversas', JSON.stringify(todasConversas));
+        carregarDados();
+    }
+}
+
+function excluir(id) {
+    if (confirm('Tem certeza que deseja excluir esta conversa?')) {
+        delete todasConversas[id];
+        localStorage.setItem('infocelll_conversas', JSON.stringify(todasConversas));
+        carregarDados();
+    }
+}
+
+function filtrar(filtro, btn) {
+    filtroAtual = filtro;
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    renderizarConversas();
+}
+
+function exportarDados() {
+    var json = JSON.stringify(todasConversas, null, 2);
+    document.getElementById('export-json').value = json;
+    var blob = new Blob([json], { type: 'application/json' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'infocelll-conversas-' + new Date().toISOString().slice(0, 10) + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function limparTudo() {
+    if (confirm('ATENCAO: Isso excluir TODAS as conversas. Tem certeza?')) {
+        if (confirm('Ultima confirmacao: apagar tudo?')) {
+            localStorage.removeItem('infocelll_conversas');
+            carregarDados();
+        }
+    }
+}
+
+carregarDados();
+setInterval(carregarDados, 30000);
+</script>
+
+<script>
+(function() {
+  var login = document.getElementById('admin-login');
+  if (sessionStorage.getItem('admin-auth') === 'true') {
+    if (login) login.style.display = 'none';
+    return;
+  }
+  if (login) login.style.display = 'flex';
+  document.getElementById('admin-login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var pass = document.getElementById('admin-pass').value;
+    if (pass === 'infocelll2026') {
+      sessionStorage.setItem('admin-auth', 'true');
+      login.style.display = 'none';
+    } else {
+      document.getElementById('admin-pass-error').style.display = 'block';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
