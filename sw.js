@@ -16,7 +16,7 @@ var ASSETS_TO_CACHE = [
   './style.min.css',
   './script.min.js',
   './marketing.min.js',
-  './fonts/phosphor.css',
+  './fonts/phosphor.min.css',
   './fonts/Phosphor.woff2',
   './fonts/Phosphor-Fill.woff2',
   './logo.png',
