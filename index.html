@@ -14,13 +14,13 @@
     <meta property="og:url" content="https://infocelll.com.br/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:image" content="https://infocelll.com.br/og-image.svg">
+    <meta property="og:image" content="https://infocelll.com.br/logo.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Infocelll - Assistência Técnica em Olinda">
     <meta name="twitter:description" content="Assistência técnica em Olinda-PE: conserto de celulares, computadores e tablets com garantia de 90 dias. Orçamento grátis!">
-    <meta name="twitter:image" content="https://infocelll.com.br/og-image.svg">
+    <meta name="twitter:image" content="https://infocelll.com.br/logo.png">
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"LocalBusiness","name":"Infocelll","description":"Assistência técnica em informática, celular, vendas de peças e acessórios em informática e celular","keywords":"assistência técnica celular Olinda, conserto celular Olinda, troca de tela celular, reparo placa celular, troca bateria celular, conserto computador Olinda, formatação computador, assistência técnica iPhone, conserto Samsung, reparo Xiaomi, peças celular originais, conserto notebook Olinda, upgrade SSD Olinda, acessórios informática","serviceType":["Conserto de Celulares","Reparo de Computadores","Troca de Tela","Reparo de Placa","Troca de Bateria","Formatação de PC","Upgrade SSD","Venda de Peças e Acessórios"],"url":"https://infocelll.com.br","image":"https://infocelll.com.br/logo.png","priceRange":"$$","telephone":"+5581987332162","address":{"@type":"PostalAddress","streetAddress":"Av. Fagundes Varela, 380 - Loja 11","postalCode":"53140-080","addressLocality":"Olinda","addressRegion":"PE","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-7.9773452,"longitude":-34.8413973},"openingHours":"Mo-Fr 09:00-18:00, Sa 09:00-14:00","areaServed":{"@type":"State","name":"Pernambuco"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","bestRating":"5","ratingCount":"127"}}
     </script>
@@ -34,7 +34,6 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0c1f3d">
     <link rel="preconnect" href="https://wa.me">
-    <link rel="dns-prefetch" href="https://wa.me">
     <link rel="dns-prefetch" href="https://www.instagram.com">
     <link rel="dns-prefetch" href="https://www.facebook.com">
     <link rel="dns-prefetch" href="https://www.tiktok.com">
@@ -48,8 +47,8 @@
     <!-- reCAPTCHA: substitute SEU_SITE_KEY with real Google reCAPTCHA v3 site key -->
     <!-- <script src="https://www.google.com/recaptcha/api.js?render=SEU_SITE_KEY"></script> -->
     <link rel="stylesheet" href="fonts/phosphor.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="marketing.js" defer></script>
+    <link rel="stylesheet" href="style.min.css">
+    <script src="marketing.min.js" defer></script>
 </head>
 <body>
 
@@ -59,7 +58,7 @@
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo da Infocelll assistência técnica em Olinda" class="logo-img" fetchpriority="high" loading="lazy" decoding="async">
+                <img src="logo.png" alt="Logo da Infocelll assistência técnica em Olinda" class="logo-img" fetchpriority="high" width="120" height="40" decoding="async">
             </a>
             <nav class="nav">
                 <a href="index.html" class="active">Home</a>
@@ -90,7 +89,7 @@
         <div class="mobile-nav-panel">
             <div class="mobile-nav-header">
                 <span class="logo" style="font-size:18px;">
-                    <img src="logo.png" alt="Logo Infocelll" loading="lazy" decoding="async" style="height:32px;width:auto;">
+                    <img src="logo.png" alt="Logo Infocelll" decoding="async" style="height:32px;width:auto;" width="80" height="32">
                 </span>
                 <button class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="margin-left: auto; margin-right: 12px;">
                     <i class="ph ph-moon"></i>
@@ -714,6 +713,6 @@
         </button>
     </div>
 
-    <script src="script.js" defer></script>
+    <script src="script.min.js" defer></script>
 </body>
 </html>
