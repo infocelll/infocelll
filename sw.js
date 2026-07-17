@@ -1,27 +1,27 @@
-/* Infocelll Service Worker v2.0 — Otimizado */
-var CACHE_NAME = 'infocelll-v3';
+/* Infocelll Service Worker v3.0 — Paths relativos para GitHub Pages */
+var CACHE_NAME = 'infocelll-v4';
 var ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/servicos.html',
-  '/contato.html',
-  '/sobre.html',
-  '/galeria.html',
-  '/agendamento.html',
-  '/avaliacoes.html',
-  '/dicas.html',
-  '/promocoes.html',
-  '/fidelidade.html',
-  '/politica-privacidade.html',
-  '/style.css',
-  '/script.js',
-  '/marketing.js',
-  '/fonts/phosphor.css',
-  '/fonts/Phosphor.woff2',
-  '/fonts/Phosphor-Fill.woff2',
-  '/logo.png',
-  '/favicon.svg',
-  '/og-image.svg'
+  './',
+  './index.html',
+  './servicos.html',
+  './contato.html',
+  './sobre.html',
+  './galeria.html',
+  './agendamento.html',
+  './avaliacoes.html',
+  './dicas.html',
+  './promocoes.html',
+  './fidelidade.html',
+  './politica-privacidade.html',
+  './style.css',
+  './script.js',
+  './marketing.js',
+  './fonts/phosphor.css',
+  './fonts/Phosphor.woff2',
+  './fonts/Phosphor-Fill.woff2',
+  './logo.png',
+  './favicon.svg',
+  './og-image.svg'
 ];
 
 /* Install */
@@ -59,7 +59,7 @@ self.addEventListener('fetch', function(event) {
   if (url.origin !== location.origin) return;
 
   /* Skip admin and marketing from cache-first */
-  if (url.pathname === '/admin.html' || url.pathname === '/marketing.js') return;
+  if (url.pathname.endsWith('/admin.html') || url.pathname.endsWith('/marketing.js')) return;
 
   event.respondWith(
     fetch(event.request).then(function(response) {
@@ -72,7 +72,7 @@ self.addEventListener('fetch', function(event) {
       return caches.match(event.request).then(function(cached) {
         if (cached) return cached;
         if (event.request.headers.get('accept').indexOf('text/html') !== -1) {
-          return caches.match('/index.html');
+          return caches.match('./index.html');
         }
       });
     })
