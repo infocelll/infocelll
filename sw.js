@@ -1,5 +1,5 @@
 /* Infocelll Service Worker v3.0 — Paths relativos para GitHub Pages */
-var CACHE_NAME = 'infocelll-v4';
+var CACHE_NAME = 'infocelll-v5';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -13,15 +13,14 @@ var ASSETS_TO_CACHE = [
   './promocoes.html',
   './fidelidade.html',
   './politica-privacidade.html',
-  './style.css',
-  './script.js',
-  './marketing.js',
+  './style.min.css',
+  './script.min.js',
+  './marketing.min.js',
   './fonts/phosphor.css',
   './fonts/Phosphor.woff2',
   './fonts/Phosphor-Fill.woff2',
   './logo.png',
-  './favicon.svg',
-  './og-image.svg'
+  './favicon.svg'
 ];
 
 /* Install */
