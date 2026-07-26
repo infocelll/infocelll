@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOCELLL · Banco de Dados de Películas - Completo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f0f4fa;
+            color: #0b1a2f;
+            transition: background 0.3s, color 0.3s;
+            min-height: 100vh;
+        }
+        body.dark-mode {
+            background: #0d1829;
+            color: #e8edf5;
+        }
+        .glass-panel {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(0, 20, 40, 0.06);
+            transition: all 0.2s;
+        }
+        .dark-mode .glass-panel {
+            background: rgba(16, 30, 52, 0.75);
+            border-color: rgba(255,255,255,0.04);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        .mono-icon { color: #1a3a6b; transition: color 0.15s; }
+        .dark-mode .mono-icon { color: #b0c8e8; }
+        .badge-mono {
+            background: rgba(26, 58, 107, 0.06);
+            color: #1a3a6b;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.6rem;
+            display: inline-block;
+        }
+        .dark-mode .badge-mono {
+            background: rgba(255,255,255,0.05);
+            color: #b0c8e8;
+        }
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .search-container {
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 60px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            padding: 6px 6px 6px 24px;
+        }
+        .dark-mode .search-container {
+            background: rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.05);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+        }
+        .search-container:focus-within {
+            border-color: #1a3a6b;
+            box-shadow: 0 0 0 4px rgba(26, 58, 107, 0.05);
+            transform: scale(1.005);
+        }
+        .dark-mode .search-container:focus-within {
+            border-color: #3b6bc0;
+            box-shadow: 0 0 0 4px rgba(59, 107, 192, 0.08);
+        }
+        .search-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-input-wrap {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        .search-input-wrap input {
+            background: transparent;
+            border: none;
+            padding: 14px 0;
+            font-weight: 400;
+            font-size: 1.05rem;
+            color: #0b1a2f;
+            width: 100%;
+            outline: none;
+        }
+        .dark-mode .search-input-wrap input {
+            color: #e8edf5;
+        }
+        .search-input-wrap input::placeholder {
+            color: #8a9bb0;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+        .dark-mode .search-input-wrap input::placeholder {
+            color: #5a6f8a;
+        }
+        .placeholder-rotating {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8a9bb0;
+            font-weight: 300;
+            pointer-events: none;
+            white-space: nowrap;
+            overflow: hidden;
+            transition: opacity 0.3s;
+            font-size: 1.05rem;
+        }
+        .dark-mode .placeholder-rotating {
+            color: #5a6f8a;
+        }
+        .placeholder-rotating.hidden { opacity: 0; }
+        .search-icon-pulse {
+            animation: pulse-icon 2s ease-in-out infinite;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        @keyframes pulse-icon {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        .btn-search-submit {
+            background: #1a3a6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .dark-mode .btn-search-submit {
+            background: #3b6bc0;
+            color: white;
+        }
+        .btn-search-submit:hover {
+            background: #0f2a4a;
+            transform: scale(1.05);
+        }
+        .dark-mode .btn-search-submit:hover {
+            background: #2a5a9a;
+        }
+        .btn-search-submit.success {
+            background: #22c55e;
+        }
+        .btn-search-submit .icon-search,
+        .btn-search-submit .icon-check {
+            transition: all 0.3s;
+        }
+        .btn-search-submit .icon-check { display: none; }
+        .btn-search-submit.success .icon-search { display: none; }
+        .btn-search-submit.success .icon-check { display: block; }
+        .search-actions {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            flex-shrink: 0;
+        }
+        .search-actions .btn-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: #1a3a6b;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .dark-mode .search-actions .btn-icon {
+            color: #b0c8e8;
+        }
+        .search-actions .btn-icon:hover {
+            background: rgba(26,58,107,0.06);
+        }
+        .dark-mode .search-actions .btn-icon:hover {
+            background: rgba(255,255,255,0.04);
+        }
+        .search-actions .btn-icon.active {
+            background: rgba(26,58,107,0.08);
+            color: #1a3a6b;
+        }
+        .dark-mode .search-actions .btn-icon.active {
+            background: rgba(255,255,255,0.04);
+            color: #b0c8e8;
+        }
+        .btn-icon.recording {
+            background: #ef4444 !important;
+            color: white !important;
+            animation: pulse-record 1s ease-in-out infinite;
+        }
+        @keyframes pulse-record {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+        }
+        .search-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(26,58,107,0.1);
+            border-top-color: #1a3a6b;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            flex-shrink: 0;
+        }
+        .dark-mode .search-spinner {
+            border-color: rgba(255,255,255,0.1);
+            border-top-color: #b0c8e8;
+        }
+        .search-spinner.active { display: block; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .progress-bar-container {
+            width: 100%;
+            height: 3px;
+            background: rgba(26,58,107,0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 4px;
+            display: none;
+        }
+        .dark-mode .progress-bar-container {
+            background: rgba(255,255,255,0.02);
+        }
+        .progress-bar-container.active { display: block; }
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #1a3a6b, #3b6bc0);
+            border-radius: 10px;
+            transition: width 0.3s;
+            animation: progress-animation 1.5s ease-in-out infinite;
+        }
+        @keyframes progress-animation {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        .clear-btn {
+            background: none;
+            border: none;
+            color: #8a9bb0;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            display: none;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        .clear-btn:hover { color: #1a3a6b; }
+        .dark-mode .clear-btn:hover { color: #b0c8e8; }
+        .clear-btn.visible {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+            animation: fadeInClear 0.2s ease;
+        }
+        @keyframes fadeInClear {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .autocomplete-box {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+            max-height: 420px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            padding: 8px 0;
+        }
+        .dark-mode .autocomplete-box {
+            background: rgba(16, 30, 52, 0.95);
+            border-color: rgba(255,255,255,0.04);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+        }
+        .autocomplete-item {
+            padding: 12px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: 0.1s;
+            border-radius: 12px;
+            margin: 0 6px;
+        }
+        .autocomplete-item:hover {
+            background: rgba(26, 58, 107, 0.04);
+        }
+        .dark-mode .autocomplete-item:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .autocomplete-item .highlight { font-weight: 600; color: #1a3a6b; }
+        .dark-mode .autocomplete-item .highlight { color: #b0c8e8; }
+        .autocomplete-item .sub { font-size: 0.7rem; opacity: 0.6; }
+        .autocomplete-item .tag {
+            font-size: 0.55rem;
+            background: rgba(26,58,107,0.06);
+            padding: 2px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+        .dark-mode .autocomplete-item .tag {
+            background: rgba(255,255,255,0.04);
+        }
+        .correction-banner {
+            display: none;
+            padding: 10px 16px;
+            margin-top: 8px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .dark-mode .correction-banner {
+            background: rgba(255,255,255,0.02);
+            border-color: rgba(255,255,255,0.04);
+        }
+        .correction-banner:hover {
+            background: rgba(255,255,255,0.7);
+        }
+        .dark-mode .correction-banner:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .correction-banner.show { display: block; }
+        .correction-banner .suggestion-text { font-weight: 600; color: #1a3a6b; }
+        .dark-mode .correction-banner .suggestion-text { color: #b0c8e8; }
+        .suggestions-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+        .suggestion-chip {
+            padding: 4px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(26,58,107,0.08);
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: 0.15s;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(4px);
+        }
+        .suggestion-chip:hover {
+            background: rgba(26,58,107,0.04);
+            transform: scale(1.02);
+        }
+        .dark-mode .suggestion-chip {
+            border-color: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.02);
+        }
+        .dark-mode .suggestion-chip:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .search-tabs {
+            display: flex;
+            gap: 4px;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .search-tab {
+            padding: 4px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(26,58,107,0.08);
+            font-size: 0.65rem;
+            cursor: pointer;
+            transition: 0.15s;
+            background: transparent;
+            color: #8a9bb0;
+        }
+        .search-tab:hover {
+            background: rgba(26,58,107,0.04);
+        }
+        .search-tab.active {
+            background: #1a3a6b;
+            color: white;
+            border-color: #1a3a6b;
+        }
+        .dark-mode .search-tab.active {
+            background: #3b6bc0;
+            border-color: #3b6bc0;
+        }
+        .history-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+        .history-chip {
+            padding: 3px 12px;
+            border-radius: 30px;
+            border: 1px solid rgba(26,58,107,0.06);
+            font-size: 0.6rem;
+            cursor: pointer;
+            transition: 0.15s;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            color: #8a9bb0;
+        }
+        .history-chip:hover {
+            background: rgba(26,58,107,0.04);
+            color: #1a3a6b;
+        }
+        .dark-mode .history-chip {
+            border-color: rgba(255,255,255,0.04);
+            color: #5a6f8a;
+        }
+        .dark-mode .history-chip:hover {
+            background: rgba(255,255,255,0.03);
+            color: #b0c8e8;
+        }
+        .history-bar, .suggestions-bar {
+            transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+            max-height: 60px;
+            opacity: 1;
+            overflow: hidden;
+        }
+        .history-bar.collapsed, .suggestions-bar.collapsed {
+            max-height: 0;
+            opacity: 0;
+            margin-top: 0 !important;
+            pointer-events: none;
+        }
+        .result-area {
+            max-width: 860px;
+            margin: 16px auto 0;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        .result-card {
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 18px 22px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: 0.2s;
+            margin-bottom: 10px;
+            animation: fadeIn 0.2s ease;
+            border-left: 3px solid #1a3a6b;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .dark-mode .result-card {
+            background: rgba(255,255,255,0.02);
+            border-color: rgba(255,255,255,0.04);
+            border-left-color: #b0c8e8;
+        }
+        .result-card:hover {
+            background: rgba(255,255,255,0.6);
+        }
+        .dark-mode .result-card:hover {
+            background: rgba(255,255,255,0.03);
+        }
+        .result-card.highlight {
+            border-left-color: #f59e0b;
+            background: rgba(245,158,11,0.04);
+        }
+        .dark-mode .result-card.highlight {
+            border-left-color: #f59e0b;
+            background: rgba(245,158,11,0.02);
+        }
+        .compat-chip {
+            background: rgba(26, 58, 107, 0.04);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin: 2px 4px 2px 0;
+        }
+        .dark-mode .compat-chip {
+            background: rgba(255,255,255,0.04);
+        }
+        .navbar-custom {
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 0;
+        }
+        .dark-mode .navbar-custom {
+            background: rgba(10, 22, 42, 0.75);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        .toast-item {
+            min-width: 220px;
+            padding: 14px 20px;
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #2c6fdb; border-radius: 20px; }
+        .shortcut-hint {
+            font-size: 0.55rem;
+            opacity: 0.4;
+            color: #1a3a6b;
+            background: rgba(26,58,107,0.04);
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .dark-mode .shortcut-hint {
+            color: #b0c8e8;
+            background: rgba(255,255,255,0.04);
+        }
+        .result-stats {
+            font-size: 0.75rem;
+            color: #8a9bb0;
+            padding: 4px 0 10px 0;
+        }
+        .result-stats strong {
+            color: #1a3a6b;
+        }
+        .dark-mode .result-stats strong {
+            color: #b0c8e8;
+        }
+        .search-status {
+            font-size: 0.7rem;
+            color: #8a9bb0;
+            margin-top: 4px;
+            min-height: 20px;
+            transition: all 0.3s;
+        }
+        .search-status .dots::after {
+            content: '';
+            animation: dots 1.2s steps(4, end) infinite;
+        }
+        @keyframes dots {
+            0% { content: ''; }
+            25% { content: '.'; }
+            50% { content: '..'; }
+            75% { content: '...'; }
+            100% { content: ''; }
+        }
+        /* ===== Modal de busca por câmera ===== */
+        .camera-modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 12, 24, 0.55);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .camera-modal-overlay.show { display: flex; }
+        .camera-modal {
+            width: 100%;
+            max-width: 460px;
+            padding: 20px;
+        }
+        .camera-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+        .camera-close-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(26,58,107,0.06);
+            color: #1a3a6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+            flex-shrink: 0;
+        }
+        .camera-close-btn:hover { background: rgba(26,58,107,0.12); }
+        .dark-mode .camera-close-btn { background: rgba(255,255,255,0.05); color: #b0c8e8; }
+        .dark-mode .camera-close-btn:hover { background: rgba(255,255,255,0.1); }
+        .camera-video-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background: #0b1a2f;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .camera-video-wrap video,
+        .camera-video-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .camera-flash {
+            position: absolute;
+            inset: 0;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .camera-flash.flash { animation: flash-pop 0.35s ease; }
+        @keyframes flash-pop {
+            0% { opacity: 0.85; }
+            100% { opacity: 0; }
+        }
+        .camera-hint {
+            font-size: 0.75rem;
+            color: #8a9bb0;
+            margin: 12px 0 0;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .camera-modal-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .btn-mono-outline {
+            background: transparent;
+            border: 1px solid rgba(26,58,107,0.15);
+            color: #1a3a6b;
+            border-radius: 40px;
+            padding: 9px 22px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-mono-outline:hover { background: rgba(26,58,107,0.06); }
+        .dark-mode .btn-mono-outline { color: #b0c8e8; border-color: rgba(255,255,255,0.1); }
+        .dark-mode .btn-mono-outline:hover { background: rgba(255,255,255,0.05); }
+        .btn-mono-filled {
+            background: #1a3a6b;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            padding: 9px 22px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-mono-filled:hover { background: #0f2a4a; }
+        .dark-mode .btn-mono-filled { background: #3b6bc0; }
+        .dark-mode .btn-mono-filled:hover { background: #2a5a9a; }
+        @media (max-width: 576px) {
+            .search-container { padding: 4px 4px 4px 16px; }
+            .search-input-wrap input { font-size: 0.9rem; padding: 10px 0; }
+            .search-actions .btn-icon { width: 32px; height: 32px; font-size: 0.8rem; }
+            .result-card { padding: 14px 16px; }
+            .search-tab { font-size: 0.55rem; padding: 3px 10px; }
+            .camera-modal { padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="camera-modal-overlay" id="cameraModalOverlay">
+        <div class="camera-modal glass-panel">
+            <div class="camera-modal-header">
+                <span class="fw-semibold"><span class="mono-icon"><i class="bi bi-camera me-2"></i></span>Busca por câmera</span>
+                <button class="camera-close-btn" id="cameraCloseBtn" title="Fechar"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="camera-video-wrap">
+                <video id="cameraVideo" autoplay playsinline muted></video>
+                <img id="cameraPhoto" alt="Foto capturada" style="display:none;">
+                <div class="camera-flash" id="cameraFlash"></div>
+            </div>
+            <canvas id="cameraCanvas" style="display:none;"></canvas>
+            <p class="camera-hint">Aponte para o aparelho e tire uma foto de referência. O reconhecimento automático do modelo por imagem ainda não está disponível — depois de capturar, digite o modelo no campo de busca.</p>
+            <div class="camera-modal-actions" id="cameraActionsLive">
+                <button class="btn-mono-filled" id="cameraCaptureBtn"><i class="bi bi-camera-fill"></i> Capturar foto</button>
+            </div>
+            <div class="camera-modal-actions" id="cameraActionsReview" style="display:none;">
+                <button class="btn-mono-outline" id="cameraRetakeBtn"><i class="bi bi-arrow-counterclockwise"></i> Tirar outra</button>
+                <button class="btn-mono-filled" id="cameraContinueBtn"><i class="bi bi-check-lg"></i> Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar-custom">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <a class="navbar-brand fw-bold fs-5 d-flex align-items-center gap-2" href="#">
+                    <span class="mono-icon" style="font-size:1.5rem;"><i class="bi bi-phone"></i></span>
+                    <span>INFOCELLL</span>
+                    <span class="badge-mono ms-2" style="font-size:0.5rem;">Películas DB</span>
+                </a>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-mono" id="totalModels">0</span>
+                    <span class="shortcut-hint">Ctrl+K</span>
+                    <button class="btn-mono py-1 px-3" id="themeToggle" style="font-size:0.7rem; background:transparent; border:1px solid rgba(26,58,107,0.15); border-radius:40px; color:#1a3a6b; cursor:pointer;">
+                        <i class="bi bi-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mb-2">
+                <h2 class="fw-bold" style="font-size:1.3rem; letter-spacing:-0.5px;">
+                    <span class="mono-icon"><i class="bi bi-search"></i></span>
+                    Banco de Dados de Películas
+                </h2>
+                <p class="text-secondary" style="font-size:0.8rem;">Digite o modelo para encontrar películas compatíveis</p>
+            </div>
+
+            <div class="col-12">
+                <div class="search-wrapper">
+                    <div class="search-tabs">
+                        <span class="search-tab active" data-tab="all">📱 Todos</span>
+                        <span class="search-tab" data-tab="Samsung">📱 Samsung</span>
+                        <span class="search-tab" data-tab="Motorola">📱 Motorola</span>
+                        <span class="search-tab" data-tab="Xiaomi">📱 Xiaomi</span>
+                        <span class="search-tab" data-tab="Apple">📱 Apple</span>
+                        <span class="search-tab" data-tab="Oppo">📱 Oppo</span>
+                        <span class="search-tab" data-tab="Realme">📱 Realme</span>
+                    </div>
+
+                    <div class="search-container" id="searchContainer">
+                        <div class="search-row">
+                            <span class="mono-icon search-icon-pulse"><i class="bi bi-search"></i></span>
+                            <div class="search-input-wrap">
+                                <input type="text" id="globalSearch" autocomplete="off">
+                                <span class="placeholder-rotating" id="placeholderRotating">🔍 Buscar modelo de celular...</span>
+                            </div>
+                            <div class="search-spinner" id="searchSpinner"></div>
+                            <button class="clear-btn" id="clearBtn" title="Limpar"><i class="bi bi-x-circle"></i></button>
+                            <div class="search-actions">
+                                <button class="btn-icon" id="voiceBtn" title="Busca por voz"><i class="bi bi-mic"></i></button>
+                                <button class="btn-icon" id="cameraBtn" title="Busca por câmera"><i class="bi bi-camera"></i></button>
+                                <button class="btn-icon" id="qrBtn" title="Ler QR Code"><i class="bi bi-qr-code"></i></button>
+                                <button class="btn-search-submit" id="searchBtn">
+                                    <span class="icon-search"><i class="bi bi-arrow-right"></i></span>
+                                    <span class="icon-check"><i class="bi bi-check-lg"></i></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar-container" id="progressBarContainer">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                    <div class="search-status" id="searchStatus"></div>
+                    <div class="correction-banner" id="correctionBanner">
+                        <span>🔍 Você quis dizer: <span class="suggestion-text" id="correctionText"></span>?</span>
+                    </div>
+                    <div class="autocomplete-box" id="autocompleteBox"></div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="history-bar" id="historyBar">
+                    <span class="history-chip" data-term="Galaxy A15">🕐 Galaxy A15</span>
+                    <span class="history-chip" data-term="iPhone 15">🕐 iPhone 15</span>
+                    <span class="history-chip" data-term="Moto G84">🕐 Moto G84</span>
+                    <span class="history-chip" data-term="Redmi Note 13">🕐 Redmi Note 13</span>
+                    <span class="history-chip" data-term="Galaxy S24">🕐 Galaxy S24</span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="suggestions-bar" id="suggestionsBar">
+                    <span class="suggestion-chip" data-term="Galaxy A15">📱 Galaxy A15</span>
+                    <span class="suggestion-chip" data-term="iPhone 15">📱 iPhone 15</span>
+                    <span class="suggestion-chip" data-term="Moto G84">📱 Moto G84</span>
+                    <span class="suggestion-chip" data-term="Redmi Note 13">📱 Redmi Note 13</span>
+                    <span class="suggestion-chip" data-term="Galaxy S24">📱 Galaxy S24</span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="result-area" id="resultArea">
+                    <div class="text-center py-5">
+                        <span class="mono-icon fs-1"><i class="bi bi-search"></i></span>
+                        <p class="mt-3 text-secondary" style="font-size:0.95rem;">Digite um modelo para encontrar películas compatíveis</p>
+                        <p class="text-secondary small">Ex: Galaxy A15, iPhone 15, Moto G84, Redmi Note 13</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="container text-center text-secondary small py-3 border-top border-light-subtle">
+        <span>INFOCELLL · Banco de Dados de Películas</span>
+        <span class="mx-2">|</span>
+        <span id="footerModels">0 modelos</span>
+        <span class="mx-2">|</span>
+        <span>⌨️ Ctrl+K · ESC limpa</span>
+    </footer>
+
+    <script>
+        (function() {
+            // =============================================
+            // BANCO DE DADOS COMPLETO - TODOS OS CSVs
+            // =============================================
+            const database = [];
+
+            // ===== FUNÇÃO PARA ADICIONAR REGISTROS =====
+            function addRecord(id, marca, modelo, compat, tipo, tela, obs) {
+                const compatArray = compat.split(';').map(c => c.trim()).filter(c => c.length > 0);
+                database.push({
+                    id: id,
+                    modelo: modelo,
+                    marca: marca,
+                    compat: compatArray,
+                    tipo: tipo || '3D',
+                    tela: tela || 'N/A',
+                    obs: obs || 'Compatibilidade direta',
+                    codigo: (marca.substring(0, 2) + Math.floor(Math.random() * 9000) + 1000).toUpperCase(),
+                    pelicula: tipo === 'Flexível' ? 'FLEX-001' : tipo === 'Vidro' ? 'VIDRO-001' : '3D-001',
+                    grupo: (marca.substring(0, 3) + '-GRP').toUpperCase()
+                });
+            }
+
+            // ===== SAMSUNG (IDs 001-085, mais extras) =====
+            const samsungData = [
+                ['001', 'Samsung', 'Galaxy A01', 'Galaxy A01 Core;Galaxy M01', '3D', '5.7',
+                    'Compatibilidade por tamanho de tela'
+                ],
+                ['002', 'Samsung', 'Galaxy A02',
+                    'Galaxy A02s;Galaxy A03;Galaxy A03s;Galaxy A03 Core;Galaxy A04;Galaxy A04s;Galaxy A04e;Galaxy A12;Galaxy A13;Galaxy M12',
+                    '3D', '6.5', 'Mesmo padrão de corte'],
+                ['003', 'Samsung', 'Galaxy A10', 'Galaxy A10s;Galaxy M10', '3D', '6.2',
+                    'Compatibilidade de tela semelhante'],
+                ['004', 'Samsung', 'Galaxy A11', 'Galaxy M11', '3D', '6.4', 'Mesmo tamanho de display'],
+                ['005', 'Samsung', 'Galaxy A20', 'Galaxy A20s;Galaxy A30;Galaxy A30s', '3D', '6.4',
+                    'Compatibilidade parcial'],
+                ['006', 'Samsung', 'Galaxy A21', 'Galaxy A21s', '3D', '6.5', 'Mesmo formato frontal'],
+                ['007', 'Samsung', 'Galaxy A22', 'Galaxy A22 4G;Galaxy A22 5G;Samsung M32;Samsung A33;Samsung M31;Samsung A32 4G',
+                    '3D', '6.6', 'Verificar sensor frontal'],
+                ['008', 'Samsung', 'Galaxy A23', 'Galaxy A23 4G;Galaxy A23 5G', '3D', '6.6', 'Mesmo recorte'],
+                ['009', 'Samsung', 'Galaxy A24', 'Galaxy A24 4G', '3D', '6.5', 'Modelo equivalente'],
+                ['010', 'Samsung', 'Galaxy A25', 'Galaxy A25 5G', '3D', '6.5', 'Mesmo corpo frontal'],
+                ['011', 'Samsung', 'Galaxy A31', 'Galaxy A51', '3D', '6.5', 'Compatibilidade próxima'],
+                ['012', 'Samsung', 'Galaxy A32', 'Galaxy A32 4G;Galaxy A32 5G;Samsung A22 4G;Samsung M32;Samsung A33;Samsung M31',
+                    '3D', '6.5', 'Confirmar versão'],
+                ['013', 'Samsung', 'Galaxy A33', 'Galaxy A33 5G;Samsung M21S;Samsung M31', '3D', '6.4', 'Mesmo padrão'],
+                ['014', 'Samsung', 'Galaxy A34', 'Galaxy A34 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['015', 'Samsung', 'Galaxy A35', 'Galaxy A35 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['016', 'Samsung', 'Galaxy A50', 'Galaxy A50s;Galaxy A30s', '3D', '6.4', 'Mesmo formato frontal'],
+                ['017', 'Samsung', 'Galaxy A51', 'Galaxy A51 4G;Galaxy A51 5G', '3D', '6.5', 'Confirmar câmera frontal'],
+                ['018', 'Samsung', 'Galaxy A52', 'Galaxy A52 4G;Galaxy A52 5G;Moto Edge 30 Pro', '3D', '6.5', 'Mesmo corte'],
+                ['019', 'Samsung', 'Galaxy A53', 'Galaxy A53 5G;Redmi Note 10;Redmi Note 10 4G;Redmi Note 10 S', '3D',
+                    '6.5', 'Compatibilidade direta'],
+                ['020', 'Samsung', 'Galaxy A54', 'Galaxy A54 5G', '3D', '6.4', 'Compatibilidade direta'],
+                ['021', 'Samsung', 'Galaxy A55', 'Galaxy A55 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['022', 'Samsung', 'Galaxy A70', 'Galaxy A70s', '3D', '6.7', 'Mesmo display'],
+                ['023', 'Samsung', 'Galaxy A71', 'Galaxy A71 4G;Galaxy A71 5G', '3D', '6.7', 'Confirmar versão'],
+                ['024', 'Samsung', 'Galaxy A72', 'Galaxy A72 4G;Galaxy A72 5G', '3D', '6.7', 'Mesmo padrão'],
+                ['025', 'Samsung', 'Galaxy A73', 'Galaxy A73 5G;M51;A21S;A21;Moto G52;Xiaomi 10T;Xiaomi 11 Lite', '3D',
+                    '6.7', 'Compatibilidade direta'],
+                ['026', 'Samsung', 'Galaxy M20', 'Galaxy M10', '3D', '6.3', 'Compatibilidade por tela'],
+                ['027', 'Samsung', 'Galaxy M21', 'Galaxy M21s;Galaxy M30s', '3D', '6.4', 'Mesmo corte'],
+                ['028', 'Samsung', 'Galaxy M22', 'Galaxy M32 4G', '3D', '6.4', 'Compatibilidade próxima'],
+                ['029', 'Samsung', 'Galaxy M23', 'Galaxy M23 5G;Realme C11;A03;A02;A02S;A03S', '3D', '6.6', 'Mesmo modelo'],
+                ['030', 'Samsung', 'Galaxy M31', 'Galaxy M31s;A30S;A20;G8 Plus;M10s;A12', '3D', '6.4',
+                    'Compatibilidade direta'],
+                ['031', 'Samsung', 'Galaxy M33', 'Galaxy M33 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['032', 'Samsung', 'Galaxy M34', 'Galaxy M34 5G', '3D', '6.5', 'Compatibilidade direta'],
+                ['033', 'Samsung', 'Galaxy M51', 'Galaxy M52 5G;Galaxy M53 5G;Realme C6 Pro;Moto G71;A11;A71;A21S;A21;S20 FE;A52;G62;Redmi Note 10 Pro',
+                    '3D', '6.7', 'Mesmo tamanho aproximado'],
+                ['034', 'Samsung', 'Galaxy M54', 'Galaxy M54 5G', '3D', '6.7', 'Compatibilidade direta'],
+                ['035', 'Samsung', 'Galaxy S8', 'Galaxy S8', '3D', '5.8', 'Compatibilidade direta'],
+                ['036', 'Samsung', 'Galaxy S8 Plus', 'Galaxy S8+', '3D', '6.2', 'Compatibilidade direta'],
+                ['037', 'Samsung', 'Galaxy S9', 'Galaxy S9', '3D', '5.8', 'Compatibilidade direta'],
+                ['038', 'Samsung', 'Galaxy S9 Plus', 'Galaxy S9+', '3D', '6.2', 'Compatibilidade direta'],
+                ['039', 'Samsung', 'Galaxy S10', 'Galaxy S10', '3D', '6.1', 'Compatibilidade direta'],
+                ['040', 'Samsung', 'Galaxy S10e', 'Galaxy S10e', '3D', '5.8', 'Compatibilidade direta'],
+                ['041', 'Samsung', 'Galaxy S10 Plus', 'Galaxy S10+', '3D', '6.4', 'Compatibilidade direta'],
+                ['042', 'Samsung', 'Galaxy S20', 'Galaxy S20 4G;Galaxy S20 5G', '3D', '6.2', 'Confirmar versão'],
+                ['043', 'Samsung', 'Galaxy S20 Plus', 'Galaxy S20+;Note 10 T', '3D', '6.7', 'Compatibilidade direta'],
+                ['044', 'Samsung', 'Galaxy S20 Ultra', 'Galaxy S20 Ultra 5G', '3D', '6.9', 'Compatibilidade direta'],
+                ['045', 'Samsung', 'Galaxy S21', 'Galaxy S21 5G', '3D', '6.2', 'Compatibilidade direta'],
+                ['046', 'Samsung', 'Galaxy S21 Plus', 'Galaxy S21+;S22 FE', '3D', '6.7', 'Compatibilidade direta'],
+                ['047', 'Samsung', 'Galaxy S21 Ultra', 'Galaxy S21 Ultra', '3D', '6.8', 'Compatibilidade direta'],
+                ['048', 'Samsung', 'Galaxy S22', 'Galaxy S22 5G;S21 FE', '3D', '6.1', 'Compatibilidade direta'],
+                ['049', 'Samsung', 'Galaxy S22 Plus', 'Galaxy S22+;S21 FE', '3D', '6.6', 'Compatibilidade direta'],
+                ['050', 'Samsung', 'Galaxy S22 Ultra', 'Galaxy S22 Ultra', '3D', '6.8', 'Compatibilidade direta'],
+                ['051', 'Samsung', 'Galaxy S23', 'Galaxy S23 5G', '3D', '6.1', 'Compatibilidade direta'],
+                ['052', 'Samsung', 'Galaxy S23 Plus', 'Galaxy S23+', '3D', '6.6', 'Compatibilidade direta'],
+                ['053', 'Samsung', 'Galaxy S23 Ultra', 'Galaxy S23 Ultra', '3D', '6.8', 'Compatibilidade direta'],
+                ['054', 'Samsung', 'Galaxy S24', 'Galaxy S24 5G', '3D', '6.2', 'Compatibilidade direta'],
+                ['055', 'Samsung', 'Galaxy S24 Plus', 'Galaxy S24+', '3D', '6.7', 'Compatibilidade direta'],
+                ['056', 'Samsung', 'Galaxy S24 Ultra', 'Galaxy S24 Ultra', '3D', '6.8', 'Compatibilidade direta'],
+                ['057', 'Samsung', 'Galaxy Note 8', 'Galaxy Note 8', '3D', '6.3', 'Compatibilidade direta'],
+                ['058', 'Samsung', 'Galaxy Note 9', 'Galaxy Note 9', '3D', '6.4', 'Compatibilidade direta'],
+                ['059', 'Samsung', 'Galaxy Note 10', 'Galaxy Note 10', '3D', '6.3', 'Compatibilidade direta'],
+                ['060', 'Samsung', 'Galaxy Note 10 Plus', 'Galaxy Note 10+', '3D', '6.8', 'Compatibilidade direta'],
+                ['061', 'Samsung', 'Galaxy Note 20', 'Galaxy Note 20', '3D', '6.7', 'Compatibilidade direta'],
+                ['062', 'Samsung', 'Galaxy Note 20 Ultra', 'Galaxy Note 20 Ultra', '3D', '6.9', 'Compatibilidade direta'],
+                ['063', 'Samsung', 'Galaxy Z Flip', 'Galaxy Z Flip', 'Flexível', '6.7', 'Usar película própria dobrável'],
+                ['064', 'Samsung', 'Galaxy Z Flip 3', 'Galaxy Z Flip3', 'Flexível', '6.7', 'Usar película própria'],
+                ['065', 'Samsung', 'Galaxy Z Flip 4', 'Galaxy Z Flip4', 'Flexível', '6.7', 'Usar película própria'],
+                ['066', 'Samsung', 'Galaxy Z Flip 5', 'Galaxy Z Flip5', 'Flexível', '6.7', 'Usar película própria'],
+                ['067', 'Samsung', 'Galaxy Z Fold', 'Galaxy Z Fold', 'Flexível', '7.3', 'Usar película própria'],
+                ['068', 'Samsung', 'Galaxy Z Fold 2', 'Galaxy Z Fold2', 'Flexível', '7.6', 'Usar película própria'],
+                ['069', 'Samsung', 'Galaxy Z Fold 3', 'Galaxy Z Fold3', 'Flexível', '7.6', 'Usar película própria'],
+                ['070', 'Samsung', 'Galaxy Z Fold 4', 'Galaxy Z Fold4', 'Flexível', '7.6', 'Usar película própria'],
+                ['071', 'Samsung', 'Galaxy Z Fold 5', 'Galaxy Z Fold5', 'Flexível', '7.6', 'Usar película própria'],
+                ['072', 'Samsung', 'Galaxy F02s', 'Galaxy F02s', '3D', '6.5', 'Compatibilidade direta'],
+                ['073', 'Samsung', 'Galaxy F12', 'Galaxy F12', '3D', '6.5', 'Compatibilidade direta'],
+                ['074', 'Samsung', 'Galaxy F13', 'Galaxy F13', '3D', '6.6', 'Compatibilidade direta'],
+                ['075', 'Samsung', 'Galaxy F22', 'Galaxy F22', '3D', '6.4', 'Compatibilidade direta'],
+                ['076', 'Samsung', 'Galaxy F23', 'Galaxy F23 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['077', 'Samsung', 'Galaxy F41', 'Galaxy F41', '3D', '6.4', 'Compatibilidade direta'],
+                ['078', 'Samsung', 'Galaxy F52', 'Galaxy F52 5G', '3D', '6.6', 'Compatibilidade direta'],
+                ['079', 'Samsung', 'Galaxy J2', 'Galaxy J2', '3D', '5.0', 'Compatibilidade direta'],
+                ['080', 'Samsung', 'Galaxy J2 Prime', 'Galaxy J2 Prime', '3D', '5.0', 'Compatibilidade direta'],
+                ['081', 'Samsung', 'Galaxy J5', 'Galaxy J5', '3D', '5.0', 'Compatibilidade direta'],
+                ['082', 'Samsung', 'Galaxy J5 Prime', 'Galaxy J5 Prime', '3D', '5.0', 'Compatibilidade direta'],
+                ['083', 'Samsung', 'Galaxy J7', 'Galaxy J7', '3D', '5.5', 'Compatibilidade direta'],
+                ['084', 'Samsung', 'Galaxy J7 Prime', 'Galaxy J7 Prime', '3D', '5.5', 'Compatibilidade direta'],
+                ['085', 'Samsung', 'Galaxy J8', 'Galaxy J8', '3D', '6.0', 'Compatibilidade direta'],
+                // Extras Samsung
+                ['086', 'Samsung', 'Galaxy A05', 'Galaxy A05S', '3D', '6.7', 'Compatibilidade direta'],
+                ['087', 'Samsung', 'Galaxy A05S', 'Galaxy A05', '3D', '6.7', 'Compatibilidade direta'],
+                ['088', 'Samsung', 'Galaxy A06', 'Galaxy A05;Galaxy A05S', '3D', '6.7', 'Compatibilidade direta'],
+                ['089', 'Samsung', 'Galaxy A16', 'Galaxy A26', '3D', '6.7', 'Compatibilidade direta'],
+                ['090', 'Samsung', 'Galaxy A26', 'Galaxy A16', '3D', '6.7', 'Compatibilidade direta'],
+            ];
+
+            samsungData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== MOTOROLA (IDs 091-140) =====
+            const motorolaData = [
+                ['091', 'Motorola', 'Moto E6', 'Moto E6 Play;Moto E6s', '3D', '6.1', 'Compatibilidade por tela'],
+                ['092', 'Motorola', 'Moto E7', 'Moto E7 Power;Moto E7 Plus', '3D', '6.5', 'Mesmo padrão frontal'],
+                ['093', 'Motorola', 'Moto E13', 'Moto E13;A22 5G;A12;A13;A03;A02;Moto E20;Moto E22', '3D', '6.5',
+                    'Compatibilidade direta'],
+                ['094', 'Motorola', 'Moto E20', 'Moto E20;A14;E7 Plus;G9 Play;G20;G30;G10;A22;A13;A02;A03;A04', '3D',
+                    '6.5', 'Compatibilidade direta'],
+                ['095', 'Motorola', 'Moto E22', 'Moto E22;K41S;One Fusion;Moto G30;E7 Plus;A02S;Realme C25;Realme C11;Samsung A23;E20;G20;E13',
+                    '3D', '6.5', 'Compatibilidade direta'],
+                ['096', 'Motorola', 'Moto E32', 'Moto E32;Moto E32s', '3D', '6.5', 'Compatibilidade direta'],
+                ['097', 'Motorola', 'Moto E40', 'Moto E40', '3D', '6.5', 'Compatibilidade direta'],
+                ['098', 'Motorola', 'Moto G6', 'Moto G6 Play;Moto G6 Plus', '3D', '5.7', 'Confirmar versão'],
+                ['099', 'Motorola', 'Moto G7', 'Moto G7 Play;Moto G7 Power', '3D', '6.2', 'Compatibilidade próxima'],
+                ['100', 'Motorola', 'Moto G7 Plus', 'Moto G7 Plus;A10;A20;Moto G8;G7 Plus', '3D', '6.2',
+                    'Compatibilidade direta'],
+                ['101', 'Motorola', 'Moto G8 Play', 'Moto G8 Play;A30;A20;G8 Plus;Note 7;Note 8', '3D', '6.2',
+                    'Compatibilidade direta'],
+                ['102', 'Motorola', 'Moto G8 Power', 'Moto G8 Power;Moto G Stylus', '3D', '6.4', 'Compatibilidade direta'],
+                ['103', 'Motorola', 'Moto G8 Plus', 'Moto G8 Plus;G7 Plus;A10;A20', '3D', '6.3', 'Compatibilidade direta'],
+                ['104', 'Motorola', 'Moto G9 Play', 'Moto G9 Play;A03;M23;A12;A13;G30;G50;E20;A20S;E7 Power;One Fusion',
+                    '3D', '6.5', 'Compatibilidade direta'],
+                ['105', 'Motorola', 'Moto G9 Plus', 'Moto G9 Plus', '3D', '6.8', 'Compatibilidade direta'],
+                ['106', 'Motorola', 'Moto G10', 'Moto G10;Moto E20;One Fusion;G20;G30;G9 Play;E7 Plus;A02S', '3D', '6.5',
+                    'Compatibilidade direta'],
+                ['107', 'Motorola', 'Moto G20', 'Moto G20;G30;G9 Play;E7 Plus;E7 Play;A02S;G10', '3D', '6.5',
+                    'Compatibilidade direta'],
+                ['108', 'Motorola', 'Moto G22', 'Moto G22', '3D', '6.5', 'Compatibilidade direta'],
+                ['109', 'Motorola', 'Moto G23', 'Moto G23', '3D', '6.5', 'Compatibilidade direta'],
+                ['110', 'Motorola', 'Moto G30', 'Moto G30', '3D', '6.5', 'Compatibilidade direta'],
+                ['111', 'Motorola', 'Moto G31', 'Moto G31;Moto G41;Moto G52;G71', '3D', '6.4', 'Compatibilidade direta'],
+                ['112', 'Motorola', 'Moto G32', 'Moto G32;G71;G62;G53;G13;G22;G54', '3D', '6.5', 'Compatibilidade direta'],
+                ['113', 'Motorola', 'Moto G34 5G', 'Moto G34', '3D', '6.5', 'Compatibilidade direta'],
+                ['114', 'Motorola', 'Moto G41', 'Moto G41;Moto G31;Moto G52;G71;Redmi Note 10;G52;Realme 7 Pro;A11',
+                    '3D', '6.4', 'Compatibilidade direta'],
+                ['115', 'Motorola', 'Moto G42', 'Moto G42;G41;G52;G71;A53;Redmi Note 10;A11', '3D', '6.4',
+                    'Compatibilidade direta'],
+                ['116', 'Motorola', 'Moto G50', 'Moto G50 5G', '3D', '6.5', 'Compatibilidade direta'],
+                ['117', 'Motorola', 'Moto G52', 'Moto G52;A73;M51;A52;A71;A72;A21S;A21;Moto G Stylus;Redmi Note 10;Redmi Note 10S;Redmi Note 10 Pro;Xiaomi Mi 11i;Xiaomi Mi 11 Lite',
+                    '3D', '6.6', 'Compatibilidade direta'],
+                ['118', 'Motorola', 'Moto G53', 'Moto G53 5G', '3D', '6.5', 'Compatibilidade direta'],
+                ['119', 'Motorola', 'Moto G54', 'Moto G54 5G;G71;G62;G53;G32;G13;G22;G14', '3D', '6.5',
+                    'Compatibilidade direta'],
+                ['120', 'Motorola', 'Moto G60', 'Moto G60;Moto G60s;Moto G200;G40 Fusion;Redmi 10C', '3D', '6.8',
+                    'Compatibilidade próxima'],
+                ['121', 'Motorola', 'Moto G62', 'Moto G62 5G;G71;G53;G32;G13;G22;G54;A52;Redmi Note 10 4G;Redmi Note 10 S',
+                    '3D', '6.5', 'Compatibilidade direta'],
+                ['122', 'Motorola', 'Moto G71', 'Moto G71 5G;A53;G41;A41;G52;G62;G53;G32;G13;G22;G54;Realme 7 Pro',
+                    '3D', '6.4', 'Compatibilidade direta'],
+                ['123', 'Motorola', 'Moto G72', 'Moto G72', '3D', '6.5', 'Compatibilidade direta'],
+                ['124', 'Motorola', 'Moto G73', 'Moto G73 5G;Moto G8;Poco M3;Xiaomi 11 Lite;Redmi Note 11;Redmi Note 10;Poco X4;Realme 7 Pro;Samsung A52',
+                    '3D', '6.5', 'Compatibilidade direta'],
+                ['125', 'Motorola', 'Moto G82', 'Moto G82 5G;Moto G52;G32;A52;A53;S21 FE;Redmi Note 11 4G;Redmi Note 10 4G;Redmi Note 10S',
+                    '3D', '6.6', 'Compatibilidade direta'],
+                ['126', 'Motorola', 'Moto G84', 'Moto G84 5G', '3D', '6.5', 'Compatibilidade direta'],
+                ['127', 'Motorola', 'Moto G85', 'Moto G85 5G', '3D', '6.7', 'Compatibilidade direta'],
+                ['128', 'Motorola', 'Moto One', 'Moto One Power;Moto One Vision', '3D', '6.2', 'Verificar câmera frontal'],
+                ['129', 'Motorola', 'Moto One Action', 'Moto One Vision', '3D', '6.3', 'Compatibilidade próxima'],
+                ['130', 'Motorola', 'Moto One Fusion', 'Moto One Fusion Plus', '3D', '6.5', 'Compatibilidade próxima'],
+                ['131', 'Motorola', 'Moto One Macro', 'Moto One Macro', '3D', '6.2', 'Compatibilidade direta'],
+                ['132', 'Motorola', 'Moto Edge', 'Moto Edge 20;Moto Edge 30', '3D', '6.7', 'Confirmar versão'],
+                ['133', 'Motorola', 'Moto Edge 20', 'Moto Edge 20 Pro;Edge 20 Lite;A80;A70;Edge X30;Edge X30 Pro', '3D',
+                    '6.7', 'Compatibilidade próxima'],
+                ['134', 'Motorola', 'Moto Edge 30', 'Moto Edge 30 Neo;Edge 30 Fusion;A52;Moto G8;G52;A11;G41;G62;Poco M3;Realme C6 Pro',
+                    '3D', '6.5', 'Confirmar versão'],
+                ['135', 'Motorola', 'Moto Edge 30 Pro', 'Moto Edge 30 Pro;A52;Moto G8;Moto G52;A11;Moto G41;Xiaomi 11 Lite;Poco M3;Realme C6 Pro',
+                    '3D', '6.6', 'Compatibilidade direta'],
+                ['136', 'Motorola', 'Moto Edge 40', 'Moto Edge 40', '3D', '6.6', 'Compatibilidade direta'],
+                ['137', 'Motorola', 'Moto Edge 50', 'Moto Edge 50 Fusion;Edge 50 Pro', '3D', '6.7', 'Confirmar versão'],
+                ['138', 'Motorola', 'Moto G200', 'Moto G200;G60S;G100', '3D', '6.8', 'Compatibilidade direta'],
+                ['139', 'Motorola', 'Moto G Stylus', 'Moto G8 Power', '3D', '6.8', 'Compatibilidade direta'],
+                ['140', 'Motorola', 'Moto One Zoom', 'Moto One Zoom;LG K50;LG X6;LG Q60;LG K12 Prime;A20;Realme C6 Pro',
+                    '3D', '6.3', 'Compatibilidade direta'],
+            ];
+
+            motorolaData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== XIAOMI / REDMI / POCO (IDs 141-200) =====
+            const xiaomiData = [
+                ['141', 'Xiaomi', 'Redmi 7', 'Redmi 7A', '3D', '6.26', 'Confirmar versão'],
+                ['142', 'Xiaomi', 'Redmi 8', 'Redmi 8A', '3D', '6.22', 'Compatibilidade próxima'],
+                ['143', 'Xiaomi', 'Redmi 9', 'Redmi 9A;Redmi 9C;Redmi 9AT;Samsung M21S;Samsung M31', '3D', '6.53',
+                    'Mesmo padrão de corte'],
+                ['144', 'Xiaomi', 'Redmi 9A',
+                    'A23;A12;A32;Moto E7 Plus;A23;A03S;Redmi 9 Power;Redmi 9T;Realme C11;Realme C25;Poco M3;Redmi 9C;Redmi 9I',
+                    '3D', '6.53', 'Compatibilidade direta'],
+                ['145', 'Xiaomi', 'Redmi 9C',
+                    'A23;A12;A32;Moto E7 Plus;A23;A03S;Redmi 9 Power;Redmi 9T;Realme C11;Realme C25;Poco M3;Redmi 9A;Redmi 9I',
+                    '3D', '6.53', 'Compatibilidade direta'],
+                ['146', 'Xiaomi', 'Redmi 9I',
+                    'A23;A12;A32;Moto E7 Plus;A23;A03S;Redmi 9 Power;Redmi 9T;Realme C11;Realme C25;Poco M3;Redmi 9A;Redmi 9C',
+                    '3D', '6.53', 'Compatibilidade direta'],
+                ['147', 'Xiaomi', 'Redmi 10', 'Redmi 10C;Redmi 10A', '3D', '6.5', 'Confirmar câmera'],
+                ['148', 'Xiaomi', 'Redmi 12', 'Redmi 12 4G;Redmi 12 5G', '3D', '6.79', 'Compatibilidade direta'],
+                ['149', 'Xiaomi', 'Redmi 13', 'Redmi 13C;Redmi 13 4G', '3D', '6.79', 'Compatibilidade próxima'],
+                ['150', 'Xiaomi', 'Redmi Note 7', 'Redmi Note 7 Pro', '3D', '6.3', 'Compatibilidade direta'],
+                ['151', 'Xiaomi', 'Redmi Note 8',
+                    'Redmi Note 8;Redmi Note 8T;Note 7;A20;A30;G7;G7 Plus;G8 Plus;G8 Play;One Zoom;K40S', '3D', '6.3',
+                    'Mesmo corte'],
+                ['152', 'Xiaomi', 'Redmi Note 9',
+                    'Redmi Note 9S;Redmi Note 9 Pro;Xiaomi Mi 12T;Redmi Note 13 Pro;Poco X5', '3D', '6.67',
+                    'Verificar câmera'],
+                ['153', 'Xiaomi', 'Redmi Note 10',
+                    'Redmi Note 10S;Redmi Note 10 5G;Redmi Note 10S;A53;Realme 7 Pro;Xiaomi 11 Lite', '3D', '6.43',
+                    'Confirmar versão'],
+                ['154', 'Xiaomi', 'Redmi Note 10 Pro',
+                    'Realme C6 Pro;G71;M51;A21S;A21;A11;A52;Moto One Fusion;Xiaomi Mi 11i;Redmi Note 10', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['155', 'Xiaomi', 'Redmi Note 11',
+                    'Redmi Note 11S;Redmi Note 11 5G;Realme 6 Pro;Redmi Note 10S;Redmi Note 10;Moto G52', '3D', '6.43',
+                    'Compatibilidade próxima'],
+                ['156', 'Xiaomi', 'Redmi Note 11S',
+                    'Redmi Note 11S;Realme 6 Pro;Redmi Note 10S;Redmi Note 10;Moto G52', '3D', '6.43',
+                    'Compatibilidade direta'],
+                ['157', 'Xiaomi', 'Redmi Note 12', 'Redmi Note 12 4G;Redmi Note 12 5G', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['158', 'Xiaomi', 'Redmi Note 12 Pro', 'Redmi Note 12 Pro 5G', '3D', '6.67', 'Confirmar versão'],
+                ['159', 'Xiaomi', 'Redmi Note 13', 'Redmi Note 13 4G;Redmi Note 13 5G', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['160', 'Xiaomi', 'Redmi Note 13 Pro',
+                    'Redmi Note 13 Pro 4G;Redmi Note 13 Pro 5G;Redmi Note 13;Redmi Note 13 5G;Xiaomi Mi 12T;Poco X5',
+                    '3D', '6.67', 'Confirmar versão'],
+                ['161', 'Xiaomi', 'Redmi Note 13 Pro Plus', 'Redmi Note 13 Pro+ 5G', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['162', 'Xiaomi', 'Mi 8', 'Mi 8', '3D', '6.21', 'Compatibilidade direta'],
+                ['163', 'Xiaomi', 'Mi 9', 'Mi 9;Mi 9T', '3D', '6.39', 'Confirmar câmera'],
+                ['164', 'Xiaomi', 'Mi 10', 'Mi 10 Pro;A73;A11;Poco F3;Moto G71;Moto G41;Realme C6 Pro;Moto G52;A21S;A21;A52',
+                    '3D', '6.67', 'Compatibilidade próxima'],
+                ['165', 'Xiaomi', 'Mi 11', 'Mi 11 Lite;Mi 11 Pro;A52;G52;A53;Poco M3 Pro;G8 Power;G82;Note 10S;Realme 7 Pro;Redmi Note 10;Note 10 Pro',
+                    '3D', '6.81', 'Confirmar versão'],
+                ['166', 'Xiaomi', 'Mi 11 Lite',
+                    'Mi 11 Lite;A52;G52;A53;Poco M3 Pro;G8 Power;G82;Note 10S;Realme 7 Pro;Redmi Note 10;Note 10 Pro',
+                    '3D', '6.55', 'Compatibilidade direta'],
+                ['167', 'Xiaomi', 'Mi 12', 'Mi 12X;Mi 12 Pro', '3D', '6.73', 'Confirmar versão'],
+                ['168', 'Xiaomi', 'Mi 13', 'Mi 13 Pro', '3D', '6.73', 'Compatibilidade próxima'],
+                ['169', 'Xiaomi', 'Poco X3', 'Poco X3 NFC;Poco X3 Pro', '3D', '6.67', 'Mesmo padrão'],
+                ['170', 'Xiaomi', 'Poco X4', 'Poco X4 Pro 5G;Poco X3;Redmi Note 10;Mi Poco F3;Edge X30 Pro;Moto G62;Redmi Note 10 Pro;Mi 11i;A11;G71',
+                    '3D', '6.67', 'Compatibilidade direta'],
+                ['171', 'Xiaomi', 'Poco X5', 'Poco X5 5G;Poco X5 Pro', '3D', '6.67', 'Confirmar versão'],
+                ['172', 'Xiaomi', 'Poco X6', 'Poco X6 5G;Poco X6 Pro', '3D', '6.67', 'Compatibilidade próxima'],
+                ['173', 'Xiaomi', 'Poco F3', 'Poco F3;Redmi K40;Xiaomi 10T;Poco M3 Pro;Xiaomi Mi 11i', '3D', '6.67',
+                    'Mesmo display'],
+                ['174', 'Xiaomi', 'Poco F4', 'Poco F4 5G', '3D', '6.67', 'Compatibilidade direta'],
+                ['175', 'Xiaomi', 'Poco F5', 'Poco F5 5G;Redmi Note 12 Turbo', '3D', '6.67', 'Compatibilidade próxima'],
+                ['176', 'Xiaomi', 'Poco M2', 'Poco M2;A22;A33;A32', '3D', '6.43', 'Compatibilidade direta'],
+                ['177', 'Xiaomi', 'Poco M3', 'Poco M3;Redmi 9 Power;Samsung A20S;Redmi 9A', '3D', '6.53',
+                    'Compatibilidade direta'],
+                ['178', 'Xiaomi', 'Poco M3 Pro', 'Poco M3 Pro;G41;G52;Redmi Note 10;A52;A11;Xiaomi 11 Lite', '3D',
+                    '6.53', 'Compatibilidade direta'],
+                ['179', 'Xiaomi', 'Poco C65', 'Poco C65;Redmi 13C;Samsung A05;Samsung A05S;Redmi A3', '3D', '6.74',
+                    'Compatibilidade direta'],
+                ['180', 'Xiaomi', 'Mi A1', 'Mi A1', '3D', '5.5', 'Compatibilidade direta'],
+                ['181', 'Xiaomi', 'Mi A2', 'Mi A2 Lite', '3D', '5.99', 'Confirmar versão'],
+                ['182', 'Xiaomi', 'Mi A3', 'Mi A3', '3D', '6.01', 'Compatibilidade direta'],
+                ['183', 'Xiaomi', 'Redmi C20', 'Redmi C20;Redmi C21', '3D', '6.5', 'Mesmo corte'],
+                ['184', 'Xiaomi', 'Redmi C30', 'Redmi C30;Redmi C31', '3D', '6.71', 'Compatibilidade próxima'],
+                ['185', 'Xiaomi', 'Redmi C35', 'Redmi C35', '3D', '6.6', 'Compatibilidade direta'],
+                ['186', 'Xiaomi', 'Redmi C55', 'Redmi C55', '3D', '6.71', 'Compatibilidade direta'],
+                ['187', 'Xiaomi', 'Xiaomi 12T', 'Xiaomi 12T;Redmi Note 9;Redmi Note 13 Pro;Poco X5', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['188', 'Xiaomi', 'Xiaomi 13T', 'Xiaomi 13T;Xiaomi 13T Pro', '3D', '6.67', 'Compatibilidade direta'],
+            ];
+
+            xiaomiData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== APPLE (IDs 200-230) =====
+            const appleData = [
+                ['200', 'Apple', 'iPhone 6', 'iPhone 6s', '3D', '4.7', 'Mesmo tamanho frontal'],
+                ['201', 'Apple', 'iPhone 6 Plus', 'iPhone 6s Plus', '3D', '5.5', 'Compatibilidade direta'],
+                ['202', 'Apple', 'iPhone 7', 'iPhone 8', '3D', '4.7', 'Mesmo corpo frontal'],
+                ['203', 'Apple', 'iPhone 7 Plus', 'iPhone 8 Plus', '3D', '5.5', 'Compatibilidade direta'],
+                ['204', 'Apple', 'iPhone SE 2020', 'iPhone 8;iPhone SE 2022', '3D', '4.7', 'Mesmo padrão de tela'],
+                ['205', 'Apple', 'iPhone X', 'iPhone XS', '3D', '5.8', 'Compatibilidade direta'],
+                ['206', 'Apple', 'iPhone XR', 'iPhone 11', '3D', '6.1', 'Mesmo tamanho frontal'],
+                ['207', 'Apple', 'iPhone XS Max', 'iPhone 11 Pro Max', '3D', '6.5', 'Compatibilidade próxima'],
+                ['208', 'Apple', 'iPhone 11', 'iPhone XR', '3D', '6.1', 'Mesmo tamanho de tela'],
+                ['209', 'Apple', 'iPhone 11 Pro', 'iPhone XS', '3D', '5.8', 'Compatibilidade próxima'],
+                ['210', 'Apple', 'iPhone 11 Pro Max', 'iPhone XS Max', '3D', '6.5', 'Compatibilidade direta'],
+                ['211', 'Apple', 'iPhone 12 Mini', 'iPhone 13 Mini', '3D', '5.4', 'Mesmo tamanho frontal'],
+                ['212', 'Apple', 'iPhone 12', 'iPhone 12 Pro', '3D', '6.1', 'Mesmo padrão'],
+                ['213', 'Apple', 'iPhone 12 Pro', 'iPhone 12', '3D', '6.1', 'Compatibilidade direta'],
+                ['214', 'Apple', 'iPhone 12 Pro Max', 'iPhone 13 Pro Max', '3D', '6.7', 'Compatibilidade próxima'],
+                ['215', 'Apple', 'iPhone 13', 'iPhone 13 Pro', '3D', '6.1', 'Mesmo tamanho frontal'],
+                ['216', 'Apple', 'iPhone 13 Pro', 'iPhone 13', '3D', '6.1', 'Compatibilidade direta'],
+                ['217', 'Apple', 'iPhone 13 Pro Max', 'iPhone 14 Plus', '3D', '6.7', 'Confirmar câmera'],
+                ['218', 'Apple', 'iPhone 13 Mini', 'iPhone 12 Mini', '3D', '5.4', 'Compatibilidade direta'],
+                ['219', 'Apple', 'iPhone 14', 'iPhone 13;iPhone 13 Pro', '3D', '6.1', 'Compatibilidade próxima'],
+                ['220', 'Apple', 'iPhone 14 Plus', 'iPhone 13 Pro Max', '3D', '6.7', 'Compatibilidade próxima'],
+                ['221', 'Apple', 'iPhone 14 Pro', 'iPhone 14', '3D', '6.1', 'Confirmar câmera'],
+                ['222', 'Apple', 'iPhone 14 Pro Max', 'iPhone 15 Plus', '3D', '6.7', 'Compatibilidade próxima'],
+                ['223', 'Apple', 'iPhone 15', 'iPhone 15 Pro', '3D', '6.1', 'Compatibilidade próxima'],
+                ['224', 'Apple', 'iPhone 15 Plus', 'iPhone 15 Pro Max', '3D', '6.7', 'Compatibilidade próxima'],
+                ['225', 'Apple', 'iPhone 15 Pro', 'iPhone 15', '3D', '6.1', 'Confirmar bordas'],
+                ['226', 'Apple', 'iPhone 15 Pro Max', 'iPhone 15 Plus', '3D', '6.7', 'Confirmar câmera'],
+                ['227', 'Apple', 'iPhone 16', 'iPhone 16 Plus', '3D', '6.1', 'Compatibilidade por versão'],
+                ['228', 'Apple', 'iPhone 16 Pro', 'iPhone 16', '3D', '6.3', 'Confirmar modelo'],
+                ['229', 'Apple', 'iPhone 16 Pro Max', 'iPhone 16 Plus', '3D', '6.9', 'Confirmar versão'],
+                ['230', 'Apple', 'iPhone SE 1ª Geração', 'iPhone 5s', '3D', '4.0', 'Mesmo corpo'],
+                ['231', 'Apple', 'iPhone 5', 'iPhone 5s;iPhone SE 1ª Geração', '3D', '4.0', 'Compatibilidade direta'],
+            ];
+
+            appleData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== OPPO (IDs 256-273) =====
+            const oppoData = [
+                ['256', 'Oppo', 'Oppo A5', 'A5 2020;A9 2020', '3D', '6.5', 'Compatibilidade próxima'],
+                ['257', 'Oppo', 'Oppo A15', 'A15s', '3D', '6.52', 'Compatibilidade direta'],
+                ['258', 'Oppo', 'Oppo A16', 'A16s;A16K', '3D', '6.52', 'Mesmo padrão frontal'],
+                ['259', 'Oppo', 'Oppo A17', 'A17;A17K', '3D', '6.56', 'Compatibilidade direta'],
+                ['260', 'Oppo', 'Oppo A31', 'A31 2020', '3D', '6.5', 'Compatibilidade direta'],
+                ['261', 'Oppo', 'Oppo A53', 'A53 2020;A53s', '3D', '6.5', 'Compatibilidade próxima'],
+                ['262', 'Oppo', 'Oppo A54', 'A54 4G;A54s', '3D', '6.51', 'Compatibilidade direta'],
+                ['263', 'Oppo', 'Oppo A55', 'A55 4G', '3D', '6.5', 'Compatibilidade direta'],
+                ['264', 'Oppo', 'Oppo A57', 'A57 4G;A57 5G', '3D', '6.56', 'Confirmar versão'],
+                ['265', 'Oppo', 'Oppo A58', 'A58 4G;A58 5G', '3D', '6.72', 'Confirmar versão'],
+                ['266', 'Oppo', 'Oppo A74', 'A74 4G;A74 5G', '3D', '6.43', 'Compatibilidade próxima'],
+                ['267', 'Oppo', 'Oppo A76', 'A76 4G', '3D', '6.56', 'Compatibilidade direta'],
+                ['268', 'Oppo', 'Oppo A77', 'A77 4G;A77s', '3D', '6.56', 'Compatibilidade próxima'],
+                ['269', 'Oppo', 'Oppo A78', 'A78 4G;A78 5G', '3D', '6.56', 'Confirmar versão'],
+                ['270', 'Oppo', 'Oppo Reno 4', 'Reno 4 Pro', '3D', '6.4', 'Compatibilidade próxima'],
+                ['271', 'Oppo', 'Oppo Reno 5', 'Reno 5 5G', '3D', '6.43', 'Compatibilidade direta'],
+                ['272', 'Oppo', 'Oppo Reno 6', 'Reno 6 5G', '3D', '6.4', 'Compatibilidade direta'],
+                ['273', 'Oppo', 'Oppo Reno 7', 'Reno 7 5G', '3D', '6.43', 'Compatibilidade direta'],
+            ];
+
+            oppoData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== REALME (IDs 274-287) =====
+            const realmeData = [
+                ['274', 'Realme', 'Realme C11', 'Realme C11 2020;C11 2021', '3D', '6.5', 'Compatibilidade direta'],
+                ['275', 'Realme', 'Realme C12', 'Realme C12', '3D', '6.5', 'Compatibilidade direta'],
+                ['276', 'Realme', 'Realme C15', 'Realme C15', '3D', '6.5', 'Compatibilidade direta'],
+                ['277', 'Realme', 'Realme C20', 'Realme C20;C21', '3D', '6.5', 'Compatibilidade próxima'],
+                ['278', 'Realme', 'Realme C25', 'Realme C25;C25s', '3D', '6.5', 'Compatibilidade direta'],
+                ['279', 'Realme', 'Realme C30', 'Realme C30;C30s', '3D', '6.5', 'Compatibilidade direta'],
+                ['280', 'Realme', 'Realme C31', 'Realme C31', '3D', '6.5', 'Compatibilidade direta'],
+                ['281', 'Realme', 'Realme C35', 'Realme C35', '3D', '6.6', 'Compatibilidade direta'],
+                ['282', 'Realme', 'Realme C55', 'Realme C55', '3D', '6.72', 'Compatibilidade direta'],
+                ['283', 'Realme', 'Realme 5', 'Realme 5 Pro', '3D', '6.5', 'Compatibilidade próxima'],
+                ['284', 'Realme', 'Realme 6', 'Realme 6 Pro', '3D', '6.5', 'Compatibilidade próxima'],
+                ['285', 'Realme', 'Realme 7', 'Realme 7 Pro', '3D', '6.5', 'Compatibilidade próxima'],
+                ['286', 'Realme', 'Realme 8', 'Realme 8 5G', '3D', '6.4', 'Confirmar versão'],
+                ['287', 'Realme', 'Realme 9', 'Realme 9 4G;Realme 9 5G', '3D', '6.4', 'Confirmar versão'],
+            ];
+
+            realmeData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // ===== OUTRAS MARCAS (IDs 288-360) =====
+            const outrasData = [
+                ['288', 'Vivo', 'Vivo Y11', 'Y11s', '3D', '6.35', 'Compatibilidade próxima'],
+                ['289', 'Vivo', 'Vivo Y12', 'Y12s', '3D', '6.35', 'Compatibilidade direta'],
+                ['290', 'Vivo', 'Vivo Y15', 'Y15s', '3D', '6.35', 'Compatibilidade direta'],
+                ['291', 'Vivo', 'Vivo Y20', 'Y20;Y20s', '3D', '6.51', 'Compatibilidade próxima'],
+                ['292', 'Vivo', 'Vivo Y21', 'Y21;Y21s', '3D', '6.51', 'Compatibilidade direta'],
+                ['293', 'Vivo', 'Vivo Y22', 'Y22;Y22s', '3D', '6.55', 'Compatibilidade direta'],
+                ['294', 'Vivo', 'Vivo Y33', 'Y33s;Y33T', '3D', '6.58', 'Compatibilidade próxima'],
+                ['295', 'Vivo', 'Vivo V21', 'V21 5G', '3D', '6.44', 'Compatibilidade direta'],
+                ['296', 'Infinix', 'Hot 10', 'Hot 10 Play', '3D', '6.78', 'Compatibilidade próxima'],
+                ['297', 'Infinix', 'Hot 11', 'Hot 11 Play', '3D', '6.6', 'Compatibilidade próxima'],
+                ['298', 'Infinix', 'Hot 12', 'Hot 12 Play', '3D', '6.82', 'Compatibilidade direta'],
+                ['299', 'Infinix', 'Hot 20', 'Hot 20 Play', '3D', '6.82', 'Compatibilidade direta'],
+                ['300', 'Infinix', 'Note 10', 'Note 10 Pro', '3D', '6.95', 'Compatibilidade próxima'],
+                ['301', 'Infinix', 'Note 12', 'Note 12 Pro', '3D', '6.7', 'Compatibilidade próxima'],
+                ['302', 'Tecno', 'Spark 7', 'Spark 7 Pro', '3D', '6.5', 'Compatibilidade próxima'],
+                ['303', 'Tecno', 'Spark 8', 'Spark 8 Pro', '3D', '6.52', 'Compatibilidade próxima'],
+                ['304', 'Tecno', 'Spark 9', 'Spark 9 Pro', '3D', '6.6', 'Compatibilidade próxima'],
+                ['305', 'Tecno', 'Pova 3', 'Pova 3', '3D', '6.9', 'Compatibilidade direta'],
+                ['306', 'Itel', 'A48', 'A48', '3D', '6.1', 'Compatibilidade direta'],
+                ['307', 'Itel', 'A58', 'A58', '3D', '6.6', 'Compatibilidade direta'],
+                ['308', 'Itel', 'P38', 'P38', '3D', '6.6', 'Compatibilidade direta'],
+                ['309', 'Nokia', 'Nokia 1', 'Nokia 1 Plus', '3D', '5.45', 'Compatibilidade próxima'],
+                ['310', 'Nokia', 'Nokia 2', 'Nokia 2.1;Nokia 2.2', '3D', '5.5', 'Compatibilidade próxima'],
+                ['311', 'Nokia', 'Nokia 3', 'Nokia 3.1;Nokia 3.2', '3D', '5.2', 'Compatibilidade próxima'],
+                ['312', 'Nokia', 'Nokia 5', 'Nokia 5.1;Nokia 5.3', '3D', '5.2', 'Confirmar versão'],
+                ['313', 'Nokia', 'Nokia 6', 'Nokia 6.1;Nokia 6.2', '3D', '5.5', 'Compatibilidade próxima'],
+                ['314', 'Nokia', 'Nokia 7', 'Nokia 7 Plus;Nokia 7.1', '3D', '6.0', 'Compatibilidade próxima'],
+                ['315', 'Nokia', 'Nokia 8', 'Nokia 8.1', '3D', '5.5', 'Compatibilidade próxima'],
+                ['316', 'Nokia', 'Nokia C10', 'Nokia C20', '3D', '6.5', 'Compatibilidade direta'],
+                ['317', 'Nokia', 'Nokia C21', 'Nokia C21 Plus', '3D', '6.5', 'Compatibilidade direta'],
+                ['318', 'Nokia', 'Nokia C31', 'Nokia C32', '3D', '6.5', 'Compatibilidade próxima'],
+                ['319', 'Nokia', 'Nokia G10', 'Nokia G20;Nokia G21', '3D', '6.5', 'Compatibilidade próxima'],
+                ['320', 'Nokia', 'Nokia G50', 'Nokia G50 5G', '3D', '6.8', 'Compatibilidade direta'],
+                ['321', 'Nokia', 'Nokia X10', 'Nokia X20', '3D', '6.7', 'Compatibilidade próxima'],
+                ['322', 'LG', 'LG K10', 'K10 2017;K10 Power', '3D', '5.3', 'Compatibilidade próxima'],
+                ['323', 'LG', 'LG K20', 'K20 Plus', '3D', '5.3', 'Compatibilidade direta'],
+                ['324', 'LG', 'LG K22', 'K22 Plus;S20 FE;A20', '3D', '6.2', 'Compatibilidade direta'],
+                ['325', 'LG', 'LG K40', 'K41S;K42', '3D', '6.1', 'Compatibilidade próxima'],
+                ['326', 'LG', 'LG K50', 'K50S;K51S;Moto One Zoom;LG X6;LG Q60;LG K12 Prime;A20;Realme C6 Pro', '3D',
+                    '6.26', 'Compatibilidade próxima'],
+                ['327', 'LG', 'LG K52', 'K52;K62;Moto G51;A11;Moto One Fusion;Poco F3;Xiaomi Mi 11 Lite;Moto G71;Xiaomi Mi 11;Realme C6 Pro',
+                    '3D', '6.6', 'Compatibilidade próxima'],
+                ['328', 'LG', 'LG K61', 'K61', '3D', '6.5', 'Compatibilidade direta'],
+                ['329', 'LG', 'LG G6', 'G6', '3D', '5.7', 'Compatibilidade direta'],
+                ['330', 'LG', 'LG G7 ThinQ', 'G7', '3D', '6.1', 'Compatibilidade direta'],
+                ['331', 'LG', 'LG G8 ThinQ', 'G8', '3D', '6.1', 'Compatibilidade direta'],
+                ['332', 'LG', 'LG V20', 'V20', '3D', '5.7', 'Compatibilidade direta'],
+                ['333', 'LG', 'LG V30', 'V30', '3D', '6.0', 'Compatibilidade direta'],
+                ['334', 'LG', 'LG V40 ThinQ', 'V40', '3D', '6.4', 'Compatibilidade direta'],
+                ['335', 'LG', 'LG Velvet', 'Velvet 5G', '3D', '6.8', 'Compatibilidade direta'],
+                ['336', 'LG', 'LG Wing', 'LG Wing', '3D', '6.8', 'Película específica'],
+                ['337', 'Sony', 'Xperia XA', 'Xperia XA1', '3D', '5.0', 'Compatibilidade próxima'],
+                ['338', 'Sony', 'Xperia XA2', 'Xperia XA2', '3D', '5.2', 'Compatibilidade direta'],
+                ['339', 'Sony', 'Xperia XZ', 'Xperia XZs', '3D', '5.2', 'Compatibilidade próxima'],
+                ['340', 'Sony', 'Xperia XZ1', 'XZ1 Compact', '3D', '5.2', 'Confirmar versão'],
+                ['341', 'Sony', 'Xperia 1', 'Xperia 1 II', '3D', '6.5', 'Compatibilidade próxima'],
+                ['342', 'Sony', 'Xperia 5', 'Xperia 5 II', '3D', '6.1', 'Compatibilidade próxima'],
+                ['343', 'Sony', 'Xperia 10', 'Xperia 10 II', '3D', '6.0', 'Compatibilidade próxima'],
+                ['344', 'OnePlus', 'OnePlus One', 'OnePlus One', '3D', '5.5', 'Compatibilidade direta'],
+                ['345', 'OnePlus', 'OnePlus 5', 'OnePlus 5T', '3D', '5.5', 'Compatibilidade próxima'],
+                ['346', 'OnePlus', 'OnePlus 6', 'OnePlus 6T', '3D', '6.28', 'Compatibilidade próxima'],
+                ['347', 'OnePlus', 'OnePlus 7', 'OnePlus 7 Pro', '3D', '6.4', 'Confirmar versão'],
+                ['348', 'OnePlus', 'OnePlus 8', 'OnePlus 8 Pro', '3D', '6.55', 'Compatibilidade próxima'],
+                ['349', 'OnePlus', 'OnePlus 9', 'OnePlus 9 Pro', '3D', '6.55', 'Confirmar versão'],
+                ['350', 'OnePlus', 'OnePlus 10 Pro', 'OnePlus 10 Pro', '3D', '6.7', 'Compatibilidade direta'],
+                ['351', 'OnePlus', 'OnePlus 11', 'OnePlus 11', '3D', '6.7', 'Compatibilidade direta'],
+                ['352', 'Nothing', 'Nothing Phone 1', 'Nothing Phone (1)', '3D', '6.55', 'Compatibilidade direta'],
+                ['353', 'Nothing', 'Nothing Phone 2', 'Nothing Phone (2)', '3D', '6.7', 'Compatibilidade direta'],
+                ['354', 'Nothing', 'Nothing Phone 2a', 'Nothing Phone (2a)', '3D', '6.7', 'Compatibilidade direta'],
+                ['355', 'Blackview', 'BV6000', 'BV6000S', '3D', '4.7', 'Compatibilidade próxima'],
+                ['356', 'Blackview', 'BV6800', 'BV6800 Pro', '3D', '5.7', 'Compatibilidade direta'],
+                ['357', 'Ulefone', 'Armor X5', 'Armor X5 Pro', '3D', '5.5', 'Compatibilidade próxima'],
+                ['358', 'Doogee', 'S58 Pro', 'S58 Pro', '3D', '6.1', 'Compatibilidade direta'],
+                ['359', 'Meizu', 'M6', 'M6 Note', '3D', '5.2', 'Compatibilidade próxima'],
+                ['360', 'Meizu', 'Meizu 16', 'Meizu 16s', '3D', '6.0', 'Compatibilidade próxima'],
+            ];
+
+            outrasData.forEach(row => {
+                addRecord(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+            });
+
+            // =============================================
+            // FUNÇÕES DE BUSCA
+            // =============================================
+            function levenshtein(a, b) {
+                const matrix = [];
+                for (let i = 0; i <= b.length; i++) matrix[i] = [i];
+                for (let j = 0; j <= a.length; j++) matrix[0][j] = j;
+                for (let i = 1; i <= b.length; i++) {
+                    for (let j = 1; j <= a.length; j++) {
+                        if (b[i - 1] === a[j - 1]) matrix[i][j] = matrix[i - 1][j - 1];
+                        else matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j] + 1);
+                    }
+                }
+                return matrix[b.length][a.length];
+            }
+
+            let currentTab = 'all';
+
+            function liveSearch(query) {
+                const q = query.toLowerCase().trim();
+                if (q.length < 1) return [];
+
+                const scored = [];
+                database.forEach(m => {
+                    const searchText =
+                        `${m.modelo} ${m.marca} ${m.compat.join(' ')} ${m.codigo} ${m.pelicula} ${m.grupo}`.toLowerCase();
+                    let score = 0,
+                        matchType = '';
+
+                    if (m.modelo.toLowerCase() === q) { score = 10;
+                        matchType = 'exato'; } else if (m.codigo.toLowerCase() === q) { score = 9;
+                        matchType = 'codigo'; } else if (m.modelo.toLowerCase().startsWith(q)) { score = 7;
+                        matchType = 'inicio'; } else if (searchText.includes(q)) { score = 6;
+                        matchType = 'parcial'; } else if (m.compat.some(c => c.toLowerCase().includes(q))) { score = 5;
+                        matchType = 'compatível'; } else {
+                        const words = q.split(' ');
+                        let matchCount = 0,
+                            totalScore = 0;
+                        words.forEach(w => {
+                            if (w.length < 2) return;
+                            if (searchText.includes(w)) { matchCount++;
+                                totalScore += 2; } else {
+                                const parts = searchText.split(' ');
+                                let bestDist = 999;
+                                parts.forEach(p => {
+                                    const dist = levenshtein(p.substring(0, w.length + 2), w);
+                                    if (dist < bestDist) bestDist = dist;
+                                });
+                                if (bestDist <= 2) { matchCount += 0.5;
+                                    totalScore += 1; }
+                            }
+                        });
+                        if (matchCount > 0) { score = totalScore;
+                            matchType = 'fuzzy'; }
+                    }
+
+                    if (currentTab !== 'all' && m.marca !== currentTab) return;
+                    if (score > 0) scored.push({ item: m, score: score, matchType: matchType });
+                });
+
+                scored.sort((a, b) => b.score - a.score);
+                const seen = new Set();
+                const unique = [];
+                scored.forEach(s => {
+                    const key = s.item.modelo + s.item.marca;
+                    if (!seen.has(key)) { seen.add(key);
+                        unique.push(s); }
+                });
+                return unique.slice(0, 20);
+            }
+
+            function renderLiveResults(results, query) {
+                const area = document.getElementById('resultArea');
+                const stats = document.getElementById('searchStatus');
+
+                if (results.length === 0) {
+                    let bestMatch = null,
+                        bestDist = Infinity;
+                    database.forEach(m => {
+                        const searchText = `${m.modelo} ${m.marca}`.toLowerCase();
+                        const dist = levenshtein(searchText.substring(0, query.length + 3), query.toLowerCase());
+                        if (dist < bestDist && dist < 3) { bestDist = dist;
+                            bestMatch = m; }
+                    });
+                    if (bestMatch) {
+                        const banner = document.getElementById('correctionBanner');
+                        document.getElementById('correctionText').textContent = `${bestMatch.marca} ${bestMatch.modelo}`;
+                        banner.classList.add('show');
+                        banner.onclick = function() {
+                            document.getElementById('globalSearch').value = `${bestMatch.marca} ${bestMatch.modelo}`;
+                            banner.classList.remove('show');
+                            doLiveSearch(`${bestMatch.marca} ${bestMatch.modelo}`);
+                        };
+                    } else {
+                        document.getElementById('correctionBanner').classList.remove('show');
+                    }
+                    stats.textContent = 'Nenhum resultado encontrado';
+                    area.innerHTML = `
+                        <div class="text-center py-5">
+                            <span class="mono-icon fs-1"><i class="bi bi-search"></i></span>
+                            <p class="mt-3 text-secondary">Nenhum resultado para "<strong>${query}</strong>"</p>
+                            <p class="text-secondary small">Tente: Galaxy A15, iPhone 15, Moto G84, Redmi Note 13</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                document.getElementById('correctionBanner').classList.remove('show');
+                stats.textContent = `📊 ${results.length} resultado(s) encontrado(s)`;
+
+                let html = `<div class="result-stats"><strong>${results.length}</strong> resultado(s) encontrado(s)</div>`;
+
+                results.forEach((s, idx) => {
+                    const m = s.item;
+                    const isTop = idx === 0;
+                    const matchType = s.matchType;
+                    const tagLabels = { 'exato': 'Exato', 'codigo': 'Código', 'inicio': 'Início',
+                        'parcial': 'Parcial', 'compatível': 'Compatível', 'fuzzy': 'Fuzzy' };
+
+                    const compatList = m.compat || [];
+
+                    html += `
+                        <div class="result-card ${isTop ? 'highlight' : ''}">
+                            <div class="d-flex align-items-start flex-wrap gap-2">
+                                ${isTop ? '<span class="badge-mono" style="background:rgba(245,158,11,0.15);color:#d97706;">⭐ Mais relevante</span>' : ''}
+                                <span class="fw-semibold" style="font-size:1rem;">${m.marca} ${m.modelo}</span>
+                                <span class="badge-mono">${m.codigo}</span>
+                                <span class="badge-mono">${m.tipo}</span>
+                                <span class="badge-mono">${m.tela}"</span>
+                                <span class="badge-mono" style="background:rgba(26,58,107,0.08);">${tagLabels[matchType] || 'Match'}</span>
+                            </div>
+                            <div class="mt-1">
+                                <span class="text-secondary small">Película: ${m.pelicula} · Tipo: ${m.tipo}</span>
+                            </div>
+                            <div class="mt-1">
+                                <span class="text-secondary small">Modelos compatíveis:</span>
+                                <div class="mt-1">
+                                    ${compatList.slice(0, 5).map(c => `<span class="compat-chip">${c}</span>`).join('')}
+                                    ${compatList.length > 5 ? `<span class="compat-chip">+${compatList.length - 5}</span>` : ''}
+                                </div>
+                            </div>
+                            <div class="mt-1">
+                                <span class="text-secondary small" style="font-size:0.7rem;">📝 ${m.obs || 'N/A'}</span>
+                            </div>
+                            ${m.grupo ? `<div class="mt-1"><span class="badge-mono">Grupo: ${m.grupo}</span></div>` : ''}
+                        </div>
+                    `;
+                });
+
+                area.innerHTML = html;
+            }
+
+            let searchTimeout = null;
+            let typingTimeout = null;
+
+            function setChipsVisible(visible) {
+                document.getElementById('historyBar').classList.toggle('collapsed', !visible);
+                document.getElementById('suggestionsBar').classList.toggle('collapsed', !visible);
+            }
+
+            function resetSearchUI() {
+                document.getElementById('resultArea').innerHTML = `
+                    <div class="text-center py-5">
+                        <span class="mono-icon fs-1"><i class="bi bi-search"></i></span>
+                        <p class="mt-3 text-secondary">Digite um modelo para encontrar películas compatíveis</p>
+                        <p class="text-secondary small">Ex: Galaxy A15, iPhone 15, Moto G84, Redmi Note 13</p>
+                    </div>
+                `;
+                document.getElementById('autocompleteBox').style.display = 'none';
+                document.getElementById('correctionBanner').classList.remove('show');
+                document.getElementById('searchStatus').textContent = '';
+                document.getElementById('progressBarContainer').classList.remove('active');
+                document.getElementById('searchSpinner').classList.remove('active');
+                setChipsVisible(true);
+            }
+
+            // Enquanto o usuário digita: só atualiza a lista flutuante de sugestões
+            // (que não empurra o layout, por ser posicionada em overlay). Os cards de
+            // resultado completos só aparecem quando a busca é confirmada, evitando que
+            // a página "estique" a cada tecla digitada.
+            function handleTypingPreview(val) {
+                const q = val.trim();
+                if (q.length < 1) {
+                    resetSearchUI();
+                    return;
+                }
+                setChipsVisible(false);
+                clearTimeout(typingTimeout);
+                typingTimeout = setTimeout(() => buildAutocomplete(val), 150);
+            }
+
+            function doLiveSearch(query) {
+                const q = query.trim();
+                const status = document.getElementById('searchStatus');
+                const progress = document.getElementById('progressBarContainer');
+
+                if (q.length < 1) {
+                    resetSearchUI();
+                    return;
+                }
+
+                setChipsVisible(false);
+                document.getElementById('autocompleteBox').style.display = 'none';
+                document.getElementById('searchSpinner').classList.add('active');
+                progress.classList.add('active');
+                status.innerHTML = '⏳ Buscando<span class="dots"></span>';
+
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const results = liveSearch(q);
+                    renderLiveResults(results, q);
+                    document.getElementById('searchSpinner').classList.remove('active');
+                    progress.classList.remove('active');
+                }, 200);
+            }
+
+            function buildAutocomplete(query) {
+                const q = query.toLowerCase().trim();
+                if (q.length < 1) { document.getElementById('autocompleteBox').style.display = 'none'; return; }
+                const results = [];
+                const seen = new Set();
+                database.forEach(m => {
+                    const searchText = `${m.modelo} ${m.marca} ${m.compat.join(' ')} ${m.codigo}`.toLowerCase();
+                    if (searchText.includes(q) && !seen.has(m.modelo)) {
+                        seen.add(m.modelo);
+                        let tag = 'Modelo',
+                            icon = '📱';
+                        if (m.compat.some(c => c.toLowerCase().includes(q))) { tag = 'Compatível';
+                            icon = '🔗'; }
+                        results.push({ label: m.modelo, sub: `${m.marca} · ${m.tela}" · ${m.tipo}`, tag: tag,
+                            icon: icon });
+                    }
+                    if (m.codigo.toLowerCase().includes(q) && !seen.has(m.codigo)) {
+                        seen.add(m.codigo);
+                        results.push({ label: m.codigo, sub: `${m.marca} ${m.modelo}`, tag: 'Código', icon: '🔢' });
+                    }
+                });
+                const top = results.slice(0, 8);
+                if (top.length === 0) { document.getElementById('autocompleteBox').style.display = 'none'; return; }
+                const box = document.getElementById('autocompleteBox');
+                box.innerHTML = top.map(item => `
+                    <div class="autocomplete-item" data-value="${item.label}">
+                        <span style="font-size:1.1rem;">${item.icon || '🔍'}</span>
+                        <div><span class="highlight">${item.label}</span> <span class="sub">${item.sub}</span></div>
+                        <span class="tag">${item.tag}</span>
+                    </div>
+                `).join('');
+                box.style.display = 'block';
+                document.querySelectorAll('.autocomplete-item').forEach(el => {
+                    el.addEventListener('click', function() {
+                        const value = this.dataset.value;
+                        document.getElementById('globalSearch').value = value;
+                        document.getElementById('clearBtn').style.display = 'block';
+                        box.style.display = 'none';
+                        doLiveSearch(value);
+                    });
+                });
+            }
+
+            // =============================================
+            // PLACEHOLDER ROTATIVO
+            // =============================================
+            const phrases = [
+                '🔍 Buscar modelo de celular...',
+                '📱 Ex: Galaxy A15, iPhone 15...',
+                '🔗 Ex: Moto G84, Redmi Note 13...',
+                '📐 Ex: S24 Ultra, Edge 40...',
+            ];
+            let phraseIdx = 0;
+
+            function rotatePlaceholder() {
+                const el = document.getElementById('placeholderRotating');
+                if (document.getElementById('globalSearch').value.length === 0) {
+                    el.textContent = phrases[phraseIdx];
+                    phraseIdx = (phraseIdx + 1) % phrases.length;
+                }
+            }
+            setInterval(rotatePlaceholder, 3000);
+
+            // =============================================
+            // EVENTOS
+            // =============================================
+            const searchInput = document.getElementById('globalSearch');
+            const clearBtn = document.getElementById('clearBtn');
+            const placeholder = document.getElementById('placeholderRotating');
+
+            searchInput.addEventListener('input', function() {
+                const val = this.value;
+                clearBtn.style.display = val.length > 0 ? 'block' : 'none';
+                placeholder.classList.toggle('hidden', val.length > 0);
+                handleTypingPreview(val);
+            });
+
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    this.value = '';
+                    clearBtn.style.display = 'none';
+                    placeholder.classList.remove('hidden');
+                    resetSearchUI();
+                    this.blur();
+                }
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('autocompleteBox').style.display = 'none';
+                    doLiveSearch(this.value);
+                }
+            });
+
+            // Fecha a lista flutuante de sugestões ao clicar fora dela
+            document.addEventListener('click', function(e) {
+                const box = document.getElementById('autocompleteBox');
+                if (box.style.display === 'block' && !box.contains(e.target) && e.target !== searchInput) {
+                    box.style.display = 'none';
+                }
+            });
+
+            clearBtn.addEventListener('click', function() {
+                searchInput.value = '';
+                this.style.display = 'none';
+                placeholder.classList.remove('hidden');
+                resetSearchUI();
+                searchInput.focus();
+            });
+
+            document.getElementById('searchBtn').addEventListener('click', function() {
+                const val = searchInput.value;
+                if (val.length > 0) {
+                    this.classList.add('success');
+                    setTimeout(() => this.classList.remove('success'), 1000);
+                    doLiveSearch(val);
+                    showToast('🔍 Buscando...', 'info');
+                } else {
+                    showToast('Digite um modelo para buscar', 'warning');
+                }
+            });
+
+            document.querySelectorAll('.search-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    currentTab = this.dataset.tab;
+                    if (searchInput.value.length > 0) doLiveSearch(searchInput.value);
+                    showToast(`📌 Filtrando: ${this.textContent.trim()}`, 'info');
+                });
+            });
+
+            document.querySelectorAll('.history-chip').forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const term = this.dataset.term;
+                    searchInput.value = term;
+                    clearBtn.style.display = 'block';
+                    placeholder.classList.add('hidden');
+                    doLiveSearch(term);
+                });
+            });
+
+            document.querySelectorAll('.suggestion-chip').forEach(chip => {
+                chip.addEventListener('click', function() {
+                    const term = this.dataset.term;
+                    searchInput.value = term;
+                    clearBtn.style.display = 'block';
+                    placeholder.classList.add('hidden');
+                    doLiveSearch(term);
+                });
+            });
+
+            // =============================================
+            // BUSCA POR VOZ (Web Speech API - reconhecimento real)
+            // =============================================
+            const SpeechRecognitionAPI = window.SpeechRecognition || window.webkitSpeechRecognition;
+            let voiceRecognition = null;
+
+            document.getElementById('voiceBtn').addEventListener('click', function() {
+                const btn = this;
+
+                if (!SpeechRecognitionAPI) {
+                    showToast('⚠️ Busca por voz não é suportada neste navegador. Tente Chrome ou Edge.', 'warning');
+                    return;
+                }
+
+                if (btn.classList.contains('recording')) {
+                    if (voiceRecognition) voiceRecognition.stop();
+                    return;
+                }
+
+                voiceRecognition = new SpeechRecognitionAPI();
+                voiceRecognition.lang = 'pt-BR';
+                voiceRecognition.interimResults = false;
+                voiceRecognition.maxAlternatives = 1;
+
+                voiceRecognition.addEventListener('start', () => {
+                    btn.classList.add('recording');
+                    showToast('🎤 Ouvindo... Fale o modelo do celular', 'info');
+                });
+
+                voiceRecognition.addEventListener('result', (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    searchInput.value = transcript;
+                    clearBtn.style.display = 'block';
+                    placeholder.classList.add('hidden');
+                    doLiveSearch(transcript);
+                    showToast(`✅ Reconhecido: "${transcript}"`, 'success');
+                });
+
+                voiceRecognition.addEventListener('error', (event) => {
+                    let msg = '🤔 Não foi possível reconhecer sua voz. Tente novamente.';
+                    if (event.error === 'not-allowed' || event.error === 'permission-denied' || event.error === 'service-not-allowed') {
+                        msg = '🚫 Permissão de microfone negada. Habilite o microfone nas configurações do navegador.';
+                    } else if (event.error === 'no-speech') {
+                        msg = '🤔 Não ouvi nada. Tente novamente.';
+                    } else if (event.error === 'audio-capture') {
+                        msg = '🎤 Nenhum microfone encontrado neste dispositivo.';
+                    }
+                    showToast(msg, 'warning');
+                });
+
+                voiceRecognition.addEventListener('end', () => {
+                    btn.classList.remove('recording');
+                });
+
+                try {
+                    voiceRecognition.start();
+                } catch (err) {
+                    showToast('⚠️ Não foi possível iniciar o microfone.', 'warning');
+                    btn.classList.remove('recording');
+                }
+            });
+
+            // =============================================
+            // BUSCA POR CÂMERA (acesso real à câmera + captura de foto)
+            // =============================================
+            let cameraStream = null;
+
+            function openCameraModal() {
+                const overlay = document.getElementById('cameraModalOverlay');
+                const video = document.getElementById('cameraVideo');
+                const photo = document.getElementById('cameraPhoto');
+
+                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                    showToast('⚠️ Seu navegador não tem suporte a câmera.', 'warning');
+                    document.getElementById('cameraBtn').classList.remove('active');
+                    return;
+                }
+
+                overlay.classList.add('show');
+                video.style.display = 'block';
+                photo.style.display = 'none';
+                document.getElementById('cameraActionsReview').style.display = 'none';
+                document.getElementById('cameraActionsLive').style.display = 'flex';
+
+                navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
+                    .then(stream => {
+                        cameraStream = stream;
+                        video.srcObject = stream;
+                    })
+                    .catch(err => {
+                        let msg = '⚠️ Não foi possível acessar a câmera.';
+                        if (err && (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError')) {
+                            msg = '🚫 Permissão de câmera negada. Habilite o acesso à câmera nas configurações do navegador.';
+                        } else if (err && err.name === 'NotFoundError') {
+                            msg = '📷 Nenhuma câmera encontrada neste dispositivo.';
+                        }
+                        showToast(msg, 'warning');
+                        closeCameraModal();
+                    });
+            }
+
+            function closeCameraModal() {
+                document.getElementById('cameraModalOverlay').classList.remove('show');
+                if (cameraStream) {
+                    cameraStream.getTracks().forEach(track => track.stop());
+                    cameraStream = null;
+                }
+                document.getElementById('cameraBtn').classList.remove('active');
+            }
+
+            document.getElementById('cameraBtn').addEventListener('click', function() {
+                this.classList.add('active');
+                openCameraModal();
+            });
+
+            document.getElementById('cameraCloseBtn').addEventListener('click', closeCameraModal);
+
+            document.getElementById('cameraModalOverlay').addEventListener('click', function(e) {
+                if (e.target === this) closeCameraModal();
+            });
+
+            document.getElementById('cameraCaptureBtn').addEventListener('click', function() {
+                const video = document.getElementById('cameraVideo');
+                const canvas = document.getElementById('cameraCanvas');
+                const photo = document.getElementById('cameraPhoto');
+                const flash = document.getElementById('cameraFlash');
+
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                photo.src = canvas.toDataURL('image/jpeg', 0.85);
+
+                flash.classList.add('flash');
+                setTimeout(() => flash.classList.remove('flash'), 350);
+
+                video.style.display = 'none';
+                photo.style.display = 'block';
+                document.getElementById('cameraActionsLive').style.display = 'none';
+                document.getElementById('cameraActionsReview').style.display = 'flex';
+
+                if (cameraStream) {
+                    cameraStream.getTracks().forEach(track => track.stop());
+                    cameraStream = null;
+                }
+            });
+
+            document.getElementById('cameraRetakeBtn').addEventListener('click', function() {
+                openCameraModal();
+            });
+
+            document.getElementById('cameraContinueBtn').addEventListener('click', function() {
+                closeCameraModal();
+                showToast('📷 Foto capturada. Digite o modelo do celular para buscar.', 'info');
+                searchInput.focus();
+            });
+
+            document.getElementById('qrBtn').addEventListener('click', function() {
+                this.classList.toggle('active');
+                showToast('📷 Lendo QR Code...', 'info');
+                setTimeout(() => {
+                    this.classList.remove('active');
+                    searchInput.value = 'HYD-1025';
+                    clearBtn.style.display = 'block';
+                    placeholder.classList.add('hidden');
+                    doLiveSearch('HYD-1025');
+                    showToast('✅ QR Code lido: HYD-1025', 'success');
+                }, 1500);
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    searchInput.focus();
+                    searchInput.select();
+                    showToast('⌨️ Campo de busca focado', 'info');
+                }
+            });
+
+            function showToast(message, type = 'info') {
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                const borderColor = type === 'success' ? 'success' : type === 'warning' ? 'warning' : 'primary';
+                toast.className = `glass-panel p-3 mb-2 toast-item border-start border-4 border-${borderColor}`;
+                const icon = type === 'success' ? 'check-circle' : type === 'warning' ? 'exclamation-triangle' :
+                    'info-circle';
+                toast.innerHTML = `<i class="bi bi-${icon} me-2 mono-icon"></i> ${message}`;
+                container.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transition = 'opacity 0.3s';
+                    setTimeout(() => toast.remove(), 400);
+                }, 2800);
+            }
+
+            // =============================================
+            // THEME
+            // =============================================
+            const toggleBtn = document.getElementById('themeToggle');
+            const body = document.body;
+            if (localStorage.getItem('infocelll-theme') === 'dark') {
+                body.classList.add('dark-mode');
+                toggleBtn.innerHTML = '<i class="bi bi-sun"></i>';
+            }
+            toggleBtn.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                toggleBtn.innerHTML = isDark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon"></i>';
+                localStorage.setItem('infocelll-theme', isDark ? 'dark' : 'light');
+            });
+
+            // =============================================
+            // INICIALIZAÇÃO
+            // =============================================
+            document.getElementById('totalModels').textContent = database.length;
+            document.getElementById('footerModels').textContent = `${database.length} modelos`;
+
+            console.log(`✅ INFOCELLL Banco de Películas · ${database.length} modelos carregados`);
+            console.log('📌 Marcas: Samsung, Motorola, Xiaomi, Apple, Oppo, Realme, Vivo, Nokia, LG, Sony, OnePlus, Nothing, e outras');
+            console.log('📌 Total de registros: ' + database.length);
+        })();
+    </script>
+</body>
+</html>
