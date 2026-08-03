@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infocelll - Assistência Técnica em Olinda | Conserto de Celulares</title>
-    <meta name="description" content="Assistência técnica em Olinda-PE: conserto de celulares, computadores, notebooks e tablets com garantia de 90 dias. Atendemos Samsung, iPhone, Xiaomi e mais.[...]">
-    <meta name="keywords" content="assistência técnica celular Olinda, conserto celular Olinda-PE, troca de tela celular Olinda, reparo placa celular, troca bateria celular, conserto computador O[...]">
+    <meta name="description" content="Assistência técnica em Olinda-PE: conserto de celulares, computadores, notebooks e tablets com garantia de 90 dias. Atendemos Samsung, iPhone, Xiaomi e mais.">
+    <meta name="keywords" content="assistência técnica celular Olinda, conserto celular Olinda-PE, troca de tela celular Olinda, reparo placa celular, troca bateria celular, conserto computador Olinda">
     <meta name="author" content="Infocelll">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://infocelll.com.br/">
@@ -22,27 +22,28 @@
     <meta name="twitter:description" content="Assistência técnica em Olinda-PE: conserto de celulares, computadores e tablets com garantia de 90 dias. Orçamento grátis!">
     <meta name="twitter:image" content="https://infocelll.com.br/logo.png">
     <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Infocelll","description":"Assistência técnica em informática, celular, vendas de peças e acessórios em informática e celu[...]"}
+    {"@context":"https://schema.org","@type":"LocalBusiness","name":"Infocelll","description":"Assistência técnica em informática, celular, vendas de peças e acessórios em informática e celular","url":"https://infocelll.com.br","telephone":"+5581987332162","address":{"@type":"PostalAddress","streetAddress":"Av. Fagundes Varela, 380 Loja 11","addressLocality":"Olinda","addressRegion":"PE","postalCode":"53140-080","addressCountry":"BR"}}
     </script>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="preload" href="logo.png" as="image">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload main font used in inline @font-face -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0c1f3d">
-    <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('w[...]}</style>
+    <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');}</style>
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self)">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.google.com.br; style-src 's[...]">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.google.com.br; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com;">
     <link rel="alternate" hreflang="pt-BR" href="https://infocelll.com.br/">
-    <!-- reCAPTCHA: substitute SEU_SITE_KEY with real Google reCAPTCHA v3 site key -->
-    <!-- <script src="https://www.google.com/recaptcha/api.js?render=SEU_SITE_KEY"></script> -->
     <link rel="stylesheet" href="fonts/phosphor.min.css">
-    <link rel="stylesheet" href="style.min.css">
-    <script src="marketing.min.js" defer></script>
+    <!-- Load main CSS asynchronously to reduce render-blocking; noscript fallback included -->
+    <link rel="stylesheet" href="style.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.min.css"></noscript>
 </head>
 <body>
 
@@ -67,28 +68,28 @@
                     WhatsApp
                 </a>
                 <div class="theme-toggle-container">
-                    <button type="button" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Alternar modo escuro">
+                    <button type="button" class="theme-toggle-btn" aria-label="Alternar modo escuro">
                         <i class="ph ph-moon"></i>
                     </button>
                 </div>
             </nav>
-            <button type="button" class="hamburger" onclick="abrirMobileNav()" aria-label="Menu">
+            <button type="button" class="hamburger" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </header>
 
     <!-- MOBILE NAV -->
-    <div class="mobile-nav" id="mobile-nav" onclick="if(event.target===this)fecharMobileNav()">
+    <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-panel">
             <div class="mobile-nav-header">
                 <span class="logo" style="font-size:18px;">
                     <img src="logo.png" alt="Logo Infocelll" decoding="async" style="height:32px;width:auto;" width="80" height="32">
                 </span>
-                <button type="button" class="theme-toggle-btn" onclick="toggleDarkMode()" aria-label="Alternar modo escuro" style="margin-left: auto; margin-right: 12px;">
+                <button type="button" class="theme-toggle-btn" aria-label="Alternar modo escuro" style="margin-left: auto; margin-right: 12px;">
                     <i class="ph ph-moon"></i>
                 </button>
-                <button type="button" class="mobile-nav-close" onclick="fecharMobileNav()" aria-label="Fechar menu">
+                <button type="button" class="mobile-nav-close" aria-label="Fechar menu">
                     <i class="ph ph-x"></i>
                 </button>
             </div>
@@ -98,8 +99,8 @@
             <a href="contato.html">Contato</a>
             <a href="sobre.html">Sobre</a>
             <a href="tel:+5581987332162" class="mobile-phone-link"><i class="ph ph-phone-fill"></i> (81) 98733-2162</a>
-            <a href="https://wa.me/5581987332162" target="_blank" rel="noopener noreferrer" style="background:var(--green);color:#fff;text-align:center;margin-top:8px;border-radius:var(--radius-s[...]">
-            <span class="nav-ssl" title="Site protegido com SSL" style="margin-top:8px;width:100%;justify-content:center;display:flex;"><i class="ph ph-lock-key-fill"></i> Site Protegido com SSL<[...]</span>
+            <a href="https://wa.me/5581987332162" target="_blank" rel="noopener noreferrer" style="background:var(--green);color:#fff;text-align:center;margin-top:8px;border-radius:var(--radius-sm);font-weight:600;">WhatsApp</a>
+            <span class="nav-ssl" title="Site protegido com SSL" style="margin-top:8px;width:100%;justify-content:center;display:flex;"><i class="ph ph-lock-key-fill"></i> Site Protegido com SSL</span>
         </div>
     </div>
 
@@ -122,7 +123,7 @@
             <div>
                 <div class="hero-badge"><span class="hero-badge-dot"></span> Assistência Técnica em Olinda</div>
                 <h1>Conserto de celulares e computadores. Vendas de peças e acessórios com <span>Qualidade e Garantia</span></h1>
-                <p class="hero-desc">Mais de 15 anos de experiência em Olinda. Reparo rápido e garantia de 90 dias. <a href="sobre.html" style="color:var(--teal);text-decoration:underline;">Con[...]</p>
+                <p class="hero-desc">Mais de 15 anos de experiência em Olinda. Reparo rápido e garantia de 90 dias. <a href="sobre.html" style="color:var(--teal);text-decoration:underline;">Conheça nossa história</a></p>
                 <div class="hero-actions">
                     <a href="https://wa.me/5581987332162" class="btn-primary" target="_blank" rel="noopener noreferrer">
                         <i class="ph ph-whatsapp-logo" style="font-size:18px;"></i>
@@ -156,10 +157,10 @@
                             <div class="phone-logo">Assistência Técnica</div>
                             <div class="phone-tagline">Celulares & Smartphones</div>
                             <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:3px;font-size:8px;width:100%;">
-                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-device-mobile-fill" style[...]</div>
-                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-battery-charging-fill" st[...]</div>
-                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-wrench-fill" style="fon[...]</div>
-                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-shield-check-fill" style[...]</div>
+                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-device-mobile-fill" style="font-size:12px;color:rgba(255,255,255,0.9);"></i> Rápido</div>
+                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-battery-charging-fill" style="font-size:12px;color:rgba(255,255,255,0.9);"></i> Garantia</div>
+                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-wrench-fill" style="font-size:12px;color:rgba(255,255,255,0.9);"></i> Peças</div>
+                                <div style="background:rgba(255,255,255,0.08);padding:3px 5px;border-radius:4px;display:flex;align-items:center;gap:3px;"><i class="ph ph-shield-check-fill" style="font-size:12px;color:rgba(255,255,255,0.9);"></i> Suporte</div>
                             </div>
                         </div>
                     </div>
@@ -214,8 +215,6 @@
         </div>
     </section>
 
-    <!-- ... rest of the content ... -->
-
     <!-- CHATBOT -->
     <div class="chatbot">
         <div class="chatbot-panel" id="chatbot-panel">
@@ -227,22 +226,38 @@
                     <h4>Infocelll</h4>
                     <span>Online agora</span>
                 </div>
-                <button type="button" class="chatbot-close" onclick="toggleChat()" aria-label="Fechar chat">
+                <button type="button" class="chatbot-close" aria-label="Fechar chat">
                     <i class="ph ph-x"></i>
                 </button>
             </div>
             <div class="chatbot-messages" id="chat-messages"></div>
             <div class="chatbot-input">
                 <input type="text" id="chat-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem para o chat">
-                <button type="button" onclick="enviarMsg()" aria-label="Enviar mensagem">
+                <button type="button" aria-label="Enviar mensagem">
                     <i class="ph ph-paper-plane-tilt" style="font-size:18px;"></i>
                 </button>
             </div>
         </div>
-        <button type="button" class="chatbot-btn" onclick="toggleChat()" aria-label="Abrir chat de atendimento">
+        <button type="button" class="chatbot-btn" aria-label="Abrir chat de atendimento">
             <i class="ph ph-chat-circle-fill" style="font-size:24px;"></i>
         </button>
     </div>
+
+    <!-- Load non-critical marketing script after window.load to reduce main-thread work and improve LCP -->
+    <script>
+      (function(){
+        if (!('addEventListener' in window)) return;
+        window.addEventListener('load', function(){
+          try{
+            var s = document.createElement('script');
+            s.src = 'marketing.min.js';
+            s.async = true;
+            s.crossOrigin = '';
+            document.body.appendChild(s);
+          }catch(e){console.warn('load marketing failed', e);} 
+        });
+      })();
+    </script>
 
     <script src="script.min.js" defer></script>
 </body>
