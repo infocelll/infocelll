@@ -34,6 +34,21 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0c1f3d">
     <style>@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');}</style>
+
+    <!-- Critical CSS (inline) to render hero and header quickly -> improves LCP/FCP -->
+    <style id="critical-css">
+      html,body{height:100%;}
+      body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.4;color:#0c1f3d;background:#fff;-webkit-font-smoothing:antialiased}
+      .container{max-width:1200px;margin:0 auto;padding:0 16px}
+      .header{display:block}
+      .logo-img{display:block;max-width:100%;height:auto}
+      .hero{padding:40px 0}
+      .hero-grid{display:grid;grid-template-columns:1fr 420px;align-items:center;gap:28px}
+      .hero-visual{min-height:300px;display:flex;align-items:center;justify-content:center}
+      .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:10px}
+      @media(max-width:768px){.hero-grid{grid-template-columns:1fr}}
+    </style>
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -53,7 +68,10 @@
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
-                <img src="logo.png" alt="Logo da Infocelll assistência técnica em Olinda" class="logo-img" fetchpriority="high" width="120" height="40" decoding="async">
+                <picture>
+                  <source type="image/webp" srcset="logo.webp">
+                  <img src="logo.png" alt="Logo da Infocelll assistência técnica em Olinda" class="logo-img" fetchpriority="high" width="120" height="40" decoding="async">
+                </picture>
             </a>
             <nav class="nav">
                 <a href="index.html" class="active">Home</a>
@@ -226,19 +244,19 @@
                     <h4>Infocelll</h4>
                     <span>Online agora</span>
                 </div>
-                <button type="button" class="chatbot-close" aria-label="Fechar chat">
+                <button type="button" class="chatbot-close" onclick="toggleChat()" aria-label="Fechar chat">
                     <i class="ph ph-x"></i>
                 </button>
             </div>
             <div class="chatbot-messages" id="chat-messages"></div>
             <div class="chatbot-input">
                 <input type="text" id="chat-input" placeholder="Digite sua mensagem..." aria-label="Digite sua mensagem para o chat">
-                <button type="button" aria-label="Enviar mensagem">
+                <button type="button" onclick="enviarMsg()" aria-label="Enviar mensagem">
                     <i class="ph ph-paper-plane-tilt" style="font-size:18px;"></i>
                 </button>
             </div>
         </div>
-        <button type="button" class="chatbot-btn" aria-label="Abrir chat de atendimento">
+        <button type="button" class="chatbot-btn" onclick="toggleChat()" aria-label="Abrir chat de atendimento">
             <i class="ph ph-chat-circle-fill" style="font-size:24px;"></i>
         </button>
     </div>
@@ -247,15 +265,27 @@
     <script>
       (function(){
         if (!('addEventListener' in window)) return;
-        window.addEventListener('load', function(){
-          try{
-            var s = document.createElement('script');
-            s.src = 'marketing.min.js';
-            s.async = true;
-            s.crossOrigin = '';
-            document.body.appendChild(s);
-          }catch(e){console.warn('load marketing failed', e);} 
-        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(function(){
+            try{
+              var s = document.createElement('script');
+              s.src = 'marketing.min.js';
+              s.async = true;
+              s.crossOrigin = '';
+              document.body.appendChild(s);
+            }catch(e){console.warn('load marketing failed', e);} 
+          }, {timeout:2000});
+        } else {
+          window.addEventListener('load', function(){
+            try{
+              var s = document.createElement('script');
+              s.src = 'marketing.min.js';
+              s.async = true;
+              s.crossOrigin = '';
+              document.body.appendChild(s);
+            }catch(e){console.warn('load marketing failed', e);} 
+          });
+        }
       })();
     </script>
 
