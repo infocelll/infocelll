@@ -23,11 +23,20 @@ var ASSETS_TO_CACHE = [
   './favicon.svg'
 ];
 
-/* Install */
+/* Install (resilient) */
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(ASSETS_TO_CACHE);
+      // Use add() per asset and tolerate failures so install doesn't fail if one file is missing
+      return Promise.allSettled(ASSETS_TO_CACHE.map(function(asset) {
+        return cache.add(asset).catch(function(err) {
+          // log but don't reject install
+          console.warn('SW cache.add failed for', asset, err && err.message);
+          return null;
+        });
+      }));
+    }).catch(function(err) {
+      console.error('SW open cache failed', err && err.message);
     })
   );
   self.skipWaiting();
@@ -62,17 +71,24 @@ self.addEventListener('fetch', function(event) {
 
   event.respondWith(
     fetch(event.request).then(function(response) {
+      // Only cache successful responses
+      if (!response || !response.ok) return response;
       var clone = response.clone();
       caches.open(CACHE_NAME).then(function(cache) {
-        cache.put(event.request, clone);
+        cache.put(event.request, clone).catch(function(err) {
+          // ignore cache put failures
+          console.warn('SW cache.put failed', err && err.message);
+        });
       });
       return response;
     }).catch(function() {
       return caches.match(event.request).then(function(cached) {
         if (cached) return cached;
-        if (event.request.headers.get('accept').indexOf('text/html') !== -1) {
-          return caches.match('./index.html');
-        }
+        try {
+          if (event.request.headers.get('accept') && event.request.headers.get('accept').indexOf('text/html') !== -1) {
+            return caches.match('./index.html');
+          }
+        } catch (e) { /* ignore */ }
       });
     })
   );
