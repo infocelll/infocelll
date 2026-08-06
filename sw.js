@@ -81,10 +81,12 @@ self.addEventListener('fetch', function(event) {
   if (isHtmlRequest(event.request)) {
     event.respondWith(
       fetch(event.request).then(function(response) {
-        var clone = response.clone();
-        caches.open(CACHE_NAME).then(function(cache) {
-          cache.put(event.request, clone);
-        });
+        if (response && response.status === 200) {
+          var clone = response.clone();
+          caches.open(CACHE_NAME).then(function(cache) {
+            cache.put(event.request, clone);
+          }).catch(function() {});
+        }
         return response;
       }).catch(function() {
         return caches.match(event.request).then(function(cached) {
@@ -92,6 +94,7 @@ self.addEventListener('fetch', function(event) {
           if (isHtmlRequest(event.request)) {
             return caches.match('./index.html');
           }
+          return undefined;
         });
       })
     );
