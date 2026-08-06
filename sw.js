@@ -16,9 +16,15 @@ var ASSETS_TO_CACHE = [
   './style.min.css',
   './script.min.js',
   './marketing.min.js',
-  './fonts/phosphor.min.css',
+'./fonts/phosphor.min.css',
   './fonts/Phosphor.woff2',
   './fonts/Phosphor-Fill.woff2',
+  './fonts/inter-latin.woff2',
+  './fonts/inter-latin-ext.woff2',
+  './fonts/spacegrotesk-latin.woff2',
+  './fonts/spacegrotesk-latin-ext.woff2',
+  './fonts/jetbrains-mono-latin.woff2',
+  './fonts/jetbrains-mono-latin-ext.woff2',
   './logo.png',
   './favicon.svg'
 ];
