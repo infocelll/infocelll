@@ -26,6 +26,7 @@ var ASSETS_TO_CACHE = [
   './fonts/jetbrains-mono-latin.woff2',
   './fonts/jetbrains-mono-latin-ext.woff2',
   './logo.png',
+  './logo.webp',
   './favicon.svg'
 ];
 
