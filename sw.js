@@ -1,5 +1,5 @@
-/* Infocelll Service Worker v3.0 — Paths relativos para GitHub Pages */
-var CACHE_NAME = 'infocelll-v5';
+/* Infocelll Service Worker v4.0 — Paths relativos para GitHub Pages */
+var CACHE_NAME = 'infocelll-v8';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -22,6 +22,22 @@ var ASSETS_TO_CACHE = [
   './logo.png',
   './favicon.svg'
 ];
+
+/* Static asset extensions served cache-first (stale-while-revalidate) */
+var STATIC_EXT = ['css', 'js', 'woff2', 'woff', 'png', 'svg', 'jpg', 'jpeg', 'webp', 'avif', 'gif', 'ico', 'xml', 'json', 'txt'];
+
+function isStaticAsset(url) {
+  var path = url.pathname.split('?')[0].toLowerCase();
+  for (var i = 0; i < STATIC_EXT.length; i++) {
+    if (path.endsWith('.' + STATIC_EXT[i])) return true;
+  }
+  return false;
+}
+
+function isHtmlRequest(request) {
+  var accept = (request.headers.get('accept') || '').indexOf('text/html') !== -1;
+  return request.mode === 'navigate' || accept;
+}
 
 /* Install */
 self.addEventListener('install', function(event) {
@@ -49,7 +65,8 @@ self.addEventListener('activate', function(event) {
   self.clients.claim();
 });
 
-/* Fetch — Network first, fallback to cache */
+/* Fetch — HTML: network first, fallback cache.
+   Static assets: cache first, revalidate in background. */
 self.addEventListener('fetch', function(event) {
   if (event.request.method !== 'GET') return;
   var url = new URL(event.request.url);
@@ -57,23 +74,57 @@ self.addEventListener('fetch', function(event) {
   /* External requests: network only */
   if (url.origin !== location.origin) return;
 
-  /* Skip admin and marketing from cache-first */
+  /* Skip admin and marketing from caching */
   if (url.pathname.endsWith('/admin.html') || url.pathname.endsWith('/marketing.js')) return;
 
-  event.respondWith(
-    fetch(event.request).then(function(response) {
-      var clone = response.clone();
-      caches.open(CACHE_NAME).then(function(cache) {
-        cache.put(event.request, clone);
-      });
-      return response;
-    }).catch(function() {
-      return caches.match(event.request).then(function(cached) {
-        if (cached) return cached;
-        if (event.request.headers.get('accept').indexOf('text/html') !== -1) {
-          return caches.match('./index.html');
+  /* HTML documents: network first */
+  if (isHtmlRequest(event.request)) {
+    event.respondWith(
+      fetch(event.request).then(function(response) {
+        var clone = response.clone();
+        caches.open(CACHE_NAME).then(function(cache) {
+          cache.put(event.request, clone);
+        });
+        return response;
+      }).catch(function() {
+        return caches.match(event.request).then(function(cached) {
+          if (cached) return cached;
+          if (isHtmlRequest(event.request)) {
+            return caches.match('./index.html');
+          }
+        });
+      })
+    );
+    return;
+  }
+
+  /* Static assets: cache first, revalidate in background */
+  if (isStaticAsset(url)) {
+    event.respondWith(
+      caches.match(event.request).then(function(cached) {
+        var networkFetch = fetch(event.request).then(function(response) {
+          if (response && response.status === 200) {
+            var clone = response.clone();
+            caches.open(CACHE_NAME).then(function(cache) {
+              cache.put(event.request, clone);
+            });
+          }
+          return response;
+        }).catch(function() {
+          return undefined;
+        });
+        if (cached) {
+          event.waitUntil(networkFetch);
+          return cached;
         }
-      });
-    })
-  );
+        return networkFetch.then(function(response) {
+          return response || cached;
+        });
+      })
+    );
+    return;
+  }
+
+  /* Anything else: network only */
+  event.respondWith(fetch(event.request));
 });

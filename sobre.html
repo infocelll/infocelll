@@ -101,24 +101,9 @@
     </div>
 
     <main id="main-content">
-    <!-- BREADCRUMB -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <div class="container">
-            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <a itemprop="item" href="index.html"><span itemprop="name">Home</span></a>
-                    <meta itemprop="position" content="1">
-                </li>
-                <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <span itemprop="name">Sobre</span>
-                    <meta itemprop="position" content="2">
-                </li>
-            </ol>
-        </div>
-    </nav>
 
     <!-- PAGE HERO -->
-    <section class="page-hero">
+    <section class="page-hero" style="padding-top:40px;padding-bottom:30px;">
         <div class="container">
             <div class="section-label">Sobre Nós</div>
             <h1 class="section-title">Conheça a Infocelll</h1>
@@ -134,15 +119,20 @@
                     <h2>Nossa História</h2>
                     <p>A Infocelll nasceu da paixão por tecnologia e desde 2011 é referência em conserto de celulares e informática em Olinda. Nosso compromisso é com transparência, qualidade e satisfação do cliente.</p>
                     <p>Contamos com técnicos qualificados e peças originais para diagnosticar e resolver qualquer problema do seu aparelho.</p>
-                    <div style="background:var(--card);border-radius:var(--radius-md);padding:20px;margin-top:20px;border:1px solid var(--line);display:flex;flex-wrap:wrap;gap:16px;">
-                        <div style="flex:1;min-width:140px;">
-                            <p style="color:var(--muted);font-size:13px;"><i class="ph ph-map-pin-fill" style="color:var(--teal);margin-right:4px;"></i>Ao lado do quiosque da Cacau Show</p>
+                    <p>Atendemos todas as marcas: Samsung, iPhone, Xiaomi, Motorola, LG e muito mais, com diagnóstico gratuito e orçamento sem compromisso antes de qualquer reparo.</p>
+                    <p>Além dos consertos, oferecemos venda de peças e acessórios originais, garantindo que seu aparelho fique como novo. Nosso laboratório conta com equipamentos de micro-solda, leitor de placas e ferramentas modernas para reparos precisos.</p>
+                    <div style="background:var(--card);border-radius:var(--radius-md);padding:20px;margin-top:20px;border:1px solid var(--line);display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+                        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.15);border-radius:var(--radius-sm);">
+                            <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:rgba(20,184,166,0.12);display:flex;align-items:center;justify-content:center;"><i class="ph ph-map-pin-fill" style="color:var(--cyan);font-size:18px;"></i></span>
+                            <p style="color:var(--text);font-size:13px;line-height:1.4;margin:0;"><strong>Localização</strong><br>Quiosque da Cacau Show</p>
                         </div>
-                        <div style="flex:1;min-width:140px;">
-                            <p style="color:var(--muted);font-size:13px;"><i class="ph ph-credit-card-fill" style="color:var(--teal);margin-right:4px;"></i>Visa · Mastercard · PIX</p>
+                        <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.15);border-radius:var(--radius-sm);">
+                            <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:rgba(20,184,166,0.12);display:flex;align-items:center;justify-content:center;"><i class="ph ph-credit-card-fill" style="color:var(--cyan);font-size:18px;"></i></span>
+                            <p style="margin:0;font-size:13px;line-height:1.4;color:var(--text);"><strong>Pagamento</strong><br>Visa · Mastercard · PIX</p>
                         </div>
-                        <div style="flex:1;min-width:140px;">
-                            <p style="color:var(--muted);font-size:13px;"><i class="ph ph-shield-check-fill" style="color:var(--teal);margin-right:4px;"></i>Garantia 90 dias</p>
+                        <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.15);border-radius:var(--radius-sm);">
+                            <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:rgba(20,184,166,0.12);display:flex;align-items:center;justify-content:center;"><i class="ph ph-shield-check-fill" style="color:var(--cyan);font-size:18px;"></i></span>
+                            <p style="margin:0;font-size:13px;line-height:1.4;color:var(--text);"><strong>Garantia</strong><br>90 dias em todos os serviços</p>
                         </div>
                     </div>
                 </div>
@@ -208,11 +198,11 @@
             <div class="services-header reveal">
                 <div class="section-label">Como Chegar</div>
                 <h2 class="section-title">Localização e transportes</h2>
-                <p class="section-subtitle">Como chegar até a Infocelll.</p>
+                <p class="section-subtitle" style="font-size:18px;max-width:none;">Como chegar até a Infocelll.</p>
             </div>
             <div class="location-grid reveal">
                 <div class="location-map">
-                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.8!2d-34.8413973!3d-7.9773452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTgnMzguNCJTIDM0wrA1MCcyNy4wIlc!5e0!3m2!1spt-BR!2sbr!4v1" width="100%" height="400" style="border:0;border-radius:var(--radius);filter:contrast(1.1) saturate(1.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Infocelll no Google Maps"></iframe>
+                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.8!2d-34.8413973!3d-7.9773452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTgnMzguNCJTIDM0wrA1MCcyNy4wIlc!5e0!3m2!1spt-BR!2sbr!4v1" width="100%" height="500" style="border:0;border-radius:var(--radius);filter:contrast(1.1) saturate(1.2);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Infocelll no Google Maps"></iframe>
                 </div>
                 <div class="transport-info">
                     <h3>Meios de transporte</h3>
@@ -264,7 +254,7 @@
         <div class="container">
             <div class="cta-content reveal">
                 <h2>Precisa de um orçamento?</h2>
-                <p>Fale conosco pelo WhatsApp e receba um orçamento rápido. Confira também nossos <a href="servicos.html" style="color:var(--teal);text-decoration:underline;">serviços</a> ou <a href="contato.html" style="color:var(--teal);text-decoration:underline;">entre em contato</a>.</p>
+                <p>Fale conosco pelo WhatsApp e receba um orçamento rápido. Confira também nossos <a href="servicos.html" style="color:#ffffff;text-decoration:underline;">serviços</a> ou <a href="contato.html" style="color:#ffffff;text-decoration:underline;">entre em contato</a>.</p>
                 <a href="https://wa.me/5581987332162?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento." class="btn-primary" target="_blank" rel="noopener noreferrer" style="background:#fff;color:var(--teal);">
                     <i class="ph ph-whatsapp-logo" style="font-size:20px;"></i>
                     Solicitar Orçamento
@@ -302,7 +292,7 @@
                     <a href="tel:+5581987332162">(81) 98733-2162</a>
                     <a href="https://www.google.com/maps/search/Av.+Fagundes+Varela,+380+-+Jardim+Atlântico,+Olinda+-+PE" target="_blank" rel="noopener noreferrer">Av. Fagundes Varela, 380</a>
                     <a href="https://www.google.com/maps/search/Av.+Fagundes+Varela,+380+-+Jardim+Atlântico,+Olinda+-+PE" target="_blank" rel="noopener noreferrer">Olinda-PE</a>
-                    <span>Seg-Sex: 9h-18h</span>
+                    <span class="footer-hours">Segunda a Sexta: 9h às 18h</span>
                 </div>
             </div>
             <div class="footer-bottom">
