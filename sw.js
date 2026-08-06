@@ -1,4 +1,4 @@
-/* Infocelll Service Worker v4.0 — Paths relativos para GitHub Pages */
+﻿/* Infocelll Service Worker v4.1 — Paths relativos para GitHub Pages */
 var CACHE_NAME = 'infocelll-v8';
 var ASSETS_TO_CACHE = [
   './',
@@ -110,7 +110,7 @@ self.addEventListener('fetch', function(event) {
             var clone = response.clone();
             caches.open(CACHE_NAME).then(function(cache) {
               cache.put(event.request, clone);
-            });
+            }).catch(function() {});
           }
           return response;
         }).catch(function() {
