@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,9 @@
     <title>INFOCELLL · Banco de Dados de Películas - Completo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<style>@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}@font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}@font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:swap;src:url(fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -36,14 +38,41 @@
         }
         .mono-icon { color: #1a3a6b; transition: color 0.15s; }
         .dark-mode .mono-icon { color: #b0c8e8; }
+        mark.hl {
+            background: rgba(245,158,11,0.18);
+            color: #b45309;
+            border-radius: 4px;
+            padding: 0 1px;
+            font-weight: 600;
+        }
+        .dark-mode mark.hl {
+            background: rgba(245,158,11,0.22);
+            color: #fbbf24;
+        }
+        .preview-link {
+            border: 1px solid rgba(26,58,107,0.1);
+            border-radius: 30px;
+            padding: 3px 12px;
+            font-size: 0.72rem;
+            margin: 2px;
+            display: inline-block;
+            color: #1a3a6b;
+            cursor: pointer;
+            user-select: none;
+            transition: 0.15s;
+        }
+        .preview-link:hover { background: rgba(26,58,107,0.06); }
+        .dark-mode .preview-link { color: #b0c8e8; border-color: rgba(255,255,255,0.08); }
+        .dark-mode .preview-link:hover { background: rgba(255,255,255,0.05); }
         .badge-mono {
             background: rgba(26, 58, 107, 0.06);
             color: #1a3a6b;
             padding: 4px 12px;
             border-radius: 40px;
             font-weight: 500;
-            font-size: 0.6rem;
+            font-size: 0.68rem;
             display: inline-block;
+            letter-spacing: 0.01em;
         }
         .dark-mode .badge-mono {
             background: rgba(255,255,255,0.05);
@@ -73,7 +102,6 @@
         .search-container:focus-within {
             border-color: #1a3a6b;
             box-shadow: 0 0 0 4px rgba(26, 58, 107, 0.05);
-            transform: scale(1.005);
         }
         .dark-mode .search-container:focus-within {
             border-color: #3b6bc0;
@@ -128,13 +156,8 @@
         }
         .placeholder-rotating.hidden { opacity: 0; }
         .search-icon-pulse {
-            animation: pulse-icon 2s ease-in-out infinite;
             font-size: 1.1rem;
             flex-shrink: 0;
-        }
-        @keyframes pulse-icon {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
         }
         .btn-search-submit {
             background: #1a3a6b;
@@ -157,7 +180,6 @@
         }
         .btn-search-submit:hover {
             background: #0f2a4a;
-            transform: scale(1.05);
         }
         .dark-mode .btn-search-submit:hover {
             background: #2a5a9a;
@@ -326,13 +348,30 @@
         }
         .autocomplete-item .highlight { font-weight: 600; color: #1a3a6b; }
         .dark-mode .autocomplete-item .highlight { color: #b0c8e8; }
-        .autocomplete-item .sub { font-size: 0.7rem; opacity: 0.6; }
+        .autocomplete-item .sub { font-size: 0.72rem; opacity: 0.62; line-height: 1.3; }
+        .autocomplete-item-ico {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26,58,107,0.06);
+            border-radius: 10px;
+            color: #1a3a6b;
+            font-size: 1rem;
+        }
+        .dark-mode .autocomplete-item-ico {
+            background: rgba(255,255,255,0.05);
+            color: #b0c8e8;
+        }
         .autocomplete-item .tag {
-            font-size: 0.55rem;
+            font-size: 0.62rem;
             background: rgba(26,58,107,0.06);
             padding: 2px 10px;
             border-radius: 20px;
             margin-left: auto;
+            font-weight: 500;
         }
         .dark-mode .autocomplete-item .tag {
             background: rgba(255,255,255,0.04);
@@ -369,42 +408,31 @@
             justify-content: center;
             margin-top: 12px;
         }
-        .suggestion-chip {
-            padding: 4px 14px;
-            border-radius: 30px;
-            border: 1px solid rgba(26,58,107,0.08);
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: 0.15s;
-            background: rgba(255,255,255,0.3);
-            backdrop-filter: blur(4px);
-        }
-        .suggestion-chip:hover {
-            background: rgba(26,58,107,0.04);
-            transform: scale(1.02);
-        }
-        .dark-mode .suggestion-chip {
-            border-color: rgba(255,255,255,0.05);
-            background: rgba(255,255,255,0.02);
-        }
-        .dark-mode .suggestion-chip:hover {
-            background: rgba(255,255,255,0.03);
-        }
         .search-tabs {
             display: flex;
             gap: 4px;
             justify-content: center;
             margin-bottom: 8px;
+            flex-wrap: wrap;
         }
         .search-tab {
-            padding: 4px 16px;
+            padding: 5px 16px;
             border-radius: 30px;
-            border: 1px solid rgba(26,58,107,0.08);
-            font-size: 0.65rem;
+            border: 1px solid rgba(26,58,107,0.1);
+            font-size: 0.72rem;
+            font-weight: 500;
             cursor: pointer;
             transition: 0.15s;
             background: transparent;
             color: #8a9bb0;
+        }
+        .tab-emoji {
+            font-size: 0.9rem;
+            margin-right: 4px;
+            vertical-align: -1.5px;
+        }
+        .dark-mode .tab-emoji {
+            filter: none;
         }
         .search-tab:hover {
             background: rgba(26,58,107,0.04);
@@ -418,47 +446,39 @@
             background: #3b6bc0;
             border-color: #3b6bc0;
         }
-        .history-bar {
+        .mode-switch {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
             justify-content: center;
-            margin-top: 8px;
+            margin-bottom: 10px;
         }
-        .history-chip {
-            padding: 3px 12px;
+        .mode-btn {
+            padding: 6px 20px;
             border-radius: 30px;
-            border: 1px solid rgba(26,58,107,0.06);
-            font-size: 0.6rem;
+            border: 1px solid rgba(26,58,107,0.12);
+            font-size: 0.78rem;
+            font-weight: 500;
             cursor: pointer;
             transition: 0.15s;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(4px);
+            background: transparent;
             color: #8a9bb0;
+            user-select: none;
         }
-        .history-chip:hover {
-            background: rgba(26,58,107,0.04);
-            color: #1a3a6b;
+        .dark-mode .mode-btn {
+            border-color: rgba(255,255,255,0.08);
         }
-        .dark-mode .history-chip {
-            border-color: rgba(255,255,255,0.04);
-            color: #5a6f8a;
+        .mode-btn:hover {
+            background: rgba(26,58,107,0.05);
         }
-        .dark-mode .history-chip:hover {
-            background: rgba(255,255,255,0.03);
-            color: #b0c8e8;
+        .mode-btn.active {
+            background: #1a3a6b;
+            color: #fff;
+            border-color: #1a3a6b;
+            box-shadow: 0 4px 14px rgba(26,58,107,0.25);
         }
-        .history-bar, .suggestions-bar {
-            transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
-            max-height: 60px;
-            opacity: 1;
-            overflow: hidden;
-        }
-        .history-bar.collapsed, .suggestions-bar.collapsed {
-            max-height: 0;
-            opacity: 0;
-            margin-top: 0 !important;
-            pointer-events: none;
+        .dark-mode .mode-btn.active {
+            background: #3b6bc0;
+            border-color: #3b6bc0;
         }
         .result-area {
             max-width: 860px;
@@ -537,11 +557,11 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #2c6fdb; border-radius: 20px; }
         .shortcut-hint {
-            font-size: 0.55rem;
-            opacity: 0.4;
+            font-size: 0.62rem;
+            opacity: 0.45;
             color: #1a3a6b;
             background: rgba(26,58,107,0.04);
-            padding: 2px 10px;
+            padding: 3px 10px;
             border-radius: 20px;
         }
         .dark-mode .shortcut-hint {
@@ -577,131 +597,13 @@
             75% { content: '...'; }
             100% { content: ''; }
         }
-        /* ===== Modal de busca por câmera ===== */
-        .camera-modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(5, 12, 24, 0.55);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            z-index: 10000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .camera-modal-overlay.show { display: flex; }
-        .camera-modal {
-            width: 100%;
-            max-width: 460px;
-            padding: 20px;
-        }
-        .camera-modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 14px;
-            font-size: 0.95rem;
-        }
-        .camera-close-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(26,58,107,0.06);
-            color: #1a3a6b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: 0.2s;
-            flex-shrink: 0;
-        }
-        .camera-close-btn:hover { background: rgba(26,58,107,0.12); }
-        .dark-mode .camera-close-btn { background: rgba(255,255,255,0.05); color: #b0c8e8; }
-        .dark-mode .camera-close-btn:hover { background: rgba(255,255,255,0.1); }
-        .camera-video-wrap {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            background: #0b1a2f;
-            border-radius: 18px;
-            overflow: hidden;
-        }
-        .camera-video-wrap video,
-        .camera-video-wrap img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .camera-flash {
-            position: absolute;
-            inset: 0;
-            background: white;
-            opacity: 0;
-            pointer-events: none;
-        }
-        .camera-flash.flash { animation: flash-pop 0.35s ease; }
-        @keyframes flash-pop {
-            0% { opacity: 0.85; }
-            100% { opacity: 0; }
-        }
-        .camera-hint {
-            font-size: 0.75rem;
-            color: #8a9bb0;
-            margin: 12px 0 0;
-            text-align: center;
-            line-height: 1.5;
-        }
-        .camera-modal-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 16px;
-        }
-        .btn-mono-outline {
-            background: transparent;
-            border: 1px solid rgba(26,58,107,0.15);
-            color: #1a3a6b;
-            border-radius: 40px;
-            padding: 9px 22px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .btn-mono-outline:hover { background: rgba(26,58,107,0.06); }
-        .dark-mode .btn-mono-outline { color: #b0c8e8; border-color: rgba(255,255,255,0.1); }
-        .dark-mode .btn-mono-outline:hover { background: rgba(255,255,255,0.05); }
-        .btn-mono-filled {
-            background: #1a3a6b;
-            color: white;
-            border: none;
-            border-radius: 40px;
-            padding: 9px 22px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .btn-mono-filled:hover { background: #0f2a4a; }
-        .dark-mode .btn-mono-filled { background: #3b6bc0; }
-        .dark-mode .btn-mono-filled:hover { background: #2a5a9a; }
         @media (max-width: 576px) {
             .search-container { padding: 4px 4px 4px 16px; }
             .search-input-wrap input { font-size: 0.9rem; padding: 10px 0; }
             .search-actions .btn-icon { width: 32px; height: 32px; font-size: 0.8rem; }
             .result-card { padding: 14px 16px; }
-            .search-tab { font-size: 0.55rem; padding: 3px 10px; }
-            .camera-modal { padding: 16px; }
+            .search-tab { font-size: 0.65rem; padding: 3px 12px; }
+            .tab-emoji { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -709,36 +611,13 @@
 
     <div class="toast-container" id="toastContainer"></div>
 
-    <div class="camera-modal-overlay" id="cameraModalOverlay">
-        <div class="camera-modal glass-panel">
-            <div class="camera-modal-header">
-                <span class="fw-semibold"><span class="mono-icon"><i class="bi bi-camera me-2"></i></span>Busca por câmera</span>
-                <button class="camera-close-btn" id="cameraCloseBtn" title="Fechar"><i class="bi bi-x-lg"></i></button>
-            </div>
-            <div class="camera-video-wrap">
-                <video id="cameraVideo" autoplay playsinline muted></video>
-                <img id="cameraPhoto" alt="Foto capturada" style="display:none;">
-                <div class="camera-flash" id="cameraFlash"></div>
-            </div>
-            <canvas id="cameraCanvas" style="display:none;"></canvas>
-            <p class="camera-hint">Aponte para o aparelho e tire uma foto de referência. O reconhecimento automático do modelo por imagem ainda não está disponível — depois de capturar, digite o modelo no campo de busca.</p>
-            <div class="camera-modal-actions" id="cameraActionsLive">
-                <button class="btn-mono-filled" id="cameraCaptureBtn"><i class="bi bi-camera-fill"></i> Capturar foto</button>
-            </div>
-            <div class="camera-modal-actions" id="cameraActionsReview" style="display:none;">
-                <button class="btn-mono-outline" id="cameraRetakeBtn"><i class="bi bi-arrow-counterclockwise"></i> Tirar outra</button>
-                <button class="btn-mono-filled" id="cameraContinueBtn"><i class="bi bi-check-lg"></i> Continuar</button>
-            </div>
-        </div>
-    </div>
-
     <nav class="navbar-custom">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <a class="navbar-brand fw-bold fs-5 d-flex align-items-center gap-2" href="#">
                     <span class="mono-icon" style="font-size:1.5rem;"><i class="bi bi-phone"></i></span>
                     <span>INFOCELLL</span>
-                    <span class="badge-mono ms-2" style="font-size:0.5rem;">Películas DB</span>
+                    <span class="badge-mono ms-2">Películas + Baterias DB</span>
                 </a>
                 <div class="d-flex align-items-center gap-2">
                     <span class="badge-mono" id="totalModels">0</span>
@@ -756,36 +635,31 @@
             <div class="col-12 text-center mb-2">
                 <h2 class="fw-bold" style="font-size:1.3rem; letter-spacing:-0.5px;">
                     <span class="mono-icon"><i class="bi bi-search"></i></span>
-                    Banco de Dados de Películas
+                    Banco de Dados de Películas e Baterias
                 </h2>
-                <p class="text-secondary" style="font-size:0.8rem;">Digite o modelo para encontrar películas compatíveis</p>
+                <p class="text-secondary" style="font-size:0.8rem;">Digite o modelo para encontrar películas ou baterias compatíveis</p>
             </div>
 
             <div class="col-12">
                 <div class="search-wrapper">
-                    <div class="search-tabs">
-                        <span class="search-tab active" data-tab="all">📱 Todos</span>
-                        <span class="search-tab" data-tab="Samsung">📱 Samsung</span>
-                        <span class="search-tab" data-tab="Motorola">📱 Motorola</span>
-                        <span class="search-tab" data-tab="Xiaomi">📱 Xiaomi</span>
-                        <span class="search-tab" data-tab="Apple">📱 Apple</span>
-                        <span class="search-tab" data-tab="Oppo">📱 Oppo</span>
-                        <span class="search-tab" data-tab="Realme">📱 Realme</span>
+                    <div class="mode-switch" id="modeSwitch">
+                        <span class="mode-btn" data-mode="pelicula"><span class="tab-emoji"><i class="bi bi-phone"></i></span> Películas</span>
+                        <span class="mode-btn active" data-mode="bateria"><span class="tab-emoji"><i class="bi bi-battery-charging"></i></span> Baterias</span>
                     </div>
+
+                    <div class="search-tabs" id="searchTabs"></div>
 
                     <div class="search-container" id="searchContainer">
                         <div class="search-row">
                             <span class="mono-icon search-icon-pulse"><i class="bi bi-search"></i></span>
                             <div class="search-input-wrap">
                                 <input type="text" id="globalSearch" autocomplete="off">
-                                <span class="placeholder-rotating" id="placeholderRotating">🔍 Buscar modelo de celular...</span>
+                                <span class="placeholder-rotating" id="placeholderRotating">Buscar modelo de celular...</span>
                             </div>
                             <div class="search-spinner" id="searchSpinner"></div>
                             <button class="clear-btn" id="clearBtn" title="Limpar"><i class="bi bi-x-circle"></i></button>
                             <div class="search-actions">
                                 <button class="btn-icon" id="voiceBtn" title="Busca por voz"><i class="bi bi-mic"></i></button>
-                                <button class="btn-icon" id="cameraBtn" title="Busca por câmera"><i class="bi bi-camera"></i></button>
-                                <button class="btn-icon" id="qrBtn" title="Ler QR Code"><i class="bi bi-qr-code"></i></button>
                                 <button class="btn-search-submit" id="searchBtn">
                                     <span class="icon-search"><i class="bi bi-arrow-right"></i></span>
                                     <span class="icon-check"><i class="bi bi-check-lg"></i></span>
@@ -799,29 +673,9 @@
                     </div>
                     <div class="search-status" id="searchStatus"></div>
                     <div class="correction-banner" id="correctionBanner">
-                        <span>🔍 Você quis dizer: <span class="suggestion-text" id="correctionText"></span>?</span>
+                        <span>Você quis dizer: <span class="suggestion-text" id="correctionText"></span>?</span>
                     </div>
                     <div class="autocomplete-box" id="autocompleteBox"></div>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="history-bar" id="historyBar">
-                    <span class="history-chip" data-term="Galaxy A15">🕐 Galaxy A15</span>
-                    <span class="history-chip" data-term="iPhone 15">🕐 iPhone 15</span>
-                    <span class="history-chip" data-term="Moto G84">🕐 Moto G84</span>
-                    <span class="history-chip" data-term="Redmi Note 13">🕐 Redmi Note 13</span>
-                    <span class="history-chip" data-term="Galaxy S24">🕐 Galaxy S24</span>
-                </div>
-            </div>
-
-            <div class="col-12">
-                <div class="suggestions-bar" id="suggestionsBar">
-                    <span class="suggestion-chip" data-term="Galaxy A15">📱 Galaxy A15</span>
-                    <span class="suggestion-chip" data-term="iPhone 15">📱 iPhone 15</span>
-                    <span class="suggestion-chip" data-term="Moto G84">📱 Moto G84</span>
-                    <span class="suggestion-chip" data-term="Redmi Note 13">📱 Redmi Note 13</span>
-                    <span class="suggestion-chip" data-term="Galaxy S24">📱 Galaxy S24</span>
                 </div>
             </div>
 
@@ -840,9 +694,9 @@
     <footer class="container text-center text-secondary small py-3 border-top border-light-subtle">
         <span>INFOCELLL · Banco de Dados de Películas</span>
         <span class="mx-2">|</span>
-        <span id="footerModels">0 modelos</span>
+        <span id="footerModels">0 modelos · 0 baterias</span>
         <span class="mx-2">|</span>
-        <span>⌨️ Ctrl+K · ESC limpa</span>
+        <span>Ctrl+K · ESC limpa</span>
     </footer>
 
     <script>
@@ -851,6 +705,671 @@
             // BANCO DE DADOS COMPLETO - TODOS OS CSVs
             // =============================================
             const database = [];
+
+            // ====== BATERIAS - DADOS UNIFICADOS ======
+            // BASE UNIFICADA DE BATERIAS - 582 registros
+// batteryData = [codigo, bateria, capacidade, tipo, marca, modelos]
+const batteryData = [['A1385','iPhone 2G/3G','1150 mAh','Li-Ion','Apple','iPhone 2G, iPhone 3G'],
+['A1445','iPhone 4','1420 mAh','Li-Ion','Apple','iPhone 4'],
+['A1484','iPad 5/6/7','8827 mAh','Li-Polymer','Apple','iPad 5th, 6th, 7th Gen'],
+['A1485','iPad Mini 2/3','6470 mAh','Li-Polymer','Apple','iPad Mini 2, Mini 3'],
+['A1490','iPad Mini 4','5124 mAh','Li-Polymer','Apple','iPad Mini 4'],
+['A1521','iPhone 4S / 5','1440 mAh','Li-Ion','Apple','iPhone 4S, iPhone 5; iPhone 4S; iPhone 5'],
+['A1524','iPad 8/9/10 + Pro 12.9','11466 mAh','Li-Polymer','Apple','iPad 8/9/10, Pro 12.9 1-6'],
+['A1549','iPhone 5S','1560 mAh','Li-Ion','Apple','iPhone 5S'],
+['A1566','iPad Air 1/2/3','8827 mAh','Li-Polymer','Apple','iPad Air 1, 2, 3'],
+['A1569','iPhone 5C','1510 mAh','Li-Ion','Apple','iPhone 5C'],
+['A1580','iPad Mini 5/6','5124 mAh','Li-Polymer','Apple','iPad Mini 5, Mini 6'],
+['A1665','iPhone 6 / 6 Plus','2915 mAh','Li-Polymer','Apple','iPhone 6, iPhone 6 Plus; iPhone 6; iPhone 6 Plus'],
+['A1778','iPhone 6S','1715 mAh','Li-Polymer','Apple','iPhone 6S'],
+['A1779','iPhone 7','1960 mAh','Li-Polymer','Apple','iPhone 7'],
+['A1784','iPhone 6S Plus','2750 mAh','Li-Polymer','Apple','iPhone 6S Plus'],
+['A1785','iPhone 7 Plus','2900 mAh','Li-Polymer','Apple','iPhone 7 Plus'],
+['A1863','iPhone 8','1821 mAh','Li-Polymer','Apple','iPhone 8'],
+['A1864','iPhone 8 Plus','2691 mAh','Li-Polymer','Apple','iPhone 8 Plus'],
+['A1893','iPad Pro 10.5/11','8134 mAh','Li-Polymer','Apple','iPad Pro 10.5, 11'],
+['A1905','iPhone X','2716 mAh','Li-Polymer','Apple','iPhone X'],
+['A1920','iPhone XR','2942 mAh','Li-Polymer','Apple','iPhone XR'],
+['A1921','iPhone XS / XS Max','3174 mAh','Li-Polymer','Apple','iPhone XS, iPhone XS Max; iPhone XS; iPhone XS Max'],
+['A2059','Apple Watch S4 40mm','292 mAh','Li-Polymer','Apple','Watch Series 4 40mm'],
+['A2079','Apple Watch S4 44mm','324 mAh','Li-Polymer','Apple','Watch Series 4 44mm'],
+['A2111','iPhone 11','3110 mAh','Li-Polymer','Apple','iPhone 11'],
+['A2159','Apple Watch S5 40mm','292 mAh','Li-Polymer','Apple','Watch Series 5 40mm'],
+['A2160','iPhone 11 Pro','3046 mAh','Li-Polymer','Apple','iPhone 11 Pro'],
+['A2161','iPhone 11 Pro Max','3969 mAh','Li-Polymer','Apple','iPhone 11 Pro Max'],
+['A2172','iPhone 12 / 12 Pro / 12 mini','2815 mAh','Li-Polymer','Apple','iPhone 12, 12 Pro, 12 mini; iPhone 12 mini; iPhone 12 Pro'],
+['A2176','iPhone 12','2815 mAh','Li-Polymer','Apple','iPhone 12'],
+['A2179','Apple Watch S5 44mm','324 mAh','Li-Polymer','Apple','Watch Series 5 44mm'],
+['A2279','Apple Watch S6 40mm','292 mAh','Li-Polymer','Apple','Watch Series 6 40mm'],
+['A2299','Apple Watch S6 44mm','324 mAh','Li-Polymer','Apple','Watch Series 6 44mm'],
+['A2342','iPhone 12 Pro Max','3687 mAh','Li-Polymer','Apple','iPhone 12 Pro Max'],
+['A2379','Apple Watch S7 41mm','282 mAh','Li-Polymer','Apple','Watch Series 7 41mm'],
+['A2383','Apple Watch Ultra','542 mAh','Li-Polymer','Apple','Watch Ultra 1'],
+['A2399','Apple Watch S7 45mm','308 mAh','Li-Polymer','Apple','Watch Series 7 45mm'],
+['A2479','Apple Watch S8 41mm','282 mAh','Li-Polymer','Apple','Watch Series 8 41mm'],
+['A2482','iPhone 13 mini','2406 mAh','Li-Polymer','Apple','iPhone 13 mini'],
+['A2483','iPhone 13','3227 mAh','Li-Polymer','Apple','iPhone 13'],
+['A2484','iPhone 13 Pro / 13 Pro Max','4352 mAh','Li-Polymer','Apple','iPhone 13 Pro, 13 Pro Max; iPhone 13 Pro; iPhone 13 Pro Max'],
+['A2499','Apple Watch S8 45mm','308 mAh','Li-Polymer','Apple','Watch Series 8 45mm'],
+['A2579','Apple Watch S9 41mm','282 mAh','Li-Polymer','Apple','Watch Series 9 41mm'],
+['A2599','Apple Watch S9 45mm','308 mAh','Li-Polymer','Apple','Watch Series 9 45mm'],
+['A2628','iPhone 14','3279 mAh','Li-Polymer','Apple','iPhone 14'],
+['A2650','iPhone 14 Pro','3200 mAh','Li-Polymer','Apple','iPhone 14 Pro'],
+['A2693','Apple Watch Ultra 2','542 mAh','Li-Polymer','Apple','Watch Ultra 2'],
+['A2846','iPhone 15','3349 mAh','Li-Polymer','Apple','iPhone 15'],
+['A2847','iPhone 15 Plus','4383 mAh','Li-Polymer','Apple','iPhone 15 Plus'],
+['A2848','iPhone 15 Pro','3274 mAh','Li-Polymer','Apple','iPhone 15 Pro'],
+['A2849','iPhone 15 Pro Max','4441 mAh','Li-Polymer','Apple','iPhone 15 Pro Max'],
+['A2890','iPhone 14 Plus','4325 mAh','Li-Polymer','Apple','iPhone 14 Plus'],
+['A2895','iPhone 14 Pro Max','4323 mAh','Li-Polymer','Apple','iPhone 14 Pro Max'],
+['A3089','iPhone 16','3561 mAh','Li-Polymer','Apple','iPhone 16'],
+['A3090','iPhone 16 Plus','4674 mAh','Li-Polymer','Apple','iPhone 16 Plus'],
+['A3091','iPhone 16 Pro','3582 mAh','Li-Polymer','Apple','iPhone 16 Pro'],
+['A3092','iPhone 16 Pro Max','4685 mAh','Li-Polymer','Apple','iPhone 16 Pro Max'],
+['C11P1504','ZenFone 2','3000 mAh','Li-Ion','Asus','ZenFone 2'],
+['C11P1505','ZenFone 3','2650 mAh','Li-Polymer','Asus','ZenFone 3'],
+['C11P1506','ZenFone 3 Zoom','5000 mAh','Li-Polymer','Asus','ZenFone 3 Zoom; ZenFone 3 Zoom '],
+['C11P1511','ZenFone 6','5000 mAh','Li-Polymer','Asus','ZenFone 6; ZenFone 6 '],
+['C11P1518','ROG Phone','4000 mAh','Li-Polymer','Asus','ROG Phone'],
+['C11P1519','ROG Phone 2','6000 mAh','Li-Polymer','Asus','ROG Phone 2; ROG Phone 2 '],
+['C11P1520','ROG Phone 3','6000 mAh','Li-Polymer','Asus','ROG Phone 3; ROG Phone 3 '],
+['C11P1521','ROG Phone 5','6000 mAh','Li-Polymer','Asus','ROG Phone 5; ROG Phone 5 '],
+['C11P1522','ROG Phone 6','6000 mAh','Li-Polymer','Asus','ROG Phone 6; ROG Phone 6 '],
+['C11P1523','ROG Phone 7','6000 mAh','Li-Polymer','Asus','ROG Phone 7; ROG Phone 7 '],
+['C11P1524','ROG Phone 8','6000 mAh','Li-Polymer','Asus','ROG Phone 8; ROG Phone 8 '],
+['HON-B100','Honor 10','3400 mAh','Li-Polymer','Honor','Honor 10'],
+['HON-B1000','Honor 200','5200 mAh','Silício-Carbono','Honor','Honor 200'],
+['HON-B1100','Honor Magic 3','4600 mAh','Li-Polymer','Honor','Magic 3'],
+['HON-B1200','Honor Magic 4','4600 mAh','Li-Polymer','Honor','Magic 4'],
+['HON-B1300','Honor Magic 5 Pro','5450 mAh','Silício-Carbono','Honor','Magic 5 Pro'],
+['HON-B1400','Honor Magic 6 Pro','5600 mAh','Silício-Carbono','Honor','Magic 6 Pro'],
+['HON-B1500','Honor Magic 7 Pro','5850 mAh','Silício-Carbono','Honor','Magic 7 Pro'],
+['HON-B1600','Honor Magic V2','5000 mAh','Silício-Carbono','Honor','Magic V2'],
+['HON-B1700','Honor Magic V3','5150 mAh','Silício-Carbono','Honor','Magic V3'],
+['HON-B1800','Honor X5','5000 mAh','Li-Polymer','Honor','Honor X5'],
+['HON-B1900','Honor X6','5000 mAh','Li-Polymer','Honor','Honor X6'],
+['HON-B200','Honor 20','3750 mAh','Li-Polymer','Honor','Honor 20'],
+['HON-B2000','Honor X7','5000 mAh','Li-Polymer','Honor','Honor X7'],
+['HON-B2100','Honor X8','4000 mAh','Li-Polymer','Honor','Honor X8'],
+['HON-B2200','Honor X9','4800 mAh','Li-Polymer','Honor','Honor X9'],
+['HON-B2300','Honor X10','4200 mAh','Li-Polymer','Honor','Honor X10'],
+['HON-B300','Honor 30','4000 mAh','Li-Polymer','Honor','Honor 30'],
+['HON-B400','Honor 50','4300 mAh','Li-Polymer','Honor','Honor 50'],
+['HON-B500','Honor 60','4800 mAh','Li-Polymer','Honor','Honor 60'],
+['HON-B600','Honor 70','4800 mAh','Li-Polymer','Honor','Honor 70'],
+['HON-B700','Honor 80','4800 mAh','Li-Polymer','Honor','Honor 80'],
+['HON-B800','Honor 90','5000 mAh','Li-Polymer','Honor','Honor 90'],
+['HON-B900','Honor 100','5000 mAh','Li-Polymer','Honor','Honor 100'],
+['HB346487ECW','Huawei P20','3400 mAh','Li-Polymer','Huawei','P20'],
+['HB356487ECW','Huawei P20 Pro','4000 mAh','Li-Polymer','Huawei','P20 Pro'],
+['HB366481ECW','Huawei Mate 8','4000 mAh','Li-Polymer','Huawei','Mate 8'],
+['HB366487ECW','Huawei P30','3650 mAh','Li-Polymer','Huawei','P30'],
+['HB376487ECW','Huawei P30 Pro','4200 mAh','Li-Polymer','Huawei','P30 Pro'],
+['HB386487ECW','Huawei P40','3800 mAh','Li-Polymer','Huawei','P40'],
+['HB386589ECW','Huawei Mate 9','4000 mAh','Li-Polymer','Huawei','Mate 9'],
+['HB396487ECW','Huawei P40 Pro','4200 mAh','Li-Polymer','Huawei','P40 Pro'],
+['HB396489ECW','Huawei Mate 10','4000 mAh','Li-Polymer','Huawei','Mate 10'],
+['HB406487ECW','Huawei P50','4100 mAh','Li-Polymer','Huawei','P50'],
+['HB416487ECW','Huawei P50 Pro','4360 mAh','Li-Polymer','Huawei','P50 Pro'],
+['HB416489ECW','Huawei Mate 20','4000 mAh','Li-Polymer','Huawei','Mate 20'],
+['HB426487ECW','Huawei P60','4815 mAh','Li-Polymer','Huawei','P60'],
+['HB426489ECW','Huawei Mate 20 Pro','4200 mAh','Li-Polymer','Huawei','Mate 20 Pro'],
+['HB436487ECW','Huawei P60 Pro','5000 mAh','Li-Polymer','Huawei','P60 Pro'],
+['HB436489ECW','Huawei Mate 30','4200 mAh','Li-Polymer','Huawei','Mate 30'],
+['HB446489ECW','Huawei Mate 30 Pro','4500 mAh','Li-Polymer','Huawei','Mate 30 Pro'],
+['HB456489ECW','Huawei Mate 40','4200 mAh','Li-Polymer','Huawei','Mate 40'],
+['HB466489ECW','Huawei Mate 40 Pro','4400 mAh','Li-Polymer','Huawei','Mate 40 Pro'],
+['HB476489ECW','Huawei Mate 50','4460 mAh','Li-Polymer','Huawei','Mate 50'],
+['HB486489ECW','Huawei Mate 50 Pro','4700 mAh','Li-Polymer','Huawei','Mate 50 Pro'],
+['HB496489ECW','Huawei Mate 60','4750 mAh','Li-Polymer','Huawei','Mate 60'],
+['HB506489ECW','Huawei Mate 60 Pro','5000 mAh','Li-Polymer','Huawei','Mate 60 Pro'],
+['B-V3001','Vivo V30','5000 mAh','Li-Polymer','LG','Vivo V30, V30 Pro'],
+['B-V3002','Vivo V40','5500 mAh','Li-Polymer','LG','Vivo V40, V40 Pro'],
+['BL-44JN','LG Nexus 5','2300 mAh','Li-Polymer','LG','Nexus 5'],
+['BL-47JN','LG G3','3000 mAh','Li-Ion','LG','LG G3'],
+['BL-48JN','LG G4','3000 mAh','Li-Ion','LG','LG G4'],
+['BL-49JN','LG G5','2800 mAh','Li-Ion','LG','LG G5'],
+['BL-50JN','LG G6','3300 mAh','Li-Polymer','LG','LG G6'],
+['BL-51JN','LG G7 ThinQ','3000 mAh','Li-Polymer','LG','LG G7 ThinQ'],
+['BL-52JN','LG G8 ThinQ','3500 mAh','Li-Polymer','LG','LG G8 ThinQ'],
+['BL-59JN','LG V50 ThinQ','4000 mAh','Li-Polymer','LG','LG V50 ThinQ'],
+['BL-60JN','LG V60 ThinQ','5000 mAh','Li-Polymer','LG','LG V60 ThinQ'],
+['BL-61JN','LG Wing','4000 mAh','Li-Polymer','LG','LG Wing'],
+['BL-62JN','LG Velvet','4300 mAh','Li-Polymer','LG','LG Velvet'],
+['BN12','Mi 6X','3010 mAh','Li-Polymer','LG','Mi 6X'],
+['BN17','Mi Max','4850 mAh','Li-Polymer','LG','Mi Max'],
+['BN18','Mi Max 2','5300 mAh','Li-Polymer','LG','Mi Max 2'],
+['BN19','Mi Max 3','5500 mAh','Li-Polymer','LG','Mi Max 3'],
+['I-GT20','Infinix GT 20 Pro','5000 mAh','Li-Polymer','LG','Infinix GT 20 Pro'],
+['I-GT30','Infinix GT 30 Pro','5500 mAh','Silício-Carbono','LG','Infinix GT 30 Pro (2025)'],
+['I-HOT40','Infinix Hot 40','5000 mAh','Li-Polymer','LG','Infinix Hot 40, Hot 40 Pro'],
+['I-HOT50','Infinix Hot 50','6000 mAh','Li-Polymer','LG','Infinix Hot 50 (2025)'],
+['I-NOT40','Infinix Note 40','5000 mAh','Li-Polymer','LG','Infinix Note 40, Note 40 Pro'],
+['I-NOT41','Infinix Note 40 Pro+','5000 mAh','Li-Polymer','LG','Infinix Note 40 Pro+'],
+['I-NOT50','Infinix Note 50','5500 mAh','Silício-Carbono','LG','Infinix Note 50 (2025)'],
+['I-ZER8','Infinix Zero 30','5000 mAh','Li-Polymer','LG','Infinix Zero 30, Zero 30 5G'],
+['I-ZER9','Infinix Zero 40','5000 mAh','Li-Polymer','LG','Infinix Zero 40 (2025)'],
+['SNN5983A','Moto G (1ª)','2070 mAh','Li-Ion','Motorola','Moto G (1ª)'],
+['SNN5984A','Moto G 2ª','2390 mAh','Li-Ion','Motorola','Moto G 2ª'],
+['SNN5985A','Moto G 3ª','2470 mAh','Li-Ion','Motorola','Moto G 3ª'],
+['SNN5986A','Moto G 4ª','2800 mAh','Li-Ion','Motorola','Moto G 4ª'],
+['SNN5987A','Moto G 5ª','3000 mAh','Li-Ion','Motorola','Moto G 5ª'],
+['SNN5988A','Moto G 6ª','3000 mAh','Li-Polymer','Motorola','Moto G 6ª'],
+['SNN5989A','Moto G 7ª','3000 mAh','Li-Polymer','Motorola','Moto G 7ª'],
+['SNN5990A','Moto G 8ª','4000 mAh','Li-Polymer','Motorola','Moto G 8ª'],
+['SNN5991A','Moto G 9ª','5000 mAh','Li-Polymer','Motorola','Moto G 9ª'],
+['SNN5992A','Moto G 10ª','5000 mAh','Li-Polymer','Motorola','Moto G 10ª'],
+['SNN5993A','Moto G 11ª','5000 mAh','Li-Polymer','Motorola','Moto G 11ª'],
+['SNN5994A','Moto G 12ª','5000 mAh','Li-Polymer','Motorola','Moto G 12ª'],
+['SNN5995A','Moto G 13ª','5000 mAh','Li-Polymer','Motorola','Moto G 13ª'],
+['SNN5996A','Moto G 14ª','5000 mAh','Li-Polymer','Motorola','Moto G 14ª'],
+['SNN5997A','Moto G Stylus (2025)','5000 mAh','Li-Polymer','Motorola','Moto G Stylus (2025)'],
+['SNN5998A','Moto Edge (2025)','5200 mAh','Li-Polymer','Motorola','Moto Edge (2025)'],
+['SNN5999A','Moto Edge 70 Pro','6500 mAh','Silício-Carbono','Motorola','Moto Edge 70 Pro'],
+['SNN6000A','Moto E','1980 mAh','Li-Ion','Motorola','Moto E'],
+['SNN6001A','Moto E 2ª','2390 mAh','Li-Ion','Motorola','Moto E 2ª'],
+['SNN6002A','Moto E 3ª','2800 mAh','Li-Ion','Motorola','Moto E 3ª'],
+['SNN6003A','Moto E 4ª','2800 mAh','Li-Ion','Motorola','Moto E 4ª'],
+['SNN6004A','Moto E 5ª','4000 mAh','Li-Polymer','Motorola','Moto E 5ª'],
+['SNN6005A','Moto Z','2600 mAh','Li-Polymer','Motorola','Moto Z'],
+['SNN6006A','Moto Z Play','3510 mAh','Li-Polymer','Motorola','Moto Z Play'],
+['SNN6007A','Moto Z2 Play','3000 mAh','Li-Polymer','Motorola','Moto Z2 Play'],
+['SNN6008A','Moto X4','3000 mAh','Li-Polymer','Motorola','Moto X4'],
+['SNN6009A','Moto One','3000 mAh','Li-Polymer','Motorola','Moto One'],
+['SNN6010A','Moto One Power','5000 mAh','Li-Polymer','Motorola','Moto One Power'],
+['SNN6011A','Moto G 10 Power','6000 mAh','Li-Polymer','Motorola','Moto G 10 Power; Moto G 10 Power '],
+['SNN6012A','Moto G 5G (2025)','5500 mAh','Silício-Carbono','Motorola','Moto G 5G (2025)'],
+['SNN6013A','Moto Edge 50','4500 mAh','Li-Polymer','Motorola','Moto Edge 50, Edge 50 Fusion'],
+['SNN6014A','Moto Edge 50 Pro','4500 mAh','Li-Polymer','Motorola','Moto Edge 50 Pro'],
+['SNN6015A','Moto Edge 50 Ultra','4500 mAh','Li-Polymer','Motorola','Moto Edge 50 Ultra'],
+['SNN6016A','Moto Edge 60 Pro','5000 mAh','Silício-Carbono','Motorola','Moto Edge 60 Pro (2025)'],
+['SNN6017A','Moto Razr 50','4200 mAh','Li-Polymer','Motorola','Moto Razr 50, Razr 50 Ultra'],
+['SNN6018A','Moto Razr 60','4500 mAh','Silício-Carbono','Motorola','Moto Razr 60 Ultra (2025)'],
+['SNN6019A','Moto G85','5000 mAh','Li-Polymer','Motorola','Moto G85 5G'],
+['SNN6020A','Moto G95','5500 mAh','Silício-Carbono','Motorola','Moto G95 5G (2025)'],
+['BL-4S','Nokia Clássica','860 mAh','Li-Ion','Nokia','Nokia 6600, 6700'],
+['BL-4U','Nokia Clássica','1000 mAh','Li-Ion','Nokia','Nokia 5130, 6300, 6500'],
+['BL-5B','Nokia Clássica','900 mAh','Li-Ion','Nokia','Nokia 3220, 3230, 6020, 6030'],
+['BL-5C','Nokia Clássica','1020 mAh','Li-Ion','Nokia','Nokia 3310, 1100, 1110, 2100, 2300; Vários Nokia clássicos'],
+['BP-4L','Nokia Clássica','1200 mAh','Li-Ion','Nokia','Nokia E71, E72, N79, N85'],
+['BLP589','OnePlus 1','3100 mAh','Li-Polymer','OnePlus','OnePlus 1'],
+['BLP599','OnePlus 2','3300 mAh','Li-Polymer','OnePlus','OnePlus 2'],
+['BLP613','OnePlus 3','3000 mAh','Li-Polymer','OnePlus','OnePlus 3'],
+['BLP623','OnePlus 3T','3400 mAh','Li-Polymer','OnePlus','OnePlus 3T'],
+['BLP637','OnePlus 5','3300 mAh','Li-Polymer','OnePlus','OnePlus 5'],
+['BLP645','OnePlus 5T','3300 mAh','Li-Polymer','OnePlus','OnePlus 5T'],
+['BLP659','OnePlus 6','3300 mAh','Li-Polymer','OnePlus','OnePlus 6'],
+['BLP673','OnePlus 6T','3700 mAh','Li-Polymer','OnePlus','OnePlus 6T'],
+['BLP681','OnePlus 7','3700 mAh','Li-Polymer','OnePlus','OnePlus 7'],
+['BLP685','OnePlus 7 Pro','4000 mAh','Li-Polymer','OnePlus','OnePlus 7 Pro'],
+['BLP691','OnePlus 7T','3800 mAh','Li-Polymer','OnePlus','OnePlus 7T'],
+['BLP695','OnePlus 7T Pro','4085 mAh','Li-Polymer','OnePlus','OnePlus 7T Pro'],
+['BLP701','OnePlus 8','4300 mAh','Li-Polymer','OnePlus','OnePlus 8'],
+['BLP705','OnePlus 8 Pro','4510 mAh','Li-Polymer','OnePlus','OnePlus 8 Pro'],
+['BLP713','OnePlus 8T','4500 mAh','Li-Polymer','OnePlus','OnePlus 8T'],
+['BLP721','Oppo Reno 1','4500 mAh','Li-Polymer','OnePlus','OnePlus 9; Reno 1'],
+['BLP725','OnePlus 9 Pro','4500 mAh','Li-Polymer','OnePlus','OnePlus 9 Pro'],
+['BLP733','OnePlus 9RT','4500 mAh','Li-Polymer','OnePlus','OnePlus 9RT'],
+['BLP741','OnePlus 10 Pro','5000 mAh','Li-Polymer','OnePlus','OnePlus 10 Pro; Reno 3'],
+['BLP755','OnePlus 11','5000 mAh','Li-Polymer','OnePlus','OnePlus 11'],
+['BLP765','OnePlus 12','5400 mAh','Li-Polymer','OnePlus','OnePlus 12'],
+['BLP775','OnePlus 12R','5500 mAh','Li-Polymer','OnePlus','OnePlus 12R'],
+['N-100','OnePlus Nord','4115 mAh','Li-Polymer','OnePlus','OnePlus Nord 1'],
+['N-200','OnePlus Nord 2','4500 mAh','Li-Polymer','OnePlus','OnePlus Nord 2'],
+['N-300','OnePlus Nord 3','5000 mAh','Li-Polymer','OnePlus','OnePlus Nord 3'],
+['N-400','OnePlus Nord 4','5500 mAh','Li-Polymer','OnePlus','OnePlus Nord 4'],
+['N-CE100','OnePlus Nord CE','4500 mAh','Li-Polymer','OnePlus','Nord CE 1'],
+['N-CE200','OnePlus Nord CE 2','4500 mAh','Li-Polymer','OnePlus','Nord CE 2'],
+['N-CE300','OnePlus Nord CE 3','5000 mAh','Li-Polymer','OnePlus','Nord CE 3'],
+['N-CE400','OnePlus Nord CE 4','5500 mAh','Li-Polymer','OnePlus','Nord CE 4'],
+['OP-15','OnePlus 15','7300 mAh','Silício-Carbono','OnePlus','OnePlus 15 (2025/26)'],
+['OP-15R','OnePlus 15R','7400 mAh','Silício-Carbono','OnePlus','OnePlus 15R'],
+['BLP731','Oppo Reno 2','4000 mAh','Li-Polymer','Oppo','Reno 2'],
+['BLP751','Oppo Reno 4','4015 mAh','Li-Polymer','Oppo','Reno 4'],
+['BLP761','Oppo Reno 5','4310 mAh','Li-Polymer','Oppo','Reno 5'],
+['BLP771','Oppo Reno 6','4500 mAh','Li-Polymer','Oppo','Reno 6'],
+['BLP781','Oppo Reno 7','4500 mAh','Li-Polymer','Oppo','Reno 7'],
+['BLP791','Oppo Reno 8','4500 mAh','Li-Polymer','Oppo','Reno 8'],
+['BLP801','Oppo Reno 9','4500 mAh','Li-Polymer','Oppo','Reno 9'],
+['BLP811','Oppo Reno 10','4600 mAh','Li-Polymer','Oppo','Reno 10'],
+['BLP821','Oppo Reno 11','4800 mAh','Li-Polymer','Oppo','Reno 11'],
+['BLP831','Oppo Reno 12','5000 mAh','Li-Polymer','Oppo','Reno 12'],
+['BLP837','Oppo Find X','3730 mAh','Li-Polymer','Oppo','Find X'],
+['BLP841','Oppo A3','4230 mAh','Li-Polymer','Oppo','A3'],
+['BLP851','Oppo A5','4230 mAh','Li-Polymer','Oppo','A5'],
+['BLP855','Oppo Find X2','4260 mAh','Li-Polymer','Oppo','Find X2'],
+['BLP861','Oppo A7','4230 mAh','Li-Polymer','Oppo','A7'],
+['BLP865','Oppo Find X3','4500 mAh','Li-Polymer','Oppo','Find X3'],
+['BLP871','Oppo A9','4020 mAh','Li-Polymer','Oppo','A9'],
+['BLP875','Oppo Find X5','4800 mAh','Li-Polymer','Oppo','Find X5'],
+['BLP881','Oppo A11','4880 mAh','Li-Polymer','Oppo','A11'],
+['BLP885','Oppo Find X6','4800 mAh','Li-Polymer','Oppo','Find X6'],
+['BLP891','Oppo A15','4230 mAh','Li-Polymer','Oppo','A15'],
+['BLP895','Oppo Find X7','5000 mAh','Silício-Carbono','Oppo','Find X7'],
+['BLP901','Oppo A53','5000 mAh','Li-Polymer','Oppo','A53'],
+['BLP905','Oppo Find X8','5600 mAh','Silício-Carbono','Oppo','Find X8'],
+['BLP911','Oppo A54','5000 mAh','Li-Polymer','Oppo','A54'],
+['BLP915','Oppo Find X9 Pro','7500 mAh','Silício-Carbono','Oppo','Find X9 Pro; Find X9 Pro '],
+['BLP921','Oppo A74','5000 mAh','Li-Polymer','Oppo','A74'],
+['BLP931','Oppo A76','5000 mAh','Li-Polymer','Oppo','A76'],
+['BLP941','Oppo A77','5000 mAh','Li-Polymer','Oppo','A77 5G'],
+['BLP951','Oppo A78','5000 mAh','Li-Polymer','Oppo','A78 5G'],
+['BLP961','Oppo A79','5000 mAh','Li-Polymer','Oppo','A79 5G'],
+['BN01','Mi 1','1930 mAh','Li-Ion','Outros','Mi 1'],
+['BN02','Mi 2','2000 mAh','Li-Ion','Outros','Mi 2'],
+['BN03','Mi 2S','2000 mAh','Li-Ion','Outros','Mi 2S'],
+['BN04','Mi 3','3050 mAh','Li-Polymer','Outros','Mi 3'],
+['BN05','Mi 4','3080 mAh','Li-Polymer','Outros','Mi 4'],
+['BN06','Mi 4i','3120 mAh','Li-Polymer','Outros','Mi 4i'],
+['BN07','Mi 4c','3080 mAh','Li-Polymer','Outros','Mi 4c'],
+['BN08','Mi 5','3000 mAh','Li-Polymer','Outros','Mi 5'],
+['BN09','Mi 5s','3200 mAh','Li-Polymer','Outros','Mi 5s'],
+['BN10','Mi 5s Plus','3800 mAh','Li-Polymer','Outros','Mi 5s Plus'],
+['BN11','Mi 6','3350 mAh','Li-Polymer','Outros','Mi 6'],
+['BN13','Mi 8 SE','3120 mAh','Li-Polymer','Outros','Mi 8 SE'],
+['BN14','Mi 8','3400 mAh','Li-Polymer','Outros','Mi 8'],
+['BN15','Mi 8 Pro','3000 mAh','Li-Polymer','Outros','Mi 8 Pro'],
+['BN16','Mi 8 Lite','3300 mAh','Li-Polymer','Outros','Mi 8 Lite'],
+['BN27','Mi A1','3080 mAh','Li-Polymer','Outros','Mi A1'],
+['BN28','Mi A2','3010 mAh','Li-Polymer','Outros','Mi A2'],
+['BN29','Mi A2 Lite','4000 mAh','Li-Polymer','Outros','Mi A2 Lite'],
+['BN30','Mi A3','4030 mAh','Li-Polymer','Outros','Mi A3'],
+['BP4L','Mi 11','4600 mAh','Li-Polymer','Outros','Mi 11'],
+['BP4M','Mi 9','3300 mAh','Li-Polymer','Outros','Mi 9'],
+['BP4N','Mi 10','4780 mAh','Li-Polymer','Outros','Mi 10'],
+['BP5R','Mi 12','4500 mAh','Li-Polymer','Outros','Mi 12'],
+['BP5S','Mi 13','4500 mAh','Li-Polymer','Outros','Mi 13'],
+['BP5T','Mi 14','4610 mAh','Li-Polymer','Outros','Mi 14'],
+['CS1-001','Nothing Phone (1)','4500 mAh','Li-Polymer','Outros','Nothing Phone (1)'],
+['CS1-002','Nothing Phone (2)','4700 mAh','Li-Polymer','Outros','Nothing Phone (2)'],
+['CS1-003','Nothing Phone (2a)','5000 mAh','Li-Polymer','Outros','Nothing Phone (2a), Phone (2a) Plus'],
+['CS1-004','Nothing Phone (3)','5000 mAh','Silício-Carbono','Outros','Nothing Phone (3) (2025)'],
+['CS1-005','Nothing Phone (3a)','5500 mAh','Silício-Carbono','Outros','Nothing Phone (3a) (2025)'],
+['NB-Z60','Nubia Z60 Ultra','6000 mAh','Li-Polymer','Outros','Nubia Z60 Ultra, Z60 Ultra Leading'],
+['NB-Z70','Nubia Z70 Ultra','6200 mAh','Silício-Carbono','Outros','Nubia Z70 Ultra (2025)'],
+['RM-009','RedMagic 9 Pro','6500 mAh','Li-Polymer','Outros','RedMagic 9 Pro, 9 Pro+'],
+['RM-010','RedMagic 10 Pro','7050 mAh','Silício-Carbono','Outros','RedMagic 10 Pro, 10 Pro+ (2025)'],
+['RM-011','RedMagic 11 Pro','7500 mAh','Silício-Carbono','Outros','RedMagic 11 Pro (2026)'],
+['T-CAM30','Tecno Camon 30','5000 mAh','Li-Polymer','Outros','Tecno Camon 30, Camon 30 Pro'],
+['T-CAM31','Tecno Camon 40','5000 mAh','Li-Polymer','Outros','Tecno Camon 40 (2025)'],
+['T-PHV12','Tecno Phantom V Fold','5000 mAh','Li-Polymer','Outros','Tecno Phantom V Fold'],
+['T-PHV13','Tecno Phantom V Fold 2','5700 mAh','Silício-Carbono','Outros','Tecno Phantom V Fold 2 (2025)'],
+['T-SPK20','Tecno Spark 20','5000 mAh','Li-Polymer','Outros','Tecno Spark 20, Spark 20 Pro'],
+['T-SPK30','Tecno Spark 30','5000 mAh','Li-Polymer','Outros','Tecno Spark 30 (2025)'],
+['ZT-AXON60','ZTE Axon 60','5000 mAh','Li-Polymer','Outros','ZTE Axon 60, Axon 60 Ultra'],
+['ZT-AXON70','ZTE Axon 70','5500 mAh','Silício-Carbono','Outros','ZTE Axon 70 Ultra (2025)'],
+['G-T015D','Pixel 1','2770 mAh','Li-Polymer','Pixels','Pixel 1'],
+['G-T020D','Pixel XL','3450 mAh','Li-Polymer','Pixels','Pixel XL'],
+['G-T030D','Pixel 2','2700 mAh','Li-Polymer','Pixels','Pixel 2'],
+['G-T035D','Pixel 2 XL','3520 mAh','Li-Polymer','Pixels','Pixel 2 XL'],
+['G-T040D','Pixel 3','2915 mAh','Li-Polymer','Pixels','Pixel 3'],
+['G-T045D','Pixel 3 XL','3430 mAh','Li-Polymer','Pixels','Pixel 3 XL'],
+['G-T050D','Pixel 3a','3000 mAh','Li-Polymer','Pixels','Pixel 3a'],
+['G-T055D','Pixel 3a XL','3700 mAh','Li-Polymer','Pixels','Pixel 3a XL'],
+['G-T060D','Pixel 4','2800 mAh','Li-Polymer','Pixels','Pixel 4'],
+['G-T065D','Pixel 4 XL','3700 mAh','Li-Polymer','Pixels','Pixel 4 XL'],
+['G-T070D','Pixel 4a','3140 mAh','Li-Polymer','Pixels','Pixel 4a'],
+['G-T075D','Pixel 4a 5G','3800 mAh','Li-Polymer','Pixels','Pixel 4a 5G'],
+['G-T080D','Pixel 5','4080 mAh','Li-Polymer','Pixels','Pixel 5'],
+['G-T085D','Pixel 5a','4680 mAh','Li-Polymer','Pixels','Pixel 5a'],
+['G-T090D','Pixel 6','4614 mAh','Li-Polymer','Pixels','Pixel 6'],
+['G-T095D','Pixel 6 Pro','5003 mAh','Li-Polymer','Pixels','Pixel 6 Pro'],
+['G-T100D','Pixel 6a','4410 mAh','Li-Polymer','Pixels','Pixel 6a'],
+['G-T110D','Pixel 7','4355 mAh','Li-Polymer','Pixels','Pixel 7'],
+['G-T115D','Pixel 7 Pro','5000 mAh','Li-Polymer','Pixels','Pixel 7 Pro'],
+['G-T120D','Pixel 7a','4385 mAh','Li-Polymer','Pixels','Pixel 7a'],
+['G-T130D','Pixel 8','4575 mAh','Li-Polymer','Pixels','Pixel 8'],
+['G-T135D','Pixel 8 Pro','5050 mAh','Li-Polymer','Pixels','Pixel 8 Pro'],
+['G-T140D','Pixel 8a','4492 mAh','Li-Polymer','Pixels','Pixel 8a'],
+['G-T150D','Pixel 9','4700 mAh','Li-Polymer','Pixels','Pixel 9'],
+['G-T155D','Pixel 9 Pro','5050 mAh','Li-Polymer','Pixels','Pixel 9 Pro'],
+['G-T160D','Pixel 9 Pro XL','5060 mAh','Li-Polymer','Pixels','Pixel 9 Pro XL'],
+['BR-10000','Realme GT (Protótipo)','10000 mAh','Silício-Carbono','Realme','Protótipo 10.000 mAh'],
+['RM-B100','Realme 1','3410 mAh','Li-Polymer','Realme','Realme 1'],
+['RM-B1000','Realme 11','5000 mAh','Li-Polymer','Realme','Realme 11'],
+['RM-B1100','Realme 12','5000 mAh','Li-Polymer','Realme','Realme 12'],
+['RM-B1200','Realme 13','5000 mAh','Li-Polymer','Realme','Realme 13'],
+['RM-B1300','Realme 14','5500 mAh','Silício-Carbono','Realme','Realme 14'],
+['RM-B200','Realme 2','4230 mAh','Li-Polymer','Realme','Realme 2'],
+['RM-B300','Realme 3','4230 mAh','Li-Polymer','Realme','Realme 3'],
+['RM-B400','Realme 5','5000 mAh','Li-Polymer','Realme','Realme 5'],
+['RM-B500','Realme 6','4300 mAh','Li-Polymer','Realme','Realme 6'],
+['RM-B600','Realme 7','5000 mAh','Li-Polymer','Realme','Realme 7'],
+['RM-B700','Realme 8','5000 mAh','Li-Polymer','Realme','Realme 8'],
+['RM-B800','Realme 9','5000 mAh','Li-Polymer','Realme','Realme 9'],
+['RM-B900','Realme 10','5000 mAh','Li-Polymer','Realme','Realme 10'],
+['RM-C100','Realme C1','4230 mAh','Li-Polymer','Realme','Realme C1'],
+['RM-C1000','Realme C35','5000 mAh','Li-Polymer','Realme','Realme C35'],
+['RM-C1100','Realme C53','5000 mAh','Li-Polymer','Realme','Realme C53'],
+['RM-C1200','Realme C55','5000 mAh','Li-Polymer','Realme','Realme C55'],
+['RM-C1300','Realme C61','5000 mAh','Li-Polymer','Realme','Realme C61'],
+['RM-C1400','Realme C75','6000 mAh','Silício-Carbono','Realme','Realme C75; Realme C75 '],
+['RM-C1500','Realme C85','7000 mAh','Silício-Carbono','Realme','Realme C85; Realme C85 '],
+['RM-C200','Realme C2','4000 mAh','Li-Polymer','Realme','Realme C2'],
+['RM-C300','Realme C3','5000 mAh','Li-Polymer','Realme','Realme C3'],
+['RM-C400','Realme C11','5000 mAh','Li-Polymer','Realme','Realme C11'],
+['RM-C500','Realme C12','6000 mAh','Li-Polymer','Realme','Realme C12; Realme C12 '],
+['RM-C600','Realme C15','6000 mAh','Li-Polymer','Realme','Realme C15; Realme C15 '],
+['RM-C700','Realme C21','5000 mAh','Li-Polymer','Realme','Realme C21'],
+['RM-C800','Realme C25','6000 mAh','Li-Polymer','Realme','Realme C25; Realme C25 '],
+['RM-C900','Realme C31','5000 mAh','Li-Polymer','Realme','Realme C31'],
+['RM-GT100','Realme GT 5G','4500 mAh','Li-Polymer','Realme','Realme GT 1'],
+['RM-GT200','Realme GT 2','5000 mAh','Li-Polymer','Realme','Realme GT 2'],
+['RM-GT300','Realme GT 3','4600 mAh','Li-Polymer','Realme','Realme GT 3'],
+['RM-GT400','Realme GT 5','5240 mAh','Li-Polymer','Realme','Realme GT 5'],
+['RM-GT500','Realme GT 6','5500 mAh','Silício-Carbono','Realme','Realme GT 6'],
+['RM-GT600','Realme GT 7','7000 mAh','Silício-Carbono','Realme','Realme GT 7; Realme GT 7 '],
+['RM-GT700','Realme GT 7 Pro','6500 mAh','Silício-Carbono','Realme','Realme GT 7 Pro'],
+['RM-GT800','Realme GT 8','7000 mAh','Silício-Carbono','Realme','Realme GT 8'],
+['RM-GT900','Realme GT 8 Pro','7500 mAh','Silício-Carbono','Realme','Realme GT 8 Pro; Realme GT 8 Pro '],
+['EB-B200AEBE','Galaxy Core','2000 mAh','Li-Ion','Samsung','SM-G386F'],
+['EB-B600BUB','Galaxy S4','2600 mAh','Li-Ion','Samsung','GT-I9500'],
+['EB-B800BUB','Galaxy Note 10.1 2014','3200 mAh','Li-Ion','Samsung','SM-N9005; SM-P605'],
+['EB-BA015ABY','Galaxy A01','3000 mAh','Li-Ion','Samsung','SM-A015F'],
+['EB-BA025ABY','Galaxy A02','5000 mAh','Li-Polymer','Samsung','SM-A025F'],
+['EB-BA035ABY','Galaxy A03','5000 mAh','Li-Polymer','Samsung','SM-A035F'],
+['EB-BA045ABY','Galaxy A04','5000 mAh','Li-Polymer','Samsung','SM-A045F'],
+['EB-BA055ABY','Galaxy A05','5000 mAh','Li-Polymer','Samsung','SM-A055F'],
+['EB-BA105ABU','Galaxy A10','3400 mAh','Li-Ion','Samsung','SM-A105F'],
+['EB-BA106ABY','Galaxy J2','2000 mAh','Li-Ion','Samsung','SM-J200F'],
+['EB-BA115ABY','Galaxy A11','4000 mAh','Li-Polymer','Samsung','SM-A115F'],
+['EB-BA125ABY','Galaxy A12','5000 mAh','Li-Polymer','Samsung','SM-A125F'],
+['EB-BA135ABY','Galaxy A13','5000 mAh','Li-Polymer','Samsung','SM-A135F'],
+['EB-BA145ABY','Galaxy A14','5000 mAh','Li-Polymer','Samsung','SM-A145F'],
+['EB-BA156ABY','Galaxy A15','5000 mAh','Li-Polymer','Samsung','SM-A155F'],
+['EB-BA166ABY','Galaxy A16 5G','5000 mAh','Li-Polymer','Samsung','SM-A166B (2025)'],
+['EB-BA205ABU','Galaxy A20','4000 mAh','Li-Polymer','Samsung','SM-A205F'],
+['EB-BA206ABY','Galaxy J3','2600 mAh','Li-Ion','Samsung','SM-J330F'],
+['EB-BA215ABY','Galaxy A21','4000 mAh','Li-Polymer','Samsung','SM-A215F'],
+['EB-BA225ABY','Galaxy A22','5000 mAh','Li-Polymer','Samsung','SM-A225F'],
+['EB-BA235ABY','Galaxy A23','5000 mAh','Li-Polymer','Samsung','SM-A235F'],
+['EB-BA245ABY','Galaxy A24','5000 mAh','Li-Polymer','Samsung','SM-A245F'],
+['EB-BA255ABY','Galaxy A25','5000 mAh','Li-Polymer','Samsung','SM-A255F'],
+['EB-BA266ABY','Galaxy A26 5G','5000 mAh','Li-Polymer','Samsung','SM-A266B (2025)'],
+['EB-BA305ABU','Galaxy A30','4000 mAh','Li-Polymer','Samsung','SM-A305F'],
+['EB-BA306ABU','Galaxy J4','3000 mAh','Li-Ion','Samsung','SM-J400F'],
+['EB-BA310ABE','Galaxy A3 2017','2350 mAh','Li-Ion','Samsung','SM-A320F'],
+['EB-BA315ABY','Galaxy A31','5000 mAh','Li-Polymer','Samsung','SM-A315F'],
+['EB-BA320ABE','Galaxy A5 2017','3000 mAh','Li-Ion','Samsung','SM-A520F'],
+['EB-BA325ABY','Galaxy A32','5000 mAh','Li-Polymer','Samsung','SM-A325F'],
+['EB-BA330ABE','Galaxy A7 2017','3600 mAh','Li-Ion','Samsung','SM-A720F'],
+['EB-BA335ABY','Galaxy A33','5000 mAh','Li-Polymer','Samsung','SM-A335F'],
+['EB-BA345ABY','Galaxy A34','5000 mAh','Li-Polymer','Samsung','SM-A345F'],
+['EB-BA355ABY','Galaxy A35','5000 mAh','Li-Polymer','Samsung','SM-A355F'],
+['EB-BA366ABY','Galaxy A36 5G','5000 mAh','Li-Polymer','Samsung','SM-A366B (2025)'],
+['EB-BA405ABU','Galaxy A40','3100 mAh','Li-Polymer','Samsung','SM-A405F'],
+['EB-BA406ABY','Galaxy J6','3000 mAh','Li-Ion','Samsung','SM-J600F'],
+['EB-BA410ABE','Galaxy A6','3000 mAh','Li-Ion','Samsung','SM-A600F'],
+['EB-BA415ABY','Galaxy A41','3500 mAh','Li-Polymer','Samsung','SM-A415F'],
+['EB-BA420ABE','Galaxy A6+','3500 mAh','Li-Ion','Samsung','SM-A605F'],
+['EB-BA425ABY','Galaxy A42','5000 mAh','Li-Polymer','Samsung','SM-A425F'],
+['EB-BA430ABE','Galaxy A9 2018','3800 mAh','Li-Ion','Samsung','SM-A920F'],
+['EB-BA505ABU','Galaxy A50','4000 mAh','Li-Polymer','Samsung','SM-A505F'],
+['EB-BA506ABY','Galaxy J8','3500 mAh','Li-Ion','Samsung','SM-J800F'],
+['EB-BA515ABY','Galaxy A51','4000 mAh','Li-Polymer','Samsung','SM-A515F'],
+['EB-BA525ABY','Galaxy A52','4500 mAh','Li-Polymer','Samsung','SM-A525F'],
+['EB-BA546ABY','Galaxy A54','5000 mAh','Li-Polymer','Samsung','SM-A546B'],
+['EB-BA556ABY','Galaxy A55','5000 mAh','Li-Polymer','Samsung','SM-A556B'],
+['EB-BA566ABY','Galaxy A56 5G','5000 mAh','Li-Polymer','Samsung','SM-A566B (2025)'],
+['EB-BA735ABY','Galaxy A73','5000 mAh','Li-Polymer','Samsung','SM-A735F'],
+['EB-BF700ABY','Galaxy Z Flip','3300 mAh','Li-Polymer','Samsung','SM-F700F'],
+['EB-BF711ABY','Galaxy Z Flip 3','3300 mAh','Li-Polymer','Samsung','SM-F711B'],
+['EB-BF721ABY','Galaxy Z Flip 4','3700 mAh','Li-Polymer','Samsung','SM-F721B'],
+['EB-BF731ABY','Galaxy Z Flip 5','3700 mAh','Li-Polymer','Samsung','SM-F731B'],
+['EB-BF741ABY','Galaxy Z Flip 6','4000 mAh','Li-Polymer','Samsung','SM-F741B'],
+['EB-BF750ABY','Galaxy Z Flip 7 FE','4000 mAh','Li-Polymer','Samsung','SM-F750B (2025)'],
+['EB-BF751ABY','Galaxy Z Flip 7','4300 mAh','Li-Polymer','Samsung','SM-F751B (2025)'],
+['EB-BF900ABY','Galaxy Fold','4380 mAh','Li-Polymer','Samsung','SM-F900F'],
+['EB-BF916ABY','Galaxy Z Fold 2','4500 mAh','Li-Polymer','Samsung','SM-F916B'],
+['EB-BF926ABY','Galaxy Z Fold 3','4400 mAh','Li-Polymer','Samsung','SM-F926B'],
+['EB-BF936ABY','Galaxy Z Fold 4','4400 mAh','Li-Polymer','Samsung','SM-F936B'],
+['EB-BF946ABY','Galaxy Z Fold 5','4400 mAh','Li-Polymer','Samsung','SM-F946B'],
+['EB-BF956ABY','Galaxy Z Fold 6','4600 mAh','Li-Polymer','Samsung','SM-F956B'],
+['EB-BF966ABY','Galaxy Z Fold 7','4400 mAh','Li-Polymer','Samsung','SM-F966B (2025)'],
+['EB-BG900BBE','Galaxy S5','2800 mAh','Li-Ion','Samsung','SM-G900F; SM-J500F'],
+['EB-BG920ABE','Galaxy S6','2550 mAh','Li-Ion','Samsung','SM-G920F; SM-J700F'],
+['EB-BG925ABE','Galaxy S6 Edge','2600 mAh','Li-Ion','Samsung','SM-G925F'],
+['EB-BG928ABE','Galaxy S6 Edge+','3000 mAh','Li-Ion','Samsung','SM-G928F'],
+['EB-BG930ABA','Galaxy S7','3000 mAh','Li-Ion','Samsung','SM-G930F'],
+['EB-BG935ABA','Galaxy S7 Edge','3600 mAh','Li-Ion','Samsung','SM-G935F'],
+['EB-BG950ABA','Galaxy S8','3000 mAh','Li-Ion','Samsung','SM-G950F'],
+['EB-BG955ABA','Galaxy S8+','3500 mAh','Li-Ion','Samsung','SM-G955F'],
+['EB-BG960ABA','Galaxy S9','3000 mAh','Li-Ion','Samsung','SM-G960F'],
+['EB-BG965ABA','Galaxy S9+','3500 mAh','Li-Ion','Samsung','SM-G965F'],
+['EB-BG970ABU','Galaxy S10e','3100 mAh','Li-Ion','Samsung','SM-G970F'],
+['EB-BG973ABU','Galaxy S10','3400 mAh','Li-Ion','Samsung','SM-G973F'],
+['EB-BG975ABU','Galaxy S10+','4100 mAh','Li-Ion','Samsung','SM-G975F'],
+['EB-BG980ABY','Galaxy S20','4000 mAh','Li-Polymer','Samsung','SM-G980F'],
+['EB-BG985ABY','Galaxy S20+','4500 mAh','Li-Polymer','Samsung','SM-G985F'],
+['EB-BG988ABY','Galaxy S20 Ultra','5000 mAh','Li-Polymer','Samsung','SM-G988B'],
+['EB-BG990ABY','Galaxy S21 FE','4500 mAh','Li-Polymer','Samsung','SM-G990B'],
+['EB-BG991ABY','Galaxy S21','4000 mAh','Li-Polymer','Samsung','SM-G991B'],
+['EB-BG996ABY','Galaxy S21+','4800 mAh','Li-Polymer','Samsung','SM-G996B'],
+['EB-BG998ABY','Galaxy S21 Ultra','5000 mAh','Li-Polymer','Samsung','SM-G998B'],
+['EB-BJ100ABE','Galaxy A3 2016','2300 mAh','Li-Ion','Samsung','SM-A310F'],
+['EB-BJ200ABE','Galaxy A5 2016','2900 mAh','Li-Ion','Samsung','SM-A510F'],
+['EB-BJ300ABE','Galaxy A7 2016','3300 mAh','Li-Ion','Samsung','SM-A710F'],
+['EB-BJ700ABE','Galaxy A8 2018','3000 mAh','Li-Ion','Samsung','SM-A530F'],
+['EB-BJ800ABE','Galaxy A8+ 2018','3500 mAh','Li-Ion','Samsung','SM-A730F'],
+['EB-BM015ABY','Galaxy M01','4000 mAh','Li-Polymer','Samsung','SM-M015F'],
+['EB-BM025ABY','Galaxy M02','5000 mAh','Li-Polymer','Samsung','SM-M025F'],
+['EB-BM105ABU','Galaxy M10','3400 mAh','Li-Ion','Samsung','SM-M105F'],
+['EB-BM115ABY','Galaxy M11','5000 mAh','Li-Polymer','Samsung','SM-M115F'],
+['EB-BM205ABU','Galaxy M20','5000 mAh','Li-Polymer','Samsung','SM-M205F'],
+['EB-BM215ABY','Galaxy M21','6000 mAh','Li-Polymer','Samsung','SM-M215F; SM-M215F '],
+['EB-BM225ABY','Galaxy M22','5000 mAh','Li-Polymer','Samsung','SM-M225F'],
+['EB-BM305ABU','Galaxy M30','5000 mAh','Li-Polymer','Samsung','SM-M305F'],
+['EB-BM307ABY','Galaxy M30s','6000 mAh','Li-Polymer','Samsung','SM-M307F; SM-M307F '],
+['EB-BM315ABY','Galaxy M31','6000 mAh','Li-Polymer','Samsung','SM-M315F; SM-M315F '],
+['EB-BM325ABY','Galaxy M32','5000 mAh','Li-Polymer','Samsung','SM-M325F'],
+['EB-BM336ABY','Galaxy M33 5G','5000 mAh','Li-Polymer','Samsung','SM-M336B'],
+['EB-BM346ABY','Galaxy M34 5G','6000 mAh','Li-Polymer','Samsung','SM-M346B; SM-M346B '],
+['EB-BM356ABY','Galaxy M35 5G','6000 mAh','Li-Polymer','Samsung','SM-M356B; SM-M356B '],
+['EB-BM405ABU','Galaxy M40','3500 mAh','Li-Polymer','Samsung','SM-M405F'],
+['EB-BM515ABY','Galaxy M51','7000 mAh','Li-Polymer','Samsung','SM-M515F; SM-M515F '],
+['EB-BM526ABY','Galaxy M52 5G','5000 mAh','Li-Polymer','Samsung','SM-M526B'],
+['EB-BM536ABY','Galaxy M53 5G','5000 mAh','Li-Polymer','Samsung','SM-M536B'],
+['EB-BM546ABY','Galaxy M54 5G','6000 mAh','Li-Polymer','Samsung','SM-M546B; SM-M546B '],
+['EB-BM556ABY','Galaxy M55 5G','5000 mAh','Li-Polymer','Samsung','SM-M556B'],
+['EB-BM625ABY','Galaxy M62','7000 mAh','Li-Polymer','Samsung','SM-M625F; SM-M625F '],
+['EB-BN910BBU','Galaxy Note 4','3220 mAh','Li-Ion','Samsung','SM-N910F'],
+['EB-BN920ABU','Galaxy Note 5','3000 mAh','Li-Ion','Samsung','SM-N920F'],
+['EB-BN930ABU','Galaxy Note 7','3500 mAh','Li-Ion','Samsung','SM-N930F ( RECALL)'],
+['EB-BN950ABU','Galaxy Note 8','3300 mAh','Li-Ion','Samsung','SM-N950F'],
+['EB-BN960ABU','Galaxy Note 9','4000 mAh','Li-Ion','Samsung','SM-N960F'],
+['EB-BN970ABU','Galaxy Note 10','3500 mAh','Li-Polymer','Samsung','SM-N970F'],
+['EB-BN975ABU','Galaxy Note 10+','4300 mAh','Li-Polymer','Samsung','SM-N975F'],
+['EB-BN980ABY','Galaxy Note 20','4300 mAh','Li-Polymer','Samsung','SM-N980F'],
+['EB-BN985ABY','Galaxy Note 20 Ultra','4500 mAh','Li-Polymer','Samsung','SM-N985F'],
+['EB-BR370FBE','Galaxy Watch 42mm','270 mAh','Li-Ion','Samsung','SM-R815'],
+['EB-BR375FBE','Galaxy Watch 46mm','472 mAh','Li-Ion','Samsung','SM-R810'],
+['EB-BR380FBE','Galaxy Watch Active 2','340 mAh','Li-Ion','Samsung','SM-R825'],
+['EB-BR405FBE','Galaxy Watch 3','340 mAh','Li-Ion','Samsung','SM-R845'],
+['EB-BR425FBE','Galaxy Watch 4','361 mAh','Li-Ion','Samsung','SM-R880'],
+['EB-BR430FBE','Galaxy Watch 5','410 mAh','Li-Ion','Samsung','SM-R905'],
+['EB-BR435FBE','Galaxy Watch 6','425 mAh','Li-Ion','Samsung','SM-R930'],
+['EB-BS901ABY','Galaxy S22','3700 mAh','Li-Polymer','Samsung','SM-S901B'],
+['EB-BS906ABY','Galaxy S22+','4500 mAh','Li-Polymer','Samsung','SM-S906B'],
+['EB-BS908ABY','Galaxy S22 Ultra','5000 mAh','Li-Polymer','Samsung','SM-S908B'],
+['EB-BS911ABY','Galaxy S23','3900 mAh','Li-Polymer','Samsung','SM-S911B'],
+['EB-BS916ABY','Galaxy S23+','4700 mAh','Li-Polymer','Samsung','SM-S916B'],
+['EB-BS918ABY','Galaxy S23 Ultra','5000 mAh','Li-Polymer','Samsung','SM-S918B'],
+['EB-BS921ABY','Galaxy S24','4000 mAh','Li-Polymer','Samsung','SM-S921B'],
+['EB-BS926ABY','Galaxy S24+','4900 mAh','Li-Polymer','Samsung','SM-S926B'],
+['EB-BS928ABY','Galaxy S24 Ultra','5000 mAh','Li-Polymer','Samsung','SM-S928B'],
+['EB-BS931ABY','Galaxy S25','4000 mAh','Li-Polymer','Samsung','SM-S931B (2025)'],
+['EB-BS936ABY','Galaxy S25+','4900 mAh','Li-Polymer','Samsung','SM-S936B (2025)'],
+['EB-BS938ABY','Galaxy S25 Ultra','5000 mAh','Li-Polymer','Samsung','SM-S938B (2025)'],
+['EB-BT580FBE','Galaxy Tab A 9.7','6000 mAh','Li-Ion','Samsung','SM-P550'],
+['EB-BT700FBE','Galaxy Tab S 8.4','4900 mAh','Li-Ion','Samsung','SM-T700'],
+['EB-BT705FBE','Galaxy Tab S3','6000 mAh','Li-Ion','Samsung','SM-T820'],
+['EB-BT800FBE','Galaxy Tab S 10.5 / S2 / S4','7900 mAh','Li-Ion','Samsung','SM-T800, SM-T813, SM-T830; SM-T800; SM-T813; SM-T830'],
+['EB-BT830FBE','Galaxy Tab S6','7040 mAh','Li-Ion','Samsung','SM-T865'],
+['EB-BT840FBE','Galaxy Tab S7','8000 mAh','Li-Ion','Samsung','SM-T870'],
+['EB-BT850FBE','Galaxy Tab S8','8000 mAh','Li-Ion','Samsung','SM-X700'],
+['EB-BT860FBE','Galaxy Tab S8 Ultra','11200 mAh','Li-Ion','Samsung','SM-X900'],
+['EB-F1A2GBU','Galaxy S2','1650 mAh','Li-Ion','Samsung','GT-I9100'],
+['EB-L1G6LLU','Galaxy S3','2100 mAh','Li-Ion','Samsung','GT-I9300'],
+['EB-L1M7LLU','Galaxy Express','2000 mAh','Li-Ion','Samsung','GT-I8730'],
+['EB425161LA','Galaxy W','1500 mAh','Li-Ion','Samsung','GT-I8150'],
+['EB425161LU','Galaxy Ace 2','1500 mAh','Li-Ion','Samsung','GT-I8160'],
+['EB454357VU','Galaxy Xcover 2','1700 mAh','Li-Ion','Samsung','GT-S7710'],
+['EB494358VU','Galaxy Ace 3','1800 mAh','Li-Ion','Samsung','GT-S7275'],
+['EB535163LU','Galaxy Grand','2100 mAh','Li-Ion','Samsung','GT-I9082'],
+['EB575152LU','Galaxy S','1500 mAh','Li-Ion','Samsung','GT-I9000'],
+['EB585157LU','Galaxy Grand 2','2600 mAh','Li-Ion','Samsung','SM-G7105'],
+['EB595675LU','Galaxy Note 10.1','3100 mAh','Li-Ion','Samsung','GT-N7100; GT-N8000'],
+['EB615268VU','Galaxy Note 8.0','2500 mAh','Li-Ion','Samsung','GT-N7000; GT-N5110'],
+['LIS1494ERPC','Xperia Z','2330 mAh','Li-Ion','Sony','Xperia Z'],
+['LIS1520ERPC','Xperia Z1','3000 mAh','Li-Ion','Sony','Xperia Z1'],
+['LIS1550ERPC','Xperia Z2','3200 mAh','Li-Ion','Sony','Xperia Z2'],
+['LIS1574ERPC','Xperia Z3','3100 mAh','Li-Ion','Sony','Xperia Z3'],
+['LIS1764ERPC','Xperia XZ2','3180 mAh','Li-Polymer','Sony','Xperia XZ2'],
+['LIS1794ERPC','Xperia XZ3','3330 mAh','Li-Polymer','Sony','Xperia XZ3'],
+['LIS1884ERPC','Xperia 1','3330 mAh','Li-Polymer','Sony','Xperia 1'],
+['LIS2004ERPC','Xperia 1 IV','5000 mAh','Li-Polymer','Sony','Xperia 1 IV'],
+['LIS2064ERPC','Xperia 1 V','5000 mAh','Li-Polymer','Sony','Xperia 1 V'],
+['B-IQ1201','iQOO 12','5000 mAh','Li-Polymer','Vivo','iQOO 12, iQOO 12 Pro'],
+['B-IQ1301','iQOO 13','6150 mAh','Silício-Carbono','Vivo','iQOO 13 (2025)'],
+['B-IQNE10','iQOO Neo 10','6100 mAh','Silício-Carbono','Vivo','iQOO Neo 10 (2025)'],
+['B-IQNE91','iQOO Neo 9','5160 mAh','Li-Polymer','Vivo','iQOO Neo 9, Neo 9 Pro'],
+['B-V3003','Vivo X100','5000 mAh','Li-Polymer','Vivo','Vivo X100, X100 Pro'],
+['B-V3004','Vivo X100 Ultra','5500 mAh','Silício-Carbono','Vivo','Vivo X100 Ultra'],
+['B-V3005','Vivo X200','5800 mAh','Silício-Carbono','Vivo','Vivo X200, X200 Pro (2025)'],
+['BM30','Redmi 1S','2200 mAh','Li-Polymer','Xiaomi','Redmi 1S'],
+['BM31','Redmi 2','2200 mAh','Li-Polymer','Xiaomi','Redmi 2'],
+['BM32','Redmi 3','4100 mAh','Li-Polymer','Xiaomi','Redmi 3'],
+['BM33','Redmi 3S/3X','4100 mAh','Li-Polymer','Xiaomi','Redmi 3S/3X'],
+['BM34','Redmi 4/4X','4100 mAh','Li-Polymer','Xiaomi','Redmi 4/4X'],
+['BM35','Redmi 5','3300 mAh','Li-Polymer','Xiaomi','Redmi 5'],
+['BM36','Redmi 5 Plus','4000 mAh','Li-Polymer','Xiaomi','Redmi 5 Plus'],
+['BM37','Redmi 6','3000 mAh','Li-Polymer','Xiaomi','Redmi 6'],
+['BM38','Redmi 6 Pro','4000 mAh','Li-Polymer','Xiaomi','Redmi 6 Pro'],
+['BM39','Redmi 7','4000 mAh','Li-Polymer','Xiaomi','Redmi 7'],
+['BM40','Redmi 7A','4000 mAh','Li-Polymer','Xiaomi','Redmi 7A'],
+['BM41','Redmi 8','5000 mAh','Li-Polymer','Xiaomi','Redmi 8'],
+['BM42','Redmi 8A','5000 mAh','Li-Polymer','Xiaomi','Redmi 8A'],
+['BM43','Redmi 8 Pro','4500 mAh','Li-Polymer','Xiaomi','Redmi 8 Pro'],
+['BM44','Redmi 9A','5000 mAh','Li-Polymer','Xiaomi','Redmi 9A'],
+['BM45','Redmi 9 Prime','5020 mAh','Li-Polymer','Xiaomi','Redmi 9 Prime'],
+['BM4L','Redmi Note 6','4000 mAh','Li-Polymer','Xiaomi','Redmi Note 6'],
+['BM4M','Redmi Note 4','4100 mAh','Li-Polymer','Xiaomi','Redmi Note 4'],
+['BM4N','Redmi Note 5','4000 mAh','Li-Polymer','Xiaomi','Redmi Note 5'],
+['BM4S','Redmi Note 7','4000 mAh','Li-Polymer','Xiaomi','Redmi Note 7'],
+['BM4T','Redmi Note 8','4000 mAh','Li-Polymer','Xiaomi','Redmi Note 8'],
+['BM5R','Redmi Note 9','5020 mAh','Li-Polymer','Xiaomi','Redmi Note 9'],
+['BM5S','Redmi Note 10','5000 mAh','Li-Polymer','Xiaomi','Redmi Note 10'],
+['BM5T','Redmi Note 11','5000 mAh','Li-Polymer','Xiaomi','Redmi Note 11'],
+['BM6R','Redmi Note 12','5000 mAh','Li-Polymer','Xiaomi','Redmi Note 12'],
+['BM6S','Redmi Note 13','5000 mAh','Li-Polymer','Xiaomi','Redmi Note 13'],
+['BM6T','Redmi Note 14','5000 mAh','Li-Polymer','Xiaomi','Redmi Note 14'],
+['BM6U','Redmi Note 13 Pro','5100 mAh','Li-Polymer','Xiaomi','Redmi Note 13 Pro, Pro+'],
+['BM6V','Redmi Note 14 Pro','5500 mAh','Silício-Carbono','Xiaomi','Redmi Note 14 Pro, Pro+ (2025)'],
+['BN20','Mi Note 1','3000 mAh','Li-Polymer','Xiaomi','Mi Note 1'],
+['BN21','Mi Note 2','4070 mAh','Li-Polymer','Xiaomi','Mi Note 2'],
+['BN22','Mi Note 3','3500 mAh','Li-Polymer','Xiaomi','Mi Note 3'],
+['BN23','Mi Mix','4400 mAh','Li-Polymer','Xiaomi','Mi Mix 1'],
+['BN24','Mi Mix 2','3400 mAh','Li-Polymer','Xiaomi','Mi Mix 2'],
+['BN25','Mi Mix 2S','3400 mAh','Li-Polymer','Xiaomi','Mi Mix 2S'],
+['BN26','Mi Mix 3','3200 mAh','Li-Polymer','Xiaomi','Mi Mix 3'],
+['BN31','Black Shark 1','4000 mAh','Li-Polymer','Xiaomi','Black Shark 1'],
+['BN32','Black Shark 2','4000 mAh','Li-Polymer','Xiaomi','Black Shark 2'],
+['BN33','Black Shark 3','4720 mAh','Li-Polymer','Xiaomi','Black Shark 3'],
+['BN34','Black Shark 4','4500 mAh','Li-Polymer','Xiaomi','Black Shark 4'],
+['BN35','Black Shark 5','4650 mAh','Li-Polymer','Xiaomi','Black Shark 5'],
+['BN36','Black Shark 6','5000 mAh','Li-Polymer','Xiaomi','Black Shark 6'],
+['BN4L','POCO X4 Pro','5000 mAh','Li-Polymer','Xiaomi','POCO X4 Pro'],
+['BN4M','POCO M3','6000 mAh','Li-Polymer','Xiaomi','POCO M3'],
+['BN4N','POCO X3','5160 mAh','Li-Polymer','Xiaomi','POCO X3'],
+['BN5R','POCO F3','4520 mAh','Li-Polymer','Xiaomi','POCO F3'],
+['BN5S','POCO F4','4500 mAh','Li-Polymer','Xiaomi','POCO F4'],
+['BN5T','POCO F5','5000 mAh','Li-Polymer','Xiaomi','POCO F5'],
+['BN6R','POCO F6','5000 mAh','Li-Polymer','Xiaomi','POCO F6'],
+['BN6S','POCO F7 Ultra','5600 mAh','Li-Polymer','Xiaomi','POCO F7 Ultra (2025)'],
+['BP6R','Xiaomi 15','5240 mAh','Li-Polymer','Xiaomi','Xiaomi 15'],
+['BP6S','Xiaomi 15 Pro','6100 mAh','Li-Polymer','Xiaomi','Xiaomi 15 Pro'],
+['BR5T','Redmi Turbo 4 Pro','7550 mAh','Silício-Carbono','Xiaomi','Redmi Turbo 4 Pro'],
+['BR6R','Redmi Note 15 Pro','6000 mAh','Silício-Carbono','Xiaomi','Redmi Note 15 Pro (2026)'],
+['BR6T','Redmi Turbo 4 Pro','7550 mAh','Silício-Carbono','Xiaomi','Redmi Turbo 4 Pro '],
+            ['EB-BA505ABN', 'Galaxy A20/A30/A50 (var)', '3900 mAh', 'Li-Polymer', 'Samsung', 'SM-A205F / A305F / A505F (variante)'],
+            ['A1898', 'iPhone 8 Plus', '2675 mAh', 'Li-Polymer', 'Apple', 'iPhone 8 Plus'],
+            ['A1865', 'iPhone X', '2716 mAh', 'Li-Polymer', 'Apple', 'iPhone X'],
+            ['A2223', 'iPhone 11', '3110 mAh', 'Li-Polymer', 'Apple', 'iPhone 11'],
+            ['A2275', 'iPhone SE (2ª)', '1821 mAh', 'Li-Polymer', 'Apple', 'iPhone SE (2ª)'],
+            ['A2487', 'iPhone 13', '3095 mAh', 'Li-Polymer', 'Apple', 'iPhone 13'],
+            ['A2649', 'iPhone SE (3ª)', '2018 mAh', 'Li-Polymer', 'Apple', 'iPhone SE (3ª)'],
+            ['A2651', 'iPhone 14', '3279 mAh', 'Li-Polymer', 'Apple', 'iPhone 14'],
+            ['A2652', 'iPhone 14 Plus', '4325 mAh', 'Li-Polymer', 'Apple', 'iPhone 14 Plus'],
+            ['A3210', 'iPhone 17', '3692 mAh', 'Li-Polymer', 'Apple', 'iPhone 17'],
+            ['BR4M', 'Redmi 9', '5020 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi 9'],
+            ['BR4N', 'Redmi 10', '5000 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi 10'],
+            ['BR4L', 'Redmi 12', '5000 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi 12'],
+            ['BR5R', 'Redmi 13', '5000 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi 13'],
+            ['BR5S', 'Redmi 14', '5000 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi 14'],
+            ['BR6S', 'Redmi K60', '5500 mAh', 'Li-Polymer', 'Xiaomi', 'Redmi K60'],
+            ['HB516489ECW', 'Mate 70', '5000 mAh', 'Li-Polymer', 'Huawei', 'Mate 70'],
+            ['HB526489ECW', 'Mate 70 Pro', '5200 mAh', 'Li-Polymer', 'Huawei', 'Mate 70 Pro'],
+            ['BL-5J', 'Nokia Clássica', '1050 mAh', 'Li-Ion', 'Nokia', 'Nokia 6303, 6700'],
+            ['BL-5X', 'Nokia Clássica', '1200 mAh', 'Li-Ion', 'Nokia', 'Nokia 808, N8, E7'],
+            ['BL-6U', 'Nokia Clássica', '1300 mAh', 'Li-Ion', 'Nokia', 'Nokia N95, N82'],
+            ['BL-6F', 'Nokia Clássica', '1200 mAh', 'Li-Ion', 'Nokia', 'Nokia N97, X6'],
+            ['BP-6M', 'Nokia Clássica', '1500 mAh', 'Li-Ion', 'Nokia', 'Nokia N93, N93i'],
+            ['BV-5J', 'Nokia Clássica', '1100 mAh', 'Li-Ion', 'Nokia', 'Nokia 6710, 6720, 6730'],
+            ['BL-4B', 'Nokia Clássica', '800 mAh', 'Li-Ion', 'Nokia', 'Nokia 6120, 6220, 6280'],
+            ['BL-4L', 'Nokia Clássica', '1200 mAh', 'Li-Ion', 'Nokia', 'Nokia 6500, 6600'],
+            ['BL-4N', 'Nokia Clássica', '980 mAh', 'Li-Ion', 'Nokia', 'Nokia 7610, 6670'],
+            ['BL-4P', 'Nokia Clássica', '1100 mAh', 'Li-Ion', 'Nokia', 'Nokia 8600, 8800'],
+            ['BL-5F', 'Nokia Clássica', '950 mAh', 'Li-Ion', 'Nokia', 'Nokia 6110, 6120'],
+            ['BL-5H', 'Nokia Clássica', '1320 mAh', 'Li-Ion', 'Nokia', 'Nokia 5800, N900'],
+            ['BL-5K', 'Nokia Clássica', '1100 mAh', 'Li-Ion', 'Nokia', 'Nokia 5230, 5530, 5730'],
+            ['BL-6Q', 'Nokia Clássica', '1500 mAh', 'Li-Ion', 'Nokia', 'Nokia N8, E7, C7'],
+            ['BL-4J', 'Nokia Clássica', '1200 mAh', 'Li-Ion', 'Nokia', 'Nokia 6300, 6500'],
+            ['C11P1507', 'ZenFone 4', '3300 mAh', 'Li-Polymer', 'Asus', 'ZenFone 4'],
+            ['C11P1508', 'ZenFone 4 Pro', '3600 mAh', 'Li-Polymer', 'Asus', 'ZenFone 4 Pro'],
+            ['C11P1509', 'ZenFone 5', '3300 mAh', 'Li-Polymer', 'Asus', 'ZenFone 5'],
+            ['C11P1510', 'ZenFone 5Z', '3300 mAh', 'Li-Polymer', 'Asus', 'ZenFone 5Z'],
+            ['C11P1512', 'ZenFone 7', '5000 mAh', 'Li-Polymer', 'Asus', 'ZenFone 7'],
+            ['C11P1513', 'ZenFone 7 Pro', '5000 mAh', 'Li-Polymer', 'Asus', 'ZenFone 7 Pro'],
+            ['C11P1514', 'ZenFone 8', '4000 mAh', 'Li-Polymer', 'Asus', 'ZenFone 8'],
+            ['C11P1515', 'ZenFone 8 Flip', '5000 mAh', 'Li-Polymer', 'Asus', 'ZenFone 8 Flip'],
+            ['C11P1516', 'ZenFone 9', '4300 mAh', 'Li-Polymer', 'Asus', 'ZenFone 9'],
+            ['C11P1517', 'ZenFone 10', '4300 mAh', 'Li-Polymer', 'Asus', 'ZenFone 10'],
+            ['BL-53JN', 'LG V10', '3000 mAh', 'Li-Ion', 'LG', 'LG V10'],
+            ['BL-54JN', 'LG V20', '3200 mAh', 'Li-Ion', 'LG', 'LG V20'],
+            ['BL-55JN', 'LG V30', '3300 mAh', 'Li-Polymer', 'LG', 'LG V30'],
+            ['BL-56JN', 'LG V35 ThinQ', '3300 mAh', 'Li-Polymer', 'LG', 'LG V35 ThinQ'],
+            ['BL-57JN', 'LG V40 ThinQ', '3300 mAh', 'Li-Polymer', 'LG', 'LG V40 ThinQ'],
+            ['BL-58JN', 'LG V50 ThinQ', '4000 mAh', 'Li-Polymer', 'LG', 'LG V50 ThinQ'],
+            ['LIS1604ERPC', 'Xperia Z3+', '2930 mAh', 'Li-Ion', 'Sony', 'Xperia Z3+'],
+            ['LIS1634ERPC', 'Xperia Z5', '2900 mAh', 'Li-Ion', 'Sony', 'Xperia Z5'],
+            ['LIS1654ERPC', 'Xperia X', '2620 mAh', 'Li-Polymer', 'Sony', 'Xperia X'],
+            ['LIS1684ERPC', 'Xperia X Compact', '2700 mAh', 'Li-Polymer', 'Sony', 'Xperia X Compact'],
+            ['LIS1704ERPC', 'Xperia XZ', '2900 mAh', 'Li-Polymer', 'Sony', 'Xperia XZ'],
+            ['LIS1734ERPC', 'Xperia XZ1', '2700 mAh', 'Li-Polymer', 'Sony', 'Xperia XZ1'],
+            ['LIS1824ERPC', 'Xperia 1', '3330 mAh', 'Li-Polymer', 'Sony', 'Xperia 1'],
+            ['LIS1854ERPC', 'Xperia 5', '3140 mAh', 'Li-Polymer', 'Sony', 'Xperia 5'],
+            ['LIS1914ERPC', 'Xperia 5 II', '4000 mAh', 'Li-Polymer', 'Sony', 'Xperia 5 II'],
+            ['LIS1944ERPC', 'Xperia 1 III', '4500 mAh', 'Li-Polymer', 'Sony', 'Xperia 1 III'],
+            ['LIS1974ERPC', 'Xperia 5 III', '4500 mAh', 'Li-Polymer', 'Sony', 'Xperia 5 III'],
+            ['LIS2034ERPC', 'Xperia 5 IV', '5000 mAh', 'Li-Polymer', 'Sony', 'Xperia 5 IV'],
+            ['LIS2094ERPC', 'Xperia 5 V', '5000 mAh', 'Li-Polymer', 'Sony', 'Xperia 5 V']
+        ];
+            // ====== FIM BATERIAS ======
+
+            // ===== CONVERTE batteryData EM OBJETOS DE BUSCA =====
+            // batteryData = [codigo, bateria, capacidade, tipo, marca, modelos]
+            const bateriasDB = batteryData.map(b => ({
+                id: b[0],
+                codigo: b[0],
+                marca: b[4],
+                bateria: b[1],
+                capacidade: b[2],
+                tipo: b[3],
+                compat: String(b[5] || '').split(/[;,]/).map(c => c.trim()).filter(c => c.length > 0),
+                tela: 'Bateria',
+                pelicula: 'Bateria',
+                obs: 'Bateria de reposição'
+            }));
 
             // ===== FUNÇÃO PARA ADICIONAR REGISTROS =====
             function addRecord(id, marca, modelo, compat, tipo, tela, obs) {
@@ -972,8 +1491,18 @@
                 ['086', 'Samsung', 'Galaxy A05', 'Galaxy A05S', '3D', '6.7', 'Compatibilidade direta'],
                 ['087', 'Samsung', 'Galaxy A05S', 'Galaxy A05', '3D', '6.7', 'Compatibilidade direta'],
                 ['088', 'Samsung', 'Galaxy A06', 'Galaxy A05;Galaxy A05S', '3D', '6.7', 'Compatibilidade direta'],
-                ['089', 'Samsung', 'Galaxy A16', 'Galaxy A26', '3D', '6.7', 'Compatibilidade direta'],
+                ['089', 'Samsung', 'Galaxy A16', 'Galaxy A16 5G;Galaxy A26', '3D', '6.7', 'Compatibilidade direta'],
                 ['090', 'Samsung', 'Galaxy A26', 'Galaxy A16', '3D', '6.7', 'Compatibilidade direta'],
+                ['091', 'Samsung', 'Galaxy A36 5G', 'Galaxy A36 5G;Galaxy A26', '3D', '6.7', 'Compatibilidade direta'],
+                ['092', 'Samsung', 'Galaxy A56 5G', 'Galaxy A56 5G;Galaxy A36', '3D', '6.7', 'Compatibilidade direta'],
+                ['093', 'Samsung', 'Galaxy S25', 'Galaxy S25 5G;Galaxy S25 FE', '3D', '6.2', 'Compatibilidade direta'],
+                ['094', 'Samsung', 'Galaxy S25 Plus', 'Galaxy S25+ 5G', '3D', '6.7', 'Compatibilidade direta'],
+                ['095', 'Samsung', 'Galaxy S25 Ultra', 'Galaxy S25 Ultra 5G', '3D', '6.9', 'Compatibilidade direta'],
+                ['096', 'Samsung', 'Galaxy Z Flip 6', 'Galaxy Z Flip6', 'Flexível', '6.7', 'Usar película própria dobrada'],
+                ['097', 'Samsung', 'Galaxy Z Fold 6', 'Galaxy Z Fold6', 'Flexível', '7.6', 'Usar película própria'],
+                ['098', 'Samsung', 'Galaxy Z Flip 7', 'Galaxy Z Flip7', 'Flexível', '6.9', 'Usar película própria dobrada'],
+                ['099', 'Samsung', 'Galaxy Z Flip 7 FE', 'Galaxy Z Flip7 FE', 'Flexível', '6.7', 'Usar película própria dobrada'],
+                ['100', 'Samsung', 'Galaxy Z Fold 7', 'Galaxy Z Fold7', 'Flexível', '8.0', 'Usar película própria'],
             ];
 
             samsungData.forEach(row => {
@@ -1036,6 +1565,7 @@
                     '3D', '6.6', 'Compatibilidade direta'],
                 ['126', 'Motorola', 'Moto G84', 'Moto G84 5G', '3D', '6.5', 'Compatibilidade direta'],
                 ['127', 'Motorola', 'Moto G85', 'Moto G85 5G', '3D', '6.7', 'Compatibilidade direta'],
+                ['128-M', 'Motorola', 'Moto G75', 'Moto G75 5G', '3D', '6.8', 'Compatibilidade direta'],
                 ['128', 'Motorola', 'Moto One', 'Moto One Power;Moto One Vision', '3D', '6.2', 'Verificar câmera frontal'],
                 ['129', 'Motorola', 'Moto One Action', 'Moto One Vision', '3D', '6.3', 'Compatibilidade próxima'],
                 ['130', 'Motorola', 'Moto One Fusion', 'Moto One Fusion Plus', '3D', '6.5', 'Compatibilidade próxima'],
@@ -1143,6 +1673,13 @@
                 ['187', 'Xiaomi', 'Xiaomi 12T', 'Xiaomi 12T;Redmi Note 9;Redmi Note 13 Pro;Poco X5', '3D', '6.67',
                     'Compatibilidade direta'],
                 ['188', 'Xiaomi', 'Xiaomi 13T', 'Xiaomi 13T;Xiaomi 13T Pro', '3D', '6.67', 'Compatibilidade direta'],
+                ['189', 'Xiaomi', 'Redmi Note 14', 'Redmi Note 14 4G;Redmi Note 14 5G', '3D', '6.67', 'Compatibilidade direta'],
+                ['190', 'Xiaomi', 'Redmi Note 14 Pro', 'Redmi Note 14 Pro 5G;Redmi Note 14 Pro+', '3D', '6.67',
+                    'Compatibilidade direta'],
+                ['191', 'Xiaomi', 'Redmi 14', 'Redmi 14 4G;Redmi 14 5G', '3D', '6.67', 'Compatibilidade direta'],
+                ['192', 'Xiaomi', 'Poco X7', 'Poco X7 5G;Poco X7 Pro', '3D', '6.67', 'Compatibilidade direta'],
+                ['193', 'Xiaomi', 'Poco C67', 'Poco C67;Redmi 13C;Redmi A3', '3D', '6.79', 'Compatibilidade direta'],
+                ['194', 'Xiaomi', 'Xiaomi 14T', 'Xiaomi 14T;Xiaomi 14T Pro', '3D', '6.67', 'Compatibilidade direta'],
             ];
 
             xiaomiData.forEach(row => {
@@ -1183,6 +1720,10 @@
                 ['229', 'Apple', 'iPhone 16 Pro Max', 'iPhone 16 Plus', '3D', '6.9', 'Confirmar versão'],
                 ['230', 'Apple', 'iPhone SE 1ª Geração', 'iPhone 5s', '3D', '4.0', 'Mesmo corpo'],
                 ['231', 'Apple', 'iPhone 5', 'iPhone 5s;iPhone SE 1ª Geração', '3D', '4.0', 'Compatibilidade direta'],
+                ['232', 'Apple', 'iPhone 16e', 'iPhone 16e', '3D', '6.1', 'Compatibilidade direta'],
+                ['233', 'Apple', 'iPhone 17', 'iPhone 17 Air', '3D', '6.3', 'Confirmar versão'],
+                ['234', 'Apple', 'iPhone 17 Pro', 'iPhone 17', '3D', '6.3', 'Confirmar bordas'],
+                ['235', 'Apple', 'iPhone 17 Pro Max', 'iPhone 17 Pro', '3D', '6.9', 'Confirmar câmera'],
             ];
 
             appleData.forEach(row => {
@@ -1337,134 +1878,203 @@
             }
 
             let currentTab = 'all';
+            let searchMode = 'bateria';
+            const marcasPrincipais = ['Samsung', 'Apple', 'Xiaomi', 'Motorola', 'Oppo', 'Realme'];
+
+            // Normaliza texto: minúsculas, remove acentos, trata hífens/espaços duplos
+            function normStr(s) {
+                return String(s || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/[^a-z0-9]+/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+            }
+            // Remove também separadores (ex.: "moto-g84" -> "motog84", "galaxy a15" -> "galaxya15")
+            function normTight(s) {
+                return String(s || '')
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .replace(/[^a-z0-9]+/g, '');
+            }
+
+            // Índice pré-computado (montado uma única vez por modo)
+            function buildIndexFor(srcArr, mode) {
+                return srcArr.map(m => {
+                    const label = mode === 'bateria' ? m.bateria : m.modelo;
+                    return {
+                        m: m,
+                        label: String(label),
+                        labelN: normStr(label),
+                        marcaN: normStr(m.marca),
+                        searchN: normStr(
+                            `${mode === 'bateria' ? m.bateria : m.modelo} ${m.marca} ${mode === 'bateria' ? (m.capacidade || '') : (m.tela || '')} ${m.codigo || ''} ${m.tipo || ''} ${(m.compat || []).join(' ')} ${m.pelicula || ''} ${m.grupo || ''}`
+                        ),
+                        tightN: normTight(`${m.marca} ${label}`),
+                        tokens: normStr(label).split(' ').filter(Boolean)
+                    };
+                });
+            }
+            const idxBateria = buildIndexFor(bateriasDB, 'bateria');
+            const idxPelicula = buildIndexFor(database, 'pelicula');
+            const getIndex = () => searchMode === 'bateria' ? idxBateria : idxPelicula;
 
             function liveSearch(query) {
-                const q = query.toLowerCase().trim();
-                if (q.length < 1) return [];
+                const q = normStr(query);
+                const qTight = normTight(query);
+                const qLen = normTight(query).length;
+                if (qLen < 1) return [];
 
+                const idx = getIndex();
+                const qTokens = q.split(' ').filter(t => t.length > 0);
                 const scored = [];
-                database.forEach(m => {
-                    const searchText =
-                        `${m.modelo} ${m.marca} ${m.compat.join(' ')} ${m.codigo} ${m.pelicula} ${m.grupo}`.toLowerCase();
+
+                idx.forEach(({ m, label, labelN, marcaN, searchN }) => {
                     let score = 0,
                         matchType = '';
 
-                    if (m.modelo.toLowerCase() === q) { score = 10;
-                        matchType = 'exato'; } else if (m.codigo.toLowerCase() === q) { score = 9;
-                        matchType = 'codigo'; } else if (m.modelo.toLowerCase().startsWith(q)) { score = 7;
-                        matchType = 'inicio'; } else if (searchText.includes(q)) { score = 6;
-                        matchType = 'parcial'; } else if (m.compat.some(c => c.toLowerCase().includes(q))) { score = 5;
-                        matchType = 'compatível'; } else {
-                        const words = q.split(' ');
+                    if (labelN === q) { score = 10;
+                        matchType = 'exato'; }
+                    else if (String(m.codigo).toLowerCase() === q) { score = 9;
+                        matchType = 'codigo'; }
+                    else if (normTight(label).startsWith(qTight) || labelN.startsWith(q)) { score = 8;
+                        matchType = 'prefixo'; }
+                    else if (labelN.includes(q) || normTight(label).includes(qTight)) { score = 7;
+                        matchType = 'nome'; }
+                    else if (searchN.includes(q)) { score = 6;
+                        matchType = 'parcial'; }
+                    else {
                         let matchCount = 0,
                             totalScore = 0;
-                        words.forEach(w => {
-                            if (w.length < 2) return;
-                            if (searchText.includes(w)) { matchCount++;
-                                totalScore += 2; } else {
-                                const parts = searchText.split(' ');
-                                let bestDist = 999;
-                                parts.forEach(p => {
-                                    const dist = levenshtein(p.substring(0, w.length + 2), w);
-                                    if (dist < bestDist) bestDist = dist;
-                                });
-                                if (bestDist <= 2) { matchCount += 0.5;
-                                    totalScore += 1; }
-                            }
-                        });
-                        if (matchCount > 0) { score = totalScore;
-                            matchType = 'fuzzy'; }
+                        // todas as palavras presentes juntas
+                        if (qTokens.length > 1 && qTokens.every(w => searchN.split(' ').includes(w))) { score = 7;
+                            matchType = 'parcial'; }
+                        else {
+                            qTokens.forEach(w => {
+                                if (w.length < 2) return;
+                                if (labelN.split(' ').includes(w)) { matchCount += 2;
+                                    totalScore += 4; } else if (searchN.split(' ').includes(w)) { matchCount += 1;
+                                    totalScore += 2; } else {
+                                    // fuzzy palavra a palavra
+                                    const parts = searchN.split(' ');
+                                    let bestDist = 999;
+                                    parts.forEach(p => {
+                                        const dist = levenshtein(p.substring(0, w.length + 2), w);
+                                        if (dist < bestDist) bestDist = dist;
+                                    });
+                                    if (bestDist <= Math.max(1, Math.ceil(w.length / 3)) && bestDist <= 2) { matchCount += 0.6;
+                                        totalScore += 1; }
+                                }
+                                if (marcaN.includes(w)) totalScore += 1;
+                            });
+                            if (matchCount > 0) { score = totalScore + Math.floor(matchCount * 2.5);
+                                matchType = 'fuzzy'; }
+                        }
                     }
+                    // Fallback: consulta corresponde a um modelo compatível listado em registros
+                    if (score === 0 && (m.compat || []).some(c => normTight(c).includes(qTight))) { score = 5;
+                        matchType = 'compatível'; }
 
-                    if (currentTab !== 'all' && m.marca !== currentTab) return;
-                    if (score > 0) scored.push({ item: m, score: score, matchType: matchType });
+                    if (currentTab !== 'all') {
+                        const grupo = searchMode === 'bateria' ? (marcasPrincipais.includes(m.marca) ? m.marca : 'Outros') : m.marca;
+                        if (grupo !== currentTab) return;
+                    }
+                    if (score > 0) scored.push({ m, score, matchType });
                 });
 
-                scored.sort((a, b) => b.score - a.score);
+                // Ordena por prioridade do tipo de match e depois pelo score (empate alfabético)
+                const typePriority = { 'exato': 100, 'codigo': 90, 'prefixo': 80, 'nome': 70, 'parcial': 60, 'compatível': 50, 'fuzzy': 40 };
+                scored.sort((a, b) => (typePriority[b.matchType] - typePriority[a.matchType]) || (b.score - a.score) ||
+                    (searchMode === 'bateria' ? a.m.bateria : a.m.modelo).localeCompare(searchMode === 'bateria' ? b.m.bateria : b.m.modelo));
                 const seen = new Set();
                 const unique = [];
                 scored.forEach(s => {
-                    const key = s.item.modelo + s.item.marca;
+                    const key = (searchMode === 'bateria' ? s.m.bateria : s.m.modelo) + s.m.marca + s.m.codigo;
                     if (!seen.has(key)) { seen.add(key);
                         unique.push(s); }
                 });
                 return unique.slice(0, 20);
             }
 
-            function renderLiveResults(results, query) {
+            // Escapa HTML para não quebrar a renderização
+            function escHtml(text) {
+                return String(text).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+            }
+
+            // Destaca os termos digitados no texto (case-insensitive, sem quebrar acentos da origem)
+            function highlightTokens(text, query) {
+                const q = normStr(query);
+                if (!q) return escHtml(text);
+                const tokens = q.split(' ').filter(t => t.length >= 2);
+                let out = escHtml(String(text));
+                tokens.forEach(t => {
+                    const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+                    out = out.replace(re, '<mark class="hl">$1</mark>');
+                });
+                return out;
+            }
+
+            function renderCards(entries, statsText) {
                 const area = document.getElementById('resultArea');
                 const stats = document.getElementById('searchStatus');
-
-                if (results.length === 0) {
-                    let bestMatch = null,
-                        bestDist = Infinity;
-                    database.forEach(m => {
-                        const searchText = `${m.modelo} ${m.marca}`.toLowerCase();
-                        const dist = levenshtein(searchText.substring(0, query.length + 3), query.toLowerCase());
-                        if (dist < bestDist && dist < 3) { bestDist = dist;
-                            bestMatch = m; }
-                    });
-                    if (bestMatch) {
-                        const banner = document.getElementById('correctionBanner');
-                        document.getElementById('correctionText').textContent = `${bestMatch.marca} ${bestMatch.modelo}`;
-                        banner.classList.add('show');
-                        banner.onclick = function() {
-                            document.getElementById('globalSearch').value = `${bestMatch.marca} ${bestMatch.modelo}`;
-                            banner.classList.remove('show');
-                            doLiveSearch(`${bestMatch.marca} ${bestMatch.modelo}`);
-                        };
-                    } else {
-                        document.getElementById('correctionBanner').classList.remove('show');
-                    }
+                if (!entries.length) {
+                    document.getElementById('correctionBanner').classList.remove('show');
                     stats.textContent = 'Nenhum resultado encontrado';
                     area.innerHTML = `
                         <div class="text-center py-5">
                             <span class="mono-icon fs-1"><i class="bi bi-search"></i></span>
-                            <p class="mt-3 text-secondary">Nenhum resultado para "<strong>${query}</strong>"</p>
-                            <p class="text-secondary small">Tente: Galaxy A15, iPhone 15, Moto G84, Redmi Note 13</p>
-                        </div>
-                    `;
+                            <p class="mt-3 text-secondary">Nenhum resultado encontrado</p>
+                        </div>`;
                     return;
                 }
-
                 document.getElementById('correctionBanner').classList.remove('show');
-                stats.textContent = `📊 ${results.length} resultado(s) encontrado(s)`;
+                stats.textContent = statsText || `${entries.length} resultado(s) encontrado(s)`;
+                const tagLabels = { 'exato': 'Exato', 'codigo': 'Código', 'prefixo': 'Prefixo', 'nome': 'Nome',
+                    'parcial': 'Parcial', 'compatível': 'Compatível', 'fuzzy': 'Fuzzy' };
 
-                let html = `<div class="result-stats"><strong>${results.length}</strong> resultado(s) encontrado(s)</div>`;
+                let html = `<div class="result-stats"><strong>${entries.length}</strong> resultado(s) encontrado(s)</div>`;
 
-                results.forEach((s, idx) => {
-                    const m = s.item;
+                entries.forEach((s, idx) => {
+                    const m = s.m;
                     const isTop = idx === 0;
                     const matchType = s.matchType;
-                    const tagLabels = { 'exato': 'Exato', 'codigo': 'Código', 'inicio': 'Início',
-                        'parcial': 'Parcial', 'compatível': 'Compatível', 'fuzzy': 'Fuzzy' };
-
+                    const query = s.query || '';
                     const compatList = m.compat || [];
 
                     html += `
                         <div class="result-card ${isTop ? 'highlight' : ''}">
                             <div class="d-flex align-items-start flex-wrap gap-2">
-                                ${isTop ? '<span class="badge-mono" style="background:rgba(245,158,11,0.15);color:#d97706;">⭐ Mais relevante</span>' : ''}
-                                <span class="fw-semibold" style="font-size:1rem;">${m.marca} ${m.modelo}</span>
-                                <span class="badge-mono">${m.codigo}</span>
-                                <span class="badge-mono">${m.tipo}</span>
-                                <span class="badge-mono">${m.tela}"</span>
+                                ${isTop ? '<span class="badge-mono" style="background:rgba(245,158,11,0.15);color:#d97706;"><i class="bi bi-star-fill me-1"></i>Mais relevante</span>' : ''}
+                                <span class="fw-semibold" style="font-size:1rem;">${highlightTokens(`${m.marca} ${searchMode === 'bateria' ? m.bateria : m.modelo}`, query)}</span>
+                                <span class="badge-mono">${escHtml(m.codigo)}</span>
+                                ${searchMode === 'bateria'
+                                    ? `<span class="badge-mono" style="background:rgba(22,163,74,0.12);color:#16a34a;">${escHtml(m.capacidade)}</span>`
+                                    : `<span class="badge-mono">${escHtml(m.tipo)}</span>`}
+                                ${searchMode === 'bateria'
+                                    ? `<span class="badge-mono">${escHtml(m.tipo)}</span>`
+                                    : `<span class="badge-mono">${escHtml(m.tela)}"</span>`}
                                 <span class="badge-mono" style="background:rgba(26,58,107,0.08);">${tagLabels[matchType] || 'Match'}</span>
                             </div>
-                            <div class="mt-1">
-                                <span class="text-secondary small">Película: ${m.pelicula} · Tipo: ${m.tipo}</span>
-                            </div>
+                            ${searchMode === 'bateria'
+                                ? `<div class="mt-1">
+                                        <span class="text-secondary small"><i class="bi bi-battery-charging"></i> Bateria ${escHtml(m.capacidade)} · ${escHtml(m.tipo)}</span>
+                                    </div>`
+                                : `<div class="mt-1">
+                                        <span class="text-secondary small">Película: ${escHtml(m.pelicula)} · Tipo: ${escHtml(m.tipo)}</span>
+                                    </div>`}
                             <div class="mt-1">
                                 <span class="text-secondary small">Modelos compatíveis:</span>
                                 <div class="mt-1">
-                                    ${compatList.slice(0, 5).map(c => `<span class="compat-chip">${c}</span>`).join('')}
+                                    ${compatList.slice(0, 5).map(c => `<span class="compat-chip">${highlightTokens(c, query)}</span>`).join('')}
                                     ${compatList.length > 5 ? `<span class="compat-chip">+${compatList.length - 5}</span>` : ''}
                                 </div>
                             </div>
                             <div class="mt-1">
-                                <span class="text-secondary small" style="font-size:0.7rem;">📝 ${m.obs || 'N/A'}</span>
+                                <span class="text-secondary small" style="font-size:0.7rem;">${escHtml(m.obs || 'N/A')}</span>
                             </div>
-                            ${m.grupo ? `<div class="mt-1"><span class="badge-mono">Grupo: ${m.grupo}</span></div>` : ''}
+                            ${m.grupo ? `<div class="mt-1"><span class="badge-mono">Grupo: ${escHtml(m.grupo)}</span></div>` : ''}
                         </div>
                     `;
                 });
@@ -1472,19 +2082,46 @@
                 area.innerHTML = html;
             }
 
+            function renderLiveResults(results, query) {
+                renderCards(results.map(r => ({ ...r, query })));
+            }
+
+            // Preview da marca quando se clica numa aba sem digitar nada
+            function renderBrandPreview(tab) {
+                const area = document.getElementById('resultArea');
+                const stats = document.getElementById('searchStatus');
+                document.getElementById('autocompleteBox').style.display = 'none';
+                document.getElementById('correctionBanner').classList.remove('show');
+                const src = searchMode === 'bateria' ? idxBateria : idxPelicula;
+                const grupoOf = m => searchMode === 'bateria' ? (marcasPrincipais.includes(m.marca) ? m.marca : 'Outros') : m.marca;
+                const amostra = src.filter(e => grupoOf(e.m) === tab).slice(0, 12);
+                stats.textContent = `Mostrando modelos de ${tab} — clique para buscar`;
+                area.innerHTML = `
+                    <div class="result-stats"><strong>${tab}</strong> — toque em um modelo para buscar</div>
+                    <div class="d-flex flex-wrap gap-1">
+                        ${amostra.map(e => `<span class="preview-link" data-q="${escHtml(`${e.m.marca} ${searchMode === 'bateria' ? e.m.bateria : e.m.modelo}`)}">${escHtml(`${searchMode === 'bateria' ? e.m.bateria : e.m.modelo}`)}</span>`).join('')}
+                    </div>
+                    ${amostra.length === 0 ? '<p class="text-secondary small mt-2">Nenhum modelo nesta marca ainda.</p>' : ''}
+                `;
+                area.querySelectorAll('.preview-link').forEach(el => {
+                    el.addEventListener('click', function() {
+                        const val = this.dataset.q;
+                        searchInput.value = val;
+                        clearBtn.style.display = 'block';
+                        placeholder.classList.add('hidden');
+                        doLiveSearch(val);
+                    });
+                });
+            }
+
             let searchTimeout = null;
             let typingTimeout = null;
-
-            function setChipsVisible(visible) {
-                document.getElementById('historyBar').classList.toggle('collapsed', !visible);
-                document.getElementById('suggestionsBar').classList.toggle('collapsed', !visible);
-            }
 
             function resetSearchUI() {
                 document.getElementById('resultArea').innerHTML = `
                     <div class="text-center py-5">
                         <span class="mono-icon fs-1"><i class="bi bi-search"></i></span>
-                        <p class="mt-3 text-secondary">Digite um modelo para encontrar películas compatíveis</p>
+                        <p class="mt-3 text-secondary">Digite um modelo para encontrar ${searchMode === 'bateria' ? 'baterias' : 'películas'} compatíveis</p>
                         <p class="text-secondary small">Ex: Galaxy A15, iPhone 15, Moto G84, Redmi Note 13</p>
                     </div>
                 `;
@@ -1493,7 +2130,6 @@
                 document.getElementById('searchStatus').textContent = '';
                 document.getElementById('progressBarContainer').classList.remove('active');
                 document.getElementById('searchSpinner').classList.remove('active');
-                setChipsVisible(true);
             }
 
             // Enquanto o usuário digita: só atualiza a lista flutuante de sugestões
@@ -1506,7 +2142,6 @@
                     resetSearchUI();
                     return;
                 }
-                setChipsVisible(false);
                 clearTimeout(typingTimeout);
                 typingTimeout = setTimeout(() => buildAutocomplete(val), 150);
             }
@@ -1521,7 +2156,6 @@
                     return;
                 }
 
-                setChipsVisible(false);
                 document.getElementById('autocompleteBox').style.display = 'none';
                 document.getElementById('searchSpinner').classList.add('active');
                 progress.classList.add('active');
@@ -1537,24 +2171,27 @@
             }
 
             function buildAutocomplete(query) {
-                const q = query.toLowerCase().trim();
+                const q = normStr(query);
+                const qTight = normTight(query);
                 if (q.length < 1) { document.getElementById('autocompleteBox').style.display = 'none'; return; }
                 const results = [];
                 const seen = new Set();
-                database.forEach(m => {
-                    const searchText = `${m.modelo} ${m.marca} ${m.compat.join(' ')} ${m.codigo}`.toLowerCase();
-                    if (searchText.includes(q) && !seen.has(m.modelo)) {
-                        seen.add(m.modelo);
+                const src = getIndex();
+                src.forEach(({ m, label, searchN }) => {
+                    if ((searchN.includes(q) || (m.codigo && normTight(m.codigo).includes(qTight))) && !seen.has(label)) {
+                        seen.add(label);
                         let tag = 'Modelo',
-                            icon = '📱';
-                        if (m.compat.some(c => c.toLowerCase().includes(q))) { tag = 'Compatível';
-                            icon = '🔗'; }
-                        results.push({ label: m.modelo, sub: `${m.marca} · ${m.tela}" · ${m.tipo}`, tag: tag,
-                            icon: icon });
+                            icon = '<i class="bi bi-phone"></i>';
+                        if ((m.compat || []).some(c => normStr(c).includes(q))) { tag = 'Compatível';
+                            icon = '<i class="bi bi-link-45deg"></i>'; }
+                        const sub = searchMode === 'bateria'
+                            ? `${m.marca} · ${m.capacidade} · ${m.tipo}`
+                            : `${m.marca} · ${m.tela}" · ${m.tipo}`;
+                        results.push({ label: label, sub: sub, tag: tag, icon: icon });
                     }
-                    if (m.codigo.toLowerCase().includes(q) && !seen.has(m.codigo)) {
+                    if (String(m.codigo).toLowerCase().includes(q) && !seen.has(m.codigo)) {
                         seen.add(m.codigo);
-                        results.push({ label: m.codigo, sub: `${m.marca} ${m.modelo}`, tag: 'Código', icon: '🔢' });
+                        results.push({ label: m.codigo, sub: `${m.marca} ${label}`, tag: 'Código', icon: '<i class="bi bi-hash"></i>' });
                     }
                 });
                 const top = results.slice(0, 8);
@@ -1562,7 +2199,7 @@
                 const box = document.getElementById('autocompleteBox');
                 box.innerHTML = top.map(item => `
                     <div class="autocomplete-item" data-value="${item.label}">
-                        <span style="font-size:1.1rem;">${item.icon || '🔍'}</span>
+                        <span class="autocomplete-item-ico">${item.icon || '<i class="bi bi-search"></i>'}</span>
                         <div><span class="highlight">${item.label}</span> <span class="sub">${item.sub}</span></div>
                         <span class="tag">${item.tag}</span>
                     </div>
@@ -1583,10 +2220,10 @@
             // PLACEHOLDER ROTATIVO
             // =============================================
             const phrases = [
-                '🔍 Buscar modelo de celular...',
-                '📱 Ex: Galaxy A15, iPhone 15...',
-                '🔗 Ex: Moto G84, Redmi Note 13...',
-                '📐 Ex: S24 Ultra, Edge 40...',
+                'Buscar modelo de celular...',
+                'Ex: Galaxy A15, iPhone 15...',
+                'Ex: Moto G84, Redmi Note 13...',
+                'Ex: S24 Ultra, Edge 40...',
             ];
             let phraseIdx = 0;
 
@@ -1650,39 +2287,49 @@
                     this.classList.add('success');
                     setTimeout(() => this.classList.remove('success'), 1000);
                     doLiveSearch(val);
-                    showToast('🔍 Buscando...', 'info');
+                    showToast('Buscando...', 'info');
                 } else {
                     showToast('Digite um modelo para buscar', 'warning');
                 }
             });
 
-            document.querySelectorAll('.search-tab').forEach(tab => {
-                tab.addEventListener('click', function() {
-                    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+            function buildModeTabs() {
+                const container = document.getElementById('searchTabs');
+                const dest = {};
+                const marcas = searchMode === 'bateria'
+                    ? bateriasDB.map(b => marcasPrincipais.includes(b.marca) ? b.marca : 'Outros')
+                    : ['Samsung', 'Motorola', 'Xiaomi', 'Apple', 'Oppo', 'Realme'];
+                const marcasFinais = searchMode === 'bateria'
+                    ? ['Samsung', 'Apple', 'Xiaomi', 'Motorola', 'Oppo', 'Realme', 'Outros']
+                    : ['Samsung', 'Motorola', 'Xiaomi', 'Apple', 'Oppo', 'Realme'];
+                marcas.forEach(b => { dest[b] = b; });
+                const tabs = [`<span class="search-tab active" data-tab="all"><span class="tab-emoji"><i class="bi ${searchMode === 'bateria' ? 'bi-battery-charging' : 'bi-phone'}"></i></span> Todos</span>`];
+                marcasFinais.forEach(b => {
+                    tabs.push(`<span class="search-tab" data-tab="${b}"><span class="tab-emoji"><i class="bi bi-tag"></i></span> ${b}</span>`);
+                });
+                container.innerHTML = tabs.join('');
+                container.querySelectorAll('.search-tab').forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        container.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        currentTab = this.dataset.tab;
+                        if (searchInput.value.trim().length > 0) doLiveSearch(searchInput.value);
+                        else renderBrandPreview(currentTab);
+                        showToast(`Filtrando: ${this.textContent.trim()}`, 'info');
+                    });
+                });
+            }
+            buildModeTabs();
+
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    currentTab = this.dataset.tab;
-                    if (searchInput.value.length > 0) doLiveSearch(searchInput.value);
-                    showToast(`📌 Filtrando: ${this.textContent.trim()}`, 'info');
-                });
-            });
-
-            document.querySelectorAll('.history-chip').forEach(chip => {
-                chip.addEventListener('click', function() {
-                    const term = this.dataset.term;
-                    searchInput.value = term;
-                    clearBtn.style.display = 'block';
-                    placeholder.classList.add('hidden');
-                    doLiveSearch(term);
-                });
-            });
-
-            document.querySelectorAll('.suggestion-chip').forEach(chip => {
-                chip.addEventListener('click', function() {
-                    const term = this.dataset.term;
-                    searchInput.value = term;
-                    clearBtn.style.display = 'block';
-                    placeholder.classList.add('hidden');
-                    doLiveSearch(term);
+                    searchMode = this.dataset.mode;
+                    currentTab = 'all';
+                    buildModeTabs();
+                    if (searchInput.value.trim().length > 0) doLiveSearch(searchInput.value);
+                    showToast(this.dataset.mode === 'bateria' ? 'Buscando baterias' : 'Buscando películas', 'info');
                 });
             });
 
@@ -1696,7 +2343,7 @@
                 const btn = this;
 
                 if (!SpeechRecognitionAPI) {
-                    showToast('⚠️ Busca por voz não é suportada neste navegador. Tente Chrome ou Edge.', 'warning');
+                    showToast('Busca por voz não é suportada neste navegador. Tente Chrome ou Edge.', 'warning');
                     return;
                 }
 
@@ -1712,7 +2359,7 @@
 
                 voiceRecognition.addEventListener('start', () => {
                     btn.classList.add('recording');
-                    showToast('🎤 Ouvindo... Fale o modelo do celular', 'info');
+                    showToast('Ouvindo... Fale o modelo do celular', 'info');
                 });
 
                 voiceRecognition.addEventListener('result', (event) => {
@@ -1721,17 +2368,17 @@
                     clearBtn.style.display = 'block';
                     placeholder.classList.add('hidden');
                     doLiveSearch(transcript);
-                    showToast(`✅ Reconhecido: "${transcript}"`, 'success');
+                    showToast(`Reconhecido: "${transcript}"`, 'success');
                 });
 
                 voiceRecognition.addEventListener('error', (event) => {
-                    let msg = '🤔 Não foi possível reconhecer sua voz. Tente novamente.';
+                    let msg = 'Não foi possível reconhecer sua voz. Tente novamente.';
                     if (event.error === 'not-allowed' || event.error === 'permission-denied' || event.error === 'service-not-allowed') {
-                        msg = '🚫 Permissão de microfone negada. Habilite o microfone nas configurações do navegador.';
+                        msg = 'Permissão de microfone negada. Habilite o microfone nas configurações do navegador.';
                     } else if (event.error === 'no-speech') {
-                        msg = '🤔 Não ouvi nada. Tente novamente.';
+                        msg = 'Não ouvi nada. Tente novamente.';
                     } else if (event.error === 'audio-capture') {
-                        msg = '🎤 Nenhum microfone encontrado neste dispositivo.';
+                        msg = 'Nenhum microfone encontrado neste dispositivo.';
                     }
                     showToast(msg, 'warning');
                 });
@@ -1743,116 +2390,9 @@
                 try {
                     voiceRecognition.start();
                 } catch (err) {
-                    showToast('⚠️ Não foi possível iniciar o microfone.', 'warning');
+                    showToast('Não foi possível iniciar o microfone.', 'warning');
                     btn.classList.remove('recording');
                 }
-            });
-
-            // =============================================
-            // BUSCA POR CÂMERA (acesso real à câmera + captura de foto)
-            // =============================================
-            let cameraStream = null;
-
-            function openCameraModal() {
-                const overlay = document.getElementById('cameraModalOverlay');
-                const video = document.getElementById('cameraVideo');
-                const photo = document.getElementById('cameraPhoto');
-
-                if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                    showToast('⚠️ Seu navegador não tem suporte a câmera.', 'warning');
-                    document.getElementById('cameraBtn').classList.remove('active');
-                    return;
-                }
-
-                overlay.classList.add('show');
-                video.style.display = 'block';
-                photo.style.display = 'none';
-                document.getElementById('cameraActionsReview').style.display = 'none';
-                document.getElementById('cameraActionsLive').style.display = 'flex';
-
-                navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false })
-                    .then(stream => {
-                        cameraStream = stream;
-                        video.srcObject = stream;
-                    })
-                    .catch(err => {
-                        let msg = '⚠️ Não foi possível acessar a câmera.';
-                        if (err && (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError')) {
-                            msg = '🚫 Permissão de câmera negada. Habilite o acesso à câmera nas configurações do navegador.';
-                        } else if (err && err.name === 'NotFoundError') {
-                            msg = '📷 Nenhuma câmera encontrada neste dispositivo.';
-                        }
-                        showToast(msg, 'warning');
-                        closeCameraModal();
-                    });
-            }
-
-            function closeCameraModal() {
-                document.getElementById('cameraModalOverlay').classList.remove('show');
-                if (cameraStream) {
-                    cameraStream.getTracks().forEach(track => track.stop());
-                    cameraStream = null;
-                }
-                document.getElementById('cameraBtn').classList.remove('active');
-            }
-
-            document.getElementById('cameraBtn').addEventListener('click', function() {
-                this.classList.add('active');
-                openCameraModal();
-            });
-
-            document.getElementById('cameraCloseBtn').addEventListener('click', closeCameraModal);
-
-            document.getElementById('cameraModalOverlay').addEventListener('click', function(e) {
-                if (e.target === this) closeCameraModal();
-            });
-
-            document.getElementById('cameraCaptureBtn').addEventListener('click', function() {
-                const video = document.getElementById('cameraVideo');
-                const canvas = document.getElementById('cameraCanvas');
-                const photo = document.getElementById('cameraPhoto');
-                const flash = document.getElementById('cameraFlash');
-
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-                photo.src = canvas.toDataURL('image/jpeg', 0.85);
-
-                flash.classList.add('flash');
-                setTimeout(() => flash.classList.remove('flash'), 350);
-
-                video.style.display = 'none';
-                photo.style.display = 'block';
-                document.getElementById('cameraActionsLive').style.display = 'none';
-                document.getElementById('cameraActionsReview').style.display = 'flex';
-
-                if (cameraStream) {
-                    cameraStream.getTracks().forEach(track => track.stop());
-                    cameraStream = null;
-                }
-            });
-
-            document.getElementById('cameraRetakeBtn').addEventListener('click', function() {
-                openCameraModal();
-            });
-
-            document.getElementById('cameraContinueBtn').addEventListener('click', function() {
-                closeCameraModal();
-                showToast('📷 Foto capturada. Digite o modelo do celular para buscar.', 'info');
-                searchInput.focus();
-            });
-
-            document.getElementById('qrBtn').addEventListener('click', function() {
-                this.classList.toggle('active');
-                showToast('📷 Lendo QR Code...', 'info');
-                setTimeout(() => {
-                    this.classList.remove('active');
-                    searchInput.value = 'HYD-1025';
-                    clearBtn.style.display = 'block';
-                    placeholder.classList.add('hidden');
-                    doLiveSearch('HYD-1025');
-                    showToast('✅ QR Code lido: HYD-1025', 'success');
-                }, 1500);
             });
 
             document.addEventListener('keydown', function(e) {
@@ -1860,7 +2400,7 @@
                     e.preventDefault();
                     searchInput.focus();
                     searchInput.select();
-                    showToast('⌨️ Campo de busca focado', 'info');
+                    showToast('Campo de busca focado', 'info');
                 }
             });
 
@@ -1899,12 +2439,12 @@
             // =============================================
             // INICIALIZAÇÃO
             // =============================================
-            document.getElementById('totalModels').textContent = database.length;
-            document.getElementById('footerModels').textContent = `${database.length} modelos`;
+            document.getElementById('totalModels').textContent = `${database.length + bateriasDB.length} registros`;
+            document.getElementById('footerModels').textContent = `${database.length} películas · ${bateriasDB.length} baterias`;
 
-            console.log(`✅ INFOCELLL Banco de Películas · ${database.length} modelos carregados`);
-            console.log('📌 Marcas: Samsung, Motorola, Xiaomi, Apple, Oppo, Realme, Vivo, Nokia, LG, Sony, OnePlus, Nothing, e outras');
-            console.log('📌 Total de registros: ' + database.length);
+            console.log(`INFOCELLL Banco de Dados · ${database.length} películas + ${bateriasDB.length} baterias carregadas`);
+            console.log('Marcas: Samsung, Motorola, Xiaomi, Apple, Oppo, Realme, Vivo, Nokia, LG, Sony, OnePlus, Nothing, e outras');
+            console.log('Total de registros: ' + database.length);
         })();
     </script>
 
