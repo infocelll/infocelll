@@ -17,6 +17,14 @@
             color: #0b1a2f;
             transition: background 0.3s, color 0.3s;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
         }
         body.dark-mode {
             background: #0d1829;
