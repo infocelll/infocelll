@@ -1,5 +1,5 @@
 ﻿/* Infocelll Service Worker v4.1 — Paths relativos para GitHub Pages */
-var CACHE_NAME = 'infocelll-v8';
+var CACHE_NAME = 'infocelll-v9';
 var ASSETS_TO_CACHE = [
   './',
   './index.html',
