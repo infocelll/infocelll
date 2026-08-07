@@ -322,12 +322,6 @@
                         Carregando avaliações...
                     </div>
                 </div>
-                <div class="reviews-cta reveal">
-                    <a href="https://g.page/r/infocelll/review" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                        <i class="ph ph-star-fill"></i>
-                        Avalie no Google
-                    </a>
-                </div>
             </div>
         `;
         
@@ -407,9 +401,6 @@
                 text-align: center;
                 padding: 48px;
                 color: var(--text-muted);
-            }
-            .reviews-cta {
-                text-align: center;
             }
         `;
         document.head.appendChild(style);
